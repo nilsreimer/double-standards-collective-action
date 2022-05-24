@@ -93,25 +93,6 @@ rm(list = ls())
   # Save results as .rds
   m4_fit$save_object("Experiment 2/results/m4_fit.rds")
   
-  
-# Estimate (Model 5) ------------------------------------------------------
-
-  # Compile model
-  m5_model <- cmdstan_model("Experiment 2/models/s2_m5_2pl_model.stan")
-
-  # Run model
-  m5_fit <- m5_model$sample(
-    data = dlist,
-    seed = 1187052,
-    chains = 8,
-    parallel_chains = parallel::detectCores(),
-    iter_sampling = 500,
-    iter_warmup = 1000
-  )
-
-  # Save results as .rds
-  m5_fit$save_object("Experiment 2/results/m5_fit.rds")
-  
 
 # Process (Model 4) -------------------------------------------------------
   

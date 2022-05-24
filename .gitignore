@@ -1,6 +1,11 @@
 .Rproj.user
+Documents
+!Documents/*.Rmd
+!Documents/*.tex
+!Documents/*.pdf
+!Documents/*.bib
+!Documents/*.csl
 Documents/preprint*
-Documents/*.docx
 Scale Development/models/.exe
 Experiment 1/models/.exe
 Experiment 2/models/.exe

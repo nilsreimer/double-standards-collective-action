@@ -1,0 +1,358 @@
+---
+title: Supplemental Online Materials
+subtitle: Double Standards in Judging Collective Action
+bibliography: references.bib
+output:
+  pdf_document:
+    latex_engine: pdflatex
+    keep_tex: yes
+    template: som-template.tex
+csl: apa.csl
+---
+
+```{r setup, include = FALSE}
+
+  # Load packages
+  library(tidyverse); library(tidybayes); library(numform)
+
+  # knitr options
+  knitr::opts_chunk$set(echo = FALSE)
+
+```
+
+# Scale Development
+
+## Study 1
+
+In Study 1, we compiled a list of collective actions from participants' responses and other sources. To that end, we recruited 60 participants from the Prolific subject pool, all of whom were citizens of the UK or the US. To increase the socioeconomic diversity of our sample, we recruited 30 non-students without a university degree, 15 non-students with a university degree, and 15 current university students. Participants first read an accessible description of collective action:
+
+> Society is not only made up of individuals, but consists of 'social groups' to which these individuals belong. Each person lives in a place, has a job (or not) at an organisation, is a fan of a specific sports club,  has a religion, or belongs to any number of other such groups. Individuals often act in ways to promote the interests of the social groups to which they belong.
+
+> For example, the workers in a factory might want to get paid more. They might go on a strike to reach that goal. Students at a university might want to prevent an increase in tuition fees. They might hand out flyers or occupy a building to reach that goal. Other groups might want to protest against police violence. They might block traffic on a road to make others aware of this issue.
+
+\noindent Participants were then asked to name at least five (and up to ten) actions that fit that description and were encouraged to think of actions that vary in how acceptable or unacceptable they are (in their opinion):
+
+> Please think of other actions that members of a social group (or social groups as a whole) might take to promote their group's interests or goals. Please name at least 5 actions that fit the description above. You can name up to 10 actions if you want to. Please try to think of actions that vary in how acceptable or unacceptable they are (in your opinion).   
+   
+\noindent After naming at least five actions, participants sorted their responses into actions that, across a range of situations, were "always acceptable", "sometimes acceptable", and "never acceptable":
+
+> On the left, you see the actions you have named on the previous page. Think about each action. Can you think of situations in which this action is an acceptable means to advance a group's goals or interests? Can you think of situations in which this action is not an acceptable means to advance a group's interests?
+
+\noindent Participants named between 5 and 10 actions ($\textit{Mdn} = 7$). Participants named more actions that they considered always acceptable ($\textit{Mdn} = 3$) than actions they considered sometimes ($\textit{Mdn} = 2$) or never ($\textit{Mdn} = 1$) acceptable. We recoded participants' responses into a smaller set of unique collective actions. We then supplemented the resulting list of actions with collective actions from the psychological and political science literature [e.g., @sharp_nonviolent_1973]. This process resulted in 72 actions that we expected to vary in how acceptable most people would find them to be.
+
+## Study 2
+
+In Study 2, we measured how acceptable participants judged the actions from Study 1 to be and applied item response theory to develop an instrument to capture double standards in judging collective action. We recruited 158 participants ($\textit{Mdn} = 30$ years, age range: 18--68 years; 103 women, 52 men, 2 other, 1 prefer not to say) from the Prolific subject pool, all of whom were citizens of the UK or the US. To increase the socioeconomic diversity of our sample, we recruited 80 non-students without a university degree, 37 non-students with a university degree, and 41 current university students. We excluded 15 participants who failed an attention check, leaving a final sample of 143 participants for our analyses. 
+
+Participants first read an accessible description of collective action:
+
+> Society is not only made up of individuals, but consists of 'social groups' to which these individuals belong. Each person lives in a place, has a job (or not) at a firm or organisation, has a religion (or not), is part of a political party, or belongs to any number of other groups like these. 
+
+> Individuals often act in ways to promote their group's interest. For example, individuals might want people like them to get paid more. Members of a group might take various kinds of actions (for example, go on a strike).
+
+\noindent Participants were then asked to "suppose that one or more members of a group took the following action to advance a cause in their group's interest" and were presented with one of the actions from Study 1. Participants answered several questions about the protest action. First, they rated how disruptive, violent, and extreme they considered this action to be (1 = *not at all*, 4 = *very*). Second, they were asked to think of a range of different causes and circumstances, and to rate how often this action would be an acceptable means for a group to advance one of these causes (1 = *never*, 2 = *rarely*, 3 = *sometimes*, 4 = *often*, 5 = *always*). Finally, they rated how positive or negative they felt, in general, about this action (1 = *very positive*, 5 = *very negative*). Each participant answered these questions for 20 of the 72 actions from Study 1 so that each action was rated by 29--53 participants.
+
+We estimated a graded response model [@burkner_bayesian_2021; @samejima_graded_1997], an item response theory model for ordinal response variables, for participants' ratings of how often an action would be an acceptable form of collective action. For each participant $j$, the model estimated their unique propensity ($\theta_j$) to consider collective actions acceptable in more situations. For each item $i$, the model estimated four acceptability thresholds ($\beta_{ik}$), separating the five response options, and one discrimination parameter ($\alpha_i$) indicating how well the item differentiates between participants with different propensities to consider collective actions acceptable. We estimated the model in *CmdStanR* using similar prior distribution as in Experiment. We used an induced Dirichlet prior [@betancourt_ordinal_2019] for the item-specific difficulty thresholds.
+
+Table S1 shows each actions' item information and discrimination as well as proportions for the observed responses. Table S2 shows participants' averaged ratings of how acceptable, disruptive, violent, extreme, and negative they considered each action to be. Table S3 shows that all five ratings were strongy correlated across actions and participants. We considered both estimates from the graded response model and their relevance to the social contexts to select actions for Experiments 1 and 2.
+
+# Experiment 1
+
+## Method
+
+### Procedure
+
+We used a two-step process to recruit participants who satisfied our preregistered inclusion criteria.
+
+First, we recruited a larger pool of 875 participants. Of these, 475 participants did not have a university degree and placed themselves on the bottom three ranks of the subjective socio-economic status ladder (*lower-status group*) and 400 participants had at least an undergraduate degree and placed themselves on the top four ranks of the subjective socio-economic status ladder (*higher-status group*). Participants completed a screening survey in which they, among other questions, answered whether they considered either their current job or the jobs they had had in the past or would have in the future to be a working-class job or a middle-class/professional job (1 = *working-class job*, 2 = *middle-class/professional job*, 3 = *neither*). Before answering this question, participants read the following explanation:
+
+> The workforce is often divided into two kinds of jobs. What we call working-class jobs are jobs done by skilled, semi-skilled, unskilled manual workers or by casual workers. These jobs do not usually require a university degree. What we call middle-class or professional jobs are administrative, managerial, or other jobs that usually require a university degree.
+
+\noindent As preregistered, we excluded participants from the lower-status group who had responded "middle-class/professional job" or "neither" to this question; we excluded participants from the higher-status group who had responded "working-class job" or "neither" to this question. This left 687 participants for the next step of the selection procedure.
+
+Second, we set out to recruit 500 participants from the remaining 687 participants, 250 from the lower-status group and 250 from the higher-status group. After giving their informed consent, participants were randomly assigned to read a vignette about a government bill affecting either people in working-class jobs (*lower-status actors*) or people in professional jobs (*higher-status actors*). Participants in both conditions were instructed to carefully read the vignette and to try to imagine what it would be like if this situation was real. Participants in the lower-status actors condition then read the following introduction:
+
+> The government, though not necessarily the current government, is going to introduce a bill that will mostly affect people in working-class jobs. Working-class jobs, in this case, are jobs done by skilled, semi-skilled, unskilled manual workers or by casual workers. These are jobs that do not usually require a university degree. Other jobs are unlikely to be affected.
+Participants in the higher-status actors condition instead read the following introduction:
+
+> The government, though not necessarily the current government, is going to introduce a bill that will mostly affect people in professional jobs. Professional jobs are administrative, managerial, or other jobs that usually require a university degree. Other jobs are unlikely to be affected.
+Participants in the two conditions then read this almost identically worded paragraph: 
+
+>This government measure would make it easier for companies to hire workers during economic growth and to lay off workers during an economic crisis. As a consequence, companies would be able to fire employees with little notice and without giving a reason. Trade unions are opposed to the measure. They argue that the bill would compromise job security, and prevent employees from challenging harassment or other abuse without the fear of being fired. People in [working-class/professional] jobs are particularly at risk, and there is a rise in tension and outrage among them.
+
+After reading the vignette, participants responded to the other measures (in the order in which they are presented in the main text). On the final page, we reminded participants that they had read about a bill that the government planned to introduce and that some people objected to. As an attention check, we then asked participants to recall who the people most affected by this measure were. As preregistered, we excluded all participants who did not respond with an accurate description of the group they had read about.
+
+\newpage
+
+# References
+
+\begingroup
+
+\noindent
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+<div id="refs"></div>
+
+\endgroup
+
+\newpage
+
+```{=latex}
+\begin{xltabular}{\linewidth}{rXrrrrrrr}
+
+\caption{Results from Study 2}\\
+\toprule
+   &        &     &          & \multicolumn{5}{c}{Response $[\%]$} \\ \cmidrule{5-9}
+\# & Action & $I$ & $\alpha$ & 1 & 2 & 3 & 4 & 5\\
+\midrule
+\endfirsthead
+
+\toprule
+   &        &     &          & \multicolumn{5}{c}{Response $[\%]$} \\ \cmidrule{5-9}
+\# & Action & $I$ & $\alpha$ & 1 & 2 & 3 & 4 & 5\\
+\midrule
+\endhead
+
+\bottomrule
+\addlinespace
+\caption*{\textit{Note.} $I$ = Information; $\alpha$ = Discrimination; Response: 1 = \textit{never}, 2 = \textit{rarely}, 3 = \textit{sometimes}, 4 = \textit{often}, 5 = \textit{always}}
+\endfoot
+
+\bottomrule
+\addlinespace
+\caption*{\textit{Note.} $I$ = Information; $\alpha$ = Discrimination; Response: 1 = \textit{never}, 2 = \textit{rarely}, 3 = \textit{sometimes}, 4 = \textit{often}, 5 = \textit{always}}
+\endlastfoot
+
+1 & disrupt traffic (e.g., blocking roads) & 7.98 & 1.31 & 41 & 36 & 18 & 5 & 0\\
+2 & attend or organise a protest rally & 7.35 & 1.11 & 0 & 7 & 45 & 39 & 9\\
+3 & refuse to work (strike) & 6.96 & 1.11 & 2 & 5 & 53 & 33 & 7\\
+4 & enter and refuse to leave a building (occupation) & 6.95 & 1.12 & 6 & 52 & 26 & 13 & 3\\
+5 & deface flags or other national symbols & 6.83 & 1.21 & 52 & 20 & 20 & 9 & 0\\
+
+6 & refuse to honour national symbols and traditions (e.g., refusing to sing the national anthem) & 6.42 & 1.19 & 15 & 18 & 40 & 15 & 12\\
+7 & paste up posters with political messages in places where it is not allowed or encouraged & 6.37 & 1.01 & 14 & 32 & 35 & 19 & 0\\
+8 & refuse to cooperate with the police and other government agencies & 6.37 & 1.11 & 22 & 38 & 32 & 5 & 3\\
+9 & refuse to accept honours or awards in protest & 6.32 & 1.14 & 11 & 14 & 39 & 23 & 14\\
+10 & disrupt public events (e.g., a sports game) with a political message & 6.30 & 1.02 & 24 & 45 & 21 & 10 & 0\\
+
+11 & spray paint political messages in public places & 6.28 & 1.06 & 31 & 39 & 28 & 3 & 0\\
+12 & stand or sit in a building and refuse to leave (stand-in, sit-in) & 6.28 & 1.04 & 7 & 41 & 34 & 14 & 5\\
+13 & pay for adverts on social media (e.g., Facebook, Twitter, Instagram) to influence public opinion & 6.23 & 0.99 & 0 & 16 & 27 & 39 & 18\\
+14 & get involved in the media (e.g., newspapers, radio, television) to influence the public & 6.18 & 0.98 & 0 & 11 & 32 & 36 & 20\\
+15 & visit people in their homes to convince them about an issue (canvassing, door knocking) & 6.07 & 1.03 & 9 & 30 & 27 & 27 & 6\\
+
+16 & donate to political parties who support the cause & 6.00 & 1.10 & 6 & 6 & 33 & 31 & 25\\
+17 & do not buy goods or services from companies who oppose the cause (consumers' boycott) & 5.99 & 1.06 & 2 & 5 & 39 & 29 & 24\\
+18 & refuse to interact with or acknowledge individuals who oppose the cause & 5.89 & 0.97 & 21 & 45 & 29 & 5 & 0\\
+19 & attend or organise a protest march & 5.88 & 1.06 & 3 & 3 & 34 & 38 & 22\\
+20 & paste up posters with political messages in places where it is allowed and encouraged & 5.85 & 1.00 & 0 & 3 & 20 & 43 & 34\\
+
+21 & refuse to pay rent (rent strike) & 5.82 & 0.97 & 23 & 41 & 28 & 8 & 0\\
+22 & use social media (e.g., Facebook, Twitter, Instagram) to influence the public & 5.82 & 1.01 & 5 & 5 & 30 & 45 & 15\\
+23 & wear or display political symbols & 5.79 & 1.00 & 3 & 9 & 38 & 32 & 18\\
+24 & mock or insult individuals who oppose the cause & 5.73 & 1.11 & 53 & 34 & 3 & 11 & 0\\
+25 & write letters to politicians, representatives and elected officials & 5.69 & 1.07 & 0 & 0 & 11 & 37 & 53\\
+
+26 & use social media (e.g., Facebook, Twitter, Instagram) to inform the public & 5.67 & 1.01 & 0 & 3 & 12 & 41 & 44\\
+27 & join or form a group of activists & 5.66 & 1.02 & 2 & 12 & 21 & 38 & 26\\
+28 & hold meetings to inform the public & 5.65 & 1.01 & 0 & 3 & 11 & 38 & 49\\
+29 & donate to activist groups who support the cause & 5.64 & 1.06 & 2 & 9 & 41 & 14 & 34\\
+30 & disrupt public services (e.g., shutting down government websites) & 5.61 & 1.01 & 42 & 42 & 17 & 0 & 0\\
+
+31 & refuse to pay fees, fines, and taxes & 5.56 & 0.96 & 9 & 50 & 30 & 7 & 4\\
+32 & hold meetings to influence the public & 5.56 & 1.00 & 0 & 3 & 16 & 35 & 46\\
+33 & hand out flyers, leaflets, or pamphlets & 5.55 & 1.01 & 0 & 0 & 13 & 45 & 42\\
+34 & visit people in their homes to inform them about an issue (canvassing, door knocking) & 5.39 & 0.95 & 9 & 20 & 30 & 32 & 9\\
+35 & make a public speech & 5.35 & 1.00 & 2 & 2 & 14 & 46 & 36\\
+
+36 & join or form a political party & 5.28 & 0.96 & 2 & 7 & 19 & 45 & 26\\
+37 & refuse to interact with or acknowledge politicians who oppose the cause & 5.27 & 0.95 & 8 & 35 & 38 & 10 & 10\\
+38 & disrupt private life of politicians (e.g., protesting outside their home) & 5.24 & 0.92 & 39 & 36 & 23 & 2 & 0\\
+39 & get involved in the media (e.g., newspapers, radio, television) to inform the public & 5.23 & 0.93 & 0 & 2 & 11 & 43 & 43\\
+40 & pay for adverts in the media (e.g., newspapers, radio, television) to influence public opinion & 5.23 & 0.97 & 5 & 10 & 22 & 42 & 20\\
+
+41 & damage private property (e.g., cars or houses) & 5.17 & 1.03 & 70 & 25 & 5 & 0 & 0\\
+42 & refuse service (e.g., in a restaurant or shop) to politicians who oppose the cause & 5.16 & 0.89 & 29 & 37 & 26 & 8 & 0\\
+43 & sign or start a petition & 5.10 & 0.96 & 0 & 0 & 8 & 39 & 53\\
+44 & mock or insult politicians who oppose the cause & 5.07 & 0.99 & 38 & 31 & 16 & 11 & 4\\
+45 & join or form a trade/labor union & 5.07 & 0.99 & 2 & 2 & 14 & 37 & 44\\
+
+46 & donate to charities who support the cause & 5.03 & 0.96 & 0 & 0 & 8 & 39 & 53\\
+47 & refuse to eat (hunger strike) & 4.95 & 0.97 & 38 & 24 & 29 & 6 & 3\\
+48 & damage public property (e.g., goverment buildings) & 4.83 & 0.98 & 72 & 20 & 5 & 2 & 0\\
+49 & spread rumours about politicians who oppose the cause & 4.77 & 1.00 & 69 & 21 & 10 & 0 & 0\\
+50 & participate in a public meeting of representatives and elected officials & 4.70 & 1.00 & 3 & 0 & 7 & 47 & 43\\
+
+51 & physically harm oneself (e.g., setting oneself on fire) & 4.70 & 1.03 & 80 & 20 & 0 & 0 & 0\\
+52 & boycott an election by not voting or spoiling one's ballot & 4.70 & 0.91 & 14 & 38 & 26 & 12 & 10\\
+53 & stand in an election & 4.69 & 0.90 & 2 & 8 & 18 & 35 & 38\\
+54 & soil politicians who oppose the cause (e.g., throwing eggs at them) & 4.62 & 1.02 & 70 & 21 & 8 & 0 & 2\\
+55 & attack politicians with the intention of harming them (e.g., punching them) & 4.62 & 1.01 & 78 & 22 & 0 & 0 & 0\\
+
+56 & refuse service (e.g., in a restaurant or shop) to individuals who oppose the cause & 4.60 & 0.91 & 32 & 54 & 11 & 0 & 3\\
+57 & blackmail individuals who oppose the cause & 4.53 & 0.96 & 75 & 22 & 3 & 0 & 0\\
+58 & threaten politicians who oppose the cause with physical harm & 4.37 & 1.00 & 86 & 11 & 3 & 0 & 0\\
+59 & attack individuals who oppose the cause with the intention of harming them (e.g., punching them) & 4.36 & 0.95 & 82 & 12 & 6 & 0 & 0\\
+60 & damage commerical property (e.g., shop windows) & 4.36 & 1.03 & 88 & 12 & 0 & 0 & 0\\
+
+61 & attack politicians with the intention of killing them (e.g., stabbing them) & 4.30 & 1.01 & 91 & 7 & 2 & 0 & 0\\
+62 & bribe politicians, representatives, and other elected officials & 4.24 & 0.95 & 85 & 13 & 2 & 0 & 0\\
+63 & voting for candidates/parties & 4.23 & 0.85 & 0 & 5 & 7 & 21 & 67\\
+64 & donate to political parties to make them change their position on an issue & 4.21 & 0.90 & 35 & 24 & 30 & 3 & 8\\
+65 & blackmail politicians who oppose the cause & 4.20 & 0.88 & 72 & 26 & 3 & 0 & 0\\
+
+66 & attack police officers and other government agents with the intention of killing them (e.g., stabbing them) & 4.20 & 1.02 & 93 & 7 & 0 & 0 & 0\\
+67 & attack police officers and other government agents with the intention of harming them (e.g., punching them) & 4.17 & 1.00 & 92 & 5 & 3 & 0 & 0\\
+68 & attack individuals who oppose the cause with the intention of killing them (e.g., stabbing them) & 3.98 & 1.00 & 96 & 2 & 2 & 0 & 0\\
+69 & threaten individuals who oppose the cause with physical harm & 3.96 & 0.99 & 94 & 6 & 0 & 0 & 0\\
+70 & attack members of the public (e.g., by setting off a bomb in a public place) & 3.72 & 0.99 & 98 & 0 & 2 & 0 & 0\\
+
+71 & spread misinformation to influence public opinion & 3.71 & 0.82 & 78 & 19 & 3 & 0 & 0\\
+72 & threaten to attack members of the public (e.g., by making a bomb threat) & 3.51 & 0.97 & 98 & 0 & 0 & 2 & 0
+
+\end{xltabular}
+```
+
+\newpage
+
+```{=latex}
+\setcounter{table}{1}
+
+\begin{xltabular}{\linewidth}{rXrrrrr}
+
+\caption{Ratings from Study 2}\\
+\toprule
+   &        & \multicolumn{5}{c}{Rating $[M]$} \\ \cmidrule{3-7}
+\# & Action & Acce. & Disr. & Viol. & Extr. & Nega.\\
+\midrule
+\endfirsthead
+
+\toprule
+   &        & \multicolumn{5}{c}{Rating $[M]$} \\ \cmidrule{3-7}
+\# & Action & Acce. & Disr. & Viol. & Extr. & Nega.\\
+\midrule
+\endhead
+
+\bottomrule
+\addlinespace
+\caption*{\textit{Note.} Acce. = Acceptable (1 = \textit{never}, 5 = \textit{always}); Disr. = Disruptive, Viol. = Violent, Extr. = Extreme (1 = \textit{not at all}, 4 = \textit{very}); Nega. = Negative (1 = \textit{very positive}, 5 = \textit{very negative})}
+\endfoot
+
+\bottomrule
+\addlinespace
+\caption*{\textit{Note.} Acce. = Acceptable (1 = \textit{never}, 5 = \textit{always}); Disr. = Disruptive, Viol. = Violent, Extr. = Extreme (1 = \textit{not at all}, 4 = \textit{very}); Nega. = Negative (1 = \textit{very positive}, 5 = \textit{very negative})}
+\endlastfoot
+
+1 & disrupt traffic (e.g., blocking roads) & 1.86 & 3.82 & 2.05 & 2.98 & 4.16\\
+2 & attend or organise a protest rally & 3.50 & 2.50 & 1.36 & 1.48 & 2.64\\
+3 & refuse to work (strike) & 3.37 & 3.35 & 1.09 & 2.07 & 2.60\\
+4 & enter and refuse to leave a building (occupation) & 2.55 & 3.32 & 1.48 & 2.42 & 3.19\\
+5 & deface flags or other national symbols & 1.85 & 2.98 & 2.30 & 2.98 & 4.15\\
+
+6 & refuse to honour national symbols and traditions (e.g., refusing to sing the national anthem) & 2.92 & 1.85 & 1.23 & 1.62 & 3.20\\
+7 & paste up posters with political messages in places where it is not allowed or encouraged & 2.59 & 2.84 & 1.22 & 1.92 & 3.38\\
+8 & refuse to cooperate with the police and other government agencies & 2.30 & 3.14 & 2.11 & 2.78 & 3.76\\
+9 & refuse to accept honours or awards in protest & 3.14 & 1.84 & 1.07 & 1.59 & 2.86\\
+10 & disrupt public events (e.g., a sports game) with a political message & 2.17 & 3.40 & 1.60 & 2.31 & 3.79\\
+
+11 & spray paint political messages in public places & 2.03 & 2.72 & 1.53 & 2.44 & 3.97\\
+12 & stand or sit in a building and refuse to leave (stand-in, sit-in) & 2.68 & 3.34 & 1.27 & 2.16 & 3.02\\
+13 & pay for adverts on social media (e.g., Facebook, Twitter, Instagram) to influence public opinion & 3.59 & 1.59 & 1.02 & 1.30 & 2.75\\
+14 & get involved in the media (e.g., newspapers, radio, television) to influence the public & 3.66 & 1.61 & 1.02 & 1.23 & 2.41\\
+15 & visit people in their homes to convince them about an issue (canvassing, door knocking) & 2.91 & 2.76 & 1.06 & 1.36 & 3.33\\
+
+16 & donate to political parties who support the cause & 3.64 & 1.14 & 1.00 & 1.17 & 2.47\\
+17 & do not buy goods or services from companies who oppose the cause (consumers' boycott) & 3.68 & 2.07 & 1.05 & 1.29 & 2.27\\
+18 & refuse to interact with or acknowledge individuals who oppose the cause & 2.18 & 2.42 & 1.24 & 2.37 & 3.79\\
+19 & attend or organise a protest march & 3.72 & 2.56 & 1.31 & 1.56 & 2.41\\
+20 & paste up posters with political messages in places where it is allowed and encouraged & 4.09 & 1.31 & 1.00 & 1.06 & 2.17\\
+
+21 & refuse to pay rent (rent strike) & 2.21 & 2.72 & 1.10 & 2.41 & 3.67\\
+22 & use social media (e.g., Facebook, Twitter, Instagram) to influence the public & 3.60 & 1.40 & 1.00 & 1.15 & 2.42\\
+23 & wear or display political symbols & 3.53 & 1.29 & 1.03 & 1.09 & 2.71\\
+24 & mock or insult individuals who oppose the cause & 1.71 & 2.79 & 1.95 & 2.58 & 4.18\\
+25 & write letters to politicians, representatives and elected officials & 4.42 & 1.39 & 1.05 & 1.03 & 1.53\\
+
+26 & use social media (e.g., Facebook, Twitter, Instagram) to inform the public & 4.25 & 1.31 & 1.00 & 1.06 & 2.03\\
+27 & join or form a group of activists & 3.74 & 1.81 & 1.38 & 1.50 & 2.38\\
+28 & hold meetings to inform the public & 4.32 & 1.19 & 1.00 & 1.03 & 1.81\\
+29 & donate to activist groups who support the cause & 3.68 & 1.39 & 1.11 & 1.25 & 2.39\\
+30 & disrupt public services (e.g., shutting down government websites) & 1.75 & 3.75 & 1.61 & 3.06 & 4.28\\
+
+31 & refuse to pay fees, fines, and taxes & 2.48 & 2.61 & 1.04 & 2.09 & 3.46\\
+32 & hold meetings to influence the public & 4.24 & 1.14 & 1.00 & 1.03 & 1.86\\
+33 & hand out flyers, leaflets, or pamphlets & 4.29 & 1.47 & 1.03 & 1.05 & 2.00\\
+34 & visit people in their homes to inform them about an issue (canvassing, door knocking) & 3.11 & 2.45 & 1.07 & 1.50 & 3.16\\
+35 & make a public speech & 4.12 & 1.46 & 1.00 & 1.06 & 1.92\\
+
+36 & join or form a political party & 3.86 & 1.40 & 1.00 & 1.24 & 2.10\\
+37 & refuse to interact with or acknowledge politicians who oppose the cause & 2.80 & 1.88 & 1.15 & 1.88 & 3.52\\
+38 & disrupt private life of politicians (e.g., protesting outside their home) & 1.89 & 3.36 & 2.07 & 2.77 & 4.07\\
+39 & get involved in the media (e.g., newspapers, radio, television) to inform the public & 4.27 & 1.36 & 1.02 & 1.14 & 1.82\\
+40 & pay for adverts in the media (e.g., newspapers, radio, television) to influence public opinion & 3.62 & 1.60 & 1.10 & 1.35 & 2.50\\
+
+41 & damage private property (e.g., cars or houses) & 1.34 & 3.77 & 3.64 & 3.86 & 4.75\\
+42 & refuse service (e.g., in a restaurant or shop) to politicians who oppose the cause & 2.13 & 2.95 & 1.26 & 2.39 & 3.71\\
+43 & sign or start a petition & 4.45 & 1.18 & 1.03 & 1.03 & 1.74\\
+44 & mock or insult politicians who oppose the cause & 2.13 & 2.31 & 1.58 & 2.02 & 3.84\\
+45 & join or form a trade/labor union & 4.19 & 1.40 & 1.00 & 1.07 & 1.70\\
+
+46 & donate to charities who support the cause & 4.44 & 1.03 & 1.00 & 1.03 & 1.47\\
+47 & refuse to eat (hunger strike) & 2.12 & 2.26 & 1.38 & 3.32 & 3.74\\
+48 & damage public property (e.g., goverment buildings) & 1.38 & 3.67 & 3.55 & 3.65 & 4.68\\
+49 & spread rumours about politicians who oppose the cause & 1.41 & 3.14 & 1.72 & 2.76 & 4.31\\
+50 & participate in a public meeting of representatives and elected officials & 4.27 & 1.23 & 1.07 & 1.07 & 1.80\\
+
+51 & physically harm oneself (e.g., setting oneself on fire) & 1.20 & 3.68 & 3.76 & 3.95 & 4.83\\
+52 & boycott an election by not voting or spoiling one's ballot & 2.64 & 2.24 & 1.19 & 1.90 & 3.45\\
+53 & stand in an election & 3.98 & 1.27 & 1.02 & 1.15 & 1.98\\
+54 & soil politicians who oppose the cause (e.g., throwing eggs at them) & 1.43 & 3.28 & 3.11 & 3.19 & 4.47\\
+55 & attack politicians with the intention of harming them (e.g., punching them) & 1.22 & 3.65 & 3.81 & 3.84 & 4.81\\
+
+56 & refuse service (e.g., in a restaurant or shop) to individuals who oppose the cause & 1.86 & 3.03 & 1.46 & 2.65 & 4.16\\
+57 & blackmail individuals who oppose the cause & 1.28 & 3.33 & 2.56 & 3.61 & 4.72\\
+58 & threaten politicians who oppose the cause with physical harm & 1.16 & 3.57 & 3.76 & 3.81 & 4.81\\
+59 & attack individuals who oppose the cause with the intention of harming them (e.g., punching them) & 1.24 & 3.76 & 3.88 & 3.88 & 4.79\\
+60 & damage commerical property (e.g., shop windows) & 1.12 & 3.85 & 3.79 & 3.79 & 4.91\\
+
+61 & attack politicians with the intention of killing them (e.g., stabbing them) & 1.11 & 3.93 & 4.00 & 4.00 & 4.91\\
+62 & bribe politicians, representatives, and other elected officials & 1.17 & 3.02 & 1.28 & 3.04 & 4.85\\
+63 & voting for candidates/parties & 4.51 & 1.19 & 1.09 & 1.07 & 1.63\\
+64 & donate to political parties to make them change their position on an issue & 2.24 & 2.03 & 1.05 & 1.68 & 3.68\\
+65 & blackmail politicians who oppose the cause & 1.31 & 3.15 & 2.15 & 3.54 & 4.64\\
+
+66 & attack police officers and other government agents with the intention of killing them (e.g., stabbing them) & 1.07 & 4.00 & 4.00 & 4.00 & 4.98\\
+67 & attack police officers and other government agents with the intention of harming them (e.g., punching them) & 1.11 & 3.81 & 3.95 & 3.95 & 4.95\\
+68 & attack individuals who oppose the cause with the intention of killing them (e.g., stabbing them) & 1.06 & 3.94 & 4.00 & 4.00 & 4.92\\
+69 & threaten individuals who oppose the cause with physical harm & 1.06 & 3.72 & 3.92 & 3.97 & 4.92\\
+70 & attack members of the public (e.g., by setting off a bomb in a public place) & 1.05 & 3.90 & 3.92 & 3.92 & 4.92\\
+
+71 & spread misinformation to influence public opinion & 1.24 & 3.41 & 1.41 & 2.95 & 4.76\\
+72 & threaten to attack members of the public (e.g., by making a bomb threat) & 1.07 & 3.83 & 3.83 & 3.85 & 4.95
+
+\end{xltabular}
+```
+
+\newpage
+
+```{=latex}
+\setcounter{table}{2}
+
+\begin{table}[t!]
+\caption{Correlations between ratings in Study 2}
+\centering
+\begin{tabular}{rlrrrrr}
+\toprule
+\# & Rating & Acceptable & Disruptive & Violent & Extreme & Negative\\
+\midrule1 & Acceptable &  & -.69 & -.64 & -.77 & -.89\\
+2 & Disruptive & -.69 &  & .66 & .78 & .70\\
+3 & Violent & -.64 & .66 &  & .79 & .64\\
+4 & Extreme & -.77 & .78 & .79 &  & .77\\
+5 & Negative & -.89 & .70 & .64 & .77 & \\
+\bottomrule
+\addlinespace
+\end{tabular}
+\caption*{\textit{Note.} Acceptable (1 = \textit{never}, 5 = \textit{always}); Disruptive, Violent, Extreme (1 = \textit{not at all}, 4 = \textit{very}); Negative (1 = \textit{very positive}, 5 = \textit{very negative})}
+\end{table}
+```

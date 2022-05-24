@@ -1,0 +1,66 @@
+\documentclass[12pt, letterpaper]{article}
+
+% Font
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{microtype}
+
+% Format
+\usepackage[letterpaper, margin = 1in]{geometry}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0.5in}
+\usepackage[compact]{titlesec}
+\titleformat*{\section}{\centering\normalfont\normalsize\bfseries}
+\titleformat*{\subsection}{\raggedright\normalfont\normalsize\bfseries}
+\titleformat*{\subsubsection}{\raggedright\normalfont\normalsize\bfseries\itshape}
+\newcommand{\refsection}{\newpage \section{References}}
+\usepackage{indentfirst}
+\usepackage[hang,flushmargin]{footmisc}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{14.5pt}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[L]{$header$}
+\fancyhead[R]{\thepage}
+
+% Links
+\usepackage[colorlinks = true, linkcolor = black, urlcolor = black, citecolor = black]{hyperref} 
+
+% Figures
+\usepackage{graphicx}
+\usepackage[labelfont = bf, font = small, labelsep = newline, singlelinecheck = false]{caption}
+
+% Tables
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% References
+$if(csl-refs)$
+\newenvironment{CSLReferences}[2]{}{}
+$endif$
+
+% Line spacing
+\usepackage[doublespacing]{setspace}
+
+% Frontmatter
+\title{ $title$ }
+
+\begin{document}
+
+\section{Abstract}
+
+\noindent $abstract$
+
+\textit{Keywords:} $keywords$
+
+\newpage
+
+\section{$title$}
+
+$body$
+
+\end{document}

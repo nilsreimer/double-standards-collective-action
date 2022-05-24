@@ -1,0 +1,580 @@
+---
+title: "Double Standards in Judging Collective Action"
+header: "DOUBLE STANDARDS"
+keywords: protest, collective action, double standards, social identity theory, system justification theory, Black Lives Matter
+abstract: Collective action is a powerful force driving social change but, at the same time, often sparks contention about what are acceptable forms of collective action.
+bibliography: references.bib
+csl: apa.csl
+output:
+  pdf_document:
+    latex_engine: pdflatex
+    keep_tex: yes
+    template: preprint-template.tex
+
+---
+
+```{r setup, include = FALSE}
+
+  # Load packages
+  library(tidyverse); library(tidybayes); library(numform); library(glue)
+
+  # knitr options
+  knitr::opts_chunk$set(echo = FALSE)
+
+```
+
+<!-- I should cite Colin Leach's work. -->
+
+Protest movements often spark contention about what actions are acceptable means of protest. Reactions to Black American athletes kneeling during the national anthem to protest racist police violence are a case in point. Kneeling during the national anthem is not violent, disruptive, or illegal. And yet, only 29\% of White Americans (66\% of Black Americans) and 11\% of Republicans (59\% of Democrats) considered it appropriate for Black athletes to protest in this way [@yougov_nfl_2017]. Indeed, Black athletes who had participated in the protests faced a backlash in public opinion [@lacina_nfl_2020]. This and other examples suggest that *who* the protesters are and *what* they are protesting influences how acceptable observers judge their actions to be. 
+
+In this paper, we examine double standards in judging collective action---that is, whether observers judge the same protest actions as more or less acceptable depending on their own and the protesters' group memberships (*identity-based double standards*) or on the protesters' cause and how it aligns with their own ideological positions (*ideology-based double standards*). In two studies, we first develop an instrument of 25 controversial protest actions, based in item response theory, to capture double standards in judging collective action. In two preregistered experiments, we then use this instrument to test for double standards in judging protest actions for workers' rights in the United Kingdom and for or against defunding the police in the United States. We find evidence for ideology-based, but not for identity-based, double standards: People judge the same protest actions to be more acceptable when the protesters' cause aligns with their own ideological positions---but show no ingroup bias when judging collective action by ingroup and outgroup members.
+
+<!-- Below, ... we situate the distinction ... below we introduce the distinction between normative ... derive predictions about ... from ... and introduce the present research ... -->
+
+## Double Standards in Judging Collective Action
+
+Collective action---that is, any action taken by group members to advance a shared political goal [for similar definitions, see @becker_virtual_2012; @van_zomeren_building_2016]---is a powerful force driving social change. For example, Black Lives Matter protests lastingly shifted public discourse about racial inequity toward antiracist ideas [@dunivin_black_2022]. 
+
+Collective action can take many forms. Psychologists distinguish between *normative* collective action that seeks to achieve a political goal while conforming to the norms of the existing social system and *non-normative* collective action that violates those norms [@wright_responding_1990]. Recent research has shown that this distinction matters for how people respond to collective action. @shuman_disrupting_2021 showed that non-normative, non-violent collective action is more effective than either normative or violent collective action at gaining concessions from those most resistant to social change. @feinberg_activists_2020 demonstrated, however, that observers are less supportive of social movements that use extreme protest actions. Similarly, @teixeira_is_2020 found that advantaged-group members perceive non-normative collective action by disadvantaged-group members as more damaging to their ingroup's social image and are thus less supportive of such action. This means that activists face the dilemma that non-normative collective action might be most effective at gaining concessions but that it also risks reducing popular support for a cause. Together, these studies show that the distinction between normative and non-normative collective action is psychologically and societally consequential.
+
+Research has, for the most part, relied on ad-hoc distinctions between what researchers themselves considered normative and non-normative collective action. In liberal democracies, researchers tend to consider actions such as signing petitions, voting in elections, or peaceful protest to be normative and actions such as blocking traffic, damaging property, or violent protest to be non-normative. But, as the examples in the first paragraph show, the distinction between normative and non-normative collective action might instead be in the eye of the beholder.
+
+In this research, we move this distinction from the researcher's intuition into the realm of scientific investigation and test for double standards in where people draw the line between acceptable and unacceptable forms of collective action. For that purpose, we define a double standard as judging the same action as more or less acceptable depending on who is performing the action and for what reason [for an analogous definition, see @foschi_double_2000].^[@feinberg_activists_2020 provided incidental evidence for double standards in judging collective action as, in a manipulation check, Black participants rated Black Lives Matter protests as less extreme than White participants and liberal participants rated protest actions for progressive causes as less extreme than conservative participants.] In this section, we derive predictions from social psychological theories about how identity-based and ideology-based double standards could lead people to judge the same protest actions as more or less acceptable depending on who the protesters are and what they are protesting.
+
+### Identity-Based Double Standards 
+
+Social Identity Theory [@tajfel_integrative_1979; for a recent review, see @reimer_identity_2022] argues that just as people show self-serving biases to achieve positive self-esteem, they show ingroup-serving biases to achieve positive social identities. In other words, they think about ingroup and outgroup in "me"--"not me" terms and favor ingroup members ("us") over outgroup members ["not us", @brewer_social_2007]. 
+
+One domain in which ingroup bias manifests is judgements about other people's actions. @hewstone_ultimate_1990 reviewed research showing that people make ingroup-serving causal attributions when judging actions by ingroup and outgroup members, for example, by attributing negative behavior by outgroup members to internal causes but attributing negative behavior by ingroup members to external causes. @valdesolo_moral_2007 demonstrated that participants judged the same selfish action as less unfair when performed by themselves or an ingroup member than when performed by an outgroup member. Other studies [@abrams_double_2013; @endevelt_everyone_2021; for exceptions, see @mendoza_for_2014; @pinto_membership_2010] provided further evidence for ingroup bias in judging moral transgressions by ingroup and outgroup members.
+
+In the same vain, we propose that ingroup bias results in identity-based double standards in judging collective action by ingroup and outgroup members. That is, we hypothesize that people will judge the same protest actions as more acceptable if the protesters are ingroup members (*Hypothesis 1a*) or if the cause of the protest aligns with the ingroup's interests (*Hypothesis 1b*). This hypothesis could explain why, for example, far more Black than White Americans considered it appropriate for Black athletes to kneel down to protest police violence against Black Americans [@yougov_nfl_2017]. Notably, this hypothesis applies equally to historically disadvantaged groups mobilizing against social injustice and to historically advantaged groups defending their group's position.
+
+### Ideology-Based Double Standards
+
+System Justification Theory [@jost_role_1994; for a recent review, see @jost_theory_2020] argues that people are motivated to defend, justify, and bolster the prevailing social, economic, and political system because doing so serves basic epistemic, existential, and relational needs. Both advantaged and disadvantaged groups are thought to be motivated to justify the existing system, although the strength of this motivation and its expression vary across individuals and situations.
+
+While system justification often leads people to resist social change, its relationship to collective action depends on the goal of the action. @jost_missing_2017 argued that research on collective action needs to distinguish between system-challenging protest aimed at changing an unequal status quo and system-supporting protest aimed at maintaining or defending an unequal status quo. @osborne_protesting_2019 showed that, for members of both advantaged and disadvantaged groups, system justification is associated with supporting system-supporting actions but with opposing system-challenging actions.
+
+Just as system justification shapes support for, and opposition to, collective action, we propose that it results in ideology-based double standards in what actions people consider acceptable forms of collective action. First, we hypothesize that  people will judge the same protest actions as more acceptable if the protest supports, rather than challenges, the system (*Hypothesis 2a*). This hypothesis reflects the assumption that the motivation to justify the system is, to some extent, universal. Second, we hypothesize that people will judge the same protest actions as more acceptable if they endorse system-justifying beliefs and the protest supports the system or if they reject system-justifying beliefs and the protest challenges the system (*Hypothesis 2b*). This hypothesis implies an symmetry in how people with different ideological orientations judge system-supporting and system-challenging collective action. 
+
+As system-justifying beliefs are closely related to political conservatism [@jost_political_2003], this hypothesis could explain partisan differences in what actions liberals and conservatives consider acceptable means of protest for progressive and conservative causes. Ideology-based double standards could, for example, explain why far more Democrats than Republicans considered it appropriate to kneel during the national anthem to protest racist police violence [@yougov_nfl_2017].
+
+<!-- That is, we hypothesize that, at least to the extent that they hold system-justifying beliefs, people will judge the same protest actions as more acceptable if the protest supports, rather than challenges, the system. -->
+
+## Using Item Response Theory to Detect Double Standards
+
+```{=latex}
+\begin{figure}
+\centering
+\caption{Item response curves for three hypothetical protest actions}
+\includegraphics[scale=1]{../Scale Development/figures/figure-1}
+\caption*{\textit{Note.} $\theta_{(z)}$ follows a standard normal distribution and is shown as both $z$-scores (bottom) and percentiles (top).}
+\label{fig:f1}
+\end{figure}
+```
+
+Item response theory is a a conceptual and statistical framework for understanding how the characteristics of both items and respondents shape responses to a set of items [@demars_irt_2010]. 
+<!-- As such, it allows us to disentangle how acceptable protest actions are from how accepting respondents are of them and, in so doing, to detect double standards in judging collective action.  -->
+When respondents judge whether each of a set of actions is an acceptable means of protest (1 = *yes*, 0 = *no*), a two parameter logistic item response theory model estimates responses as a function of several latent (unobserved) parameters: 
+$$ \Pr ( y_{ij} = 1 ) = \text{logit}^{-1} ( \alpha_i ( \theta_j + \beta_i ) ) $$
+where $\Pr ( y_{ij} = 1 )$ is the probability that respondent $j$ considers action $i$ an acceptable means of protest, $\theta_j$ estimates how *accepting* respondent $j$ is of various protest actions, $\beta_i$ estimates how *acceptable* action $i$ is, and $\alpha_i$ estimates how *discriminating* action $i$ is.
+
+Figure \ref{fig:f1} illustrates those relationships for three hypothetical protest actions. $\theta_{(z)}$ is the *z*-standardized tendency for a participant to be more accepting of various actions so that $\beta_i$ determines the probability that the average respondent ($\theta_{(z)} = 0$) considers an action an acceptable means of protest. Action 2 ($\beta_2 = 1.28$) is more acceptable than Actions 1 and 2 ($\{ \beta_2, \beta_3 \} = 0$) as the average respondent is more likely to consider the former ($\Pr = .78$) than the latter ($\Pr = .50$) acceptable means of protest. Action 3 ($\alpha_3 = 3.60$) is more discriminating than Actions 1 and 2 ($\{ \alpha_1, \alpha_2 \} = 1$) as the slope for the relationship between how accepting a respondent is and how likely they are to consider an action acceptable is steeper for the former action. This means that knowing whether someone considers Action 3 acceptable provides more information about them than knowing whether they consider Actions 1 or 2 acceptable.
+
+In this research, item response theory serves two purposes. First, item response theory provides a formal and statistical definition of double standards in judging collective action as respondents being more accepting of the same protest actions depending on who the protesters and what they are protesting. In Experiments 1 and 2, we operationalize double standards as the differences in $\theta_{(z)}$ between conditions which, as $\theta_{(z)}$ is $z$-standardized, correspond to Cohen's $d$ effect sizes. Second, item response theory provides a statistical framework for scale development. In Studies 1 and 2, we select the most discriminating and informative actions to build an instrument for capturing double standards in the experiments.
+
+## Purpose of the Present Research
+
+Our research serves two purposes. The first purpose is to develop an instrument to measure where people draw the line between acceptable and unacceptable forms of collective action. In Study 1, we ask participants to generate more and less extreme protest actions and compile a pool of protest actions for scale development. In Study 2, we ask participants to rate how acceptable they consider each of those protest action to be and use item response theory to select the most discriminating and informative protest actions for our instrument. In so doing, we build an instrument that enables both present and future research to capture double standards in judging collective action. In this way, our research situates the distinction between normative and non-normative collective action in the eye of the beholders and opens it to scientific investigation.
+
+The second purpose of our research is to test for double standards in judging collective action---that is, whether people judge the same protest actions as more or less acceptable depending on their own and the protesters' group memberships (Hypothesis 1a, 1b) or on the protesters' cause and how it aligns with their own ideological positions (Hypotheses 2a, 2b). In Experiment 1, we use the instrument developed in Studies 1 and 2 to test for double standards in how acceptable participants consider collective action for workers' rights in the United Kingdom. By varying both the participants' and protesters' group memberships (working/middle class), Experiment 1 compares the relative evidence for Hypotheses 1a and 2a. Extending Experiment 1, Experiment 2 considers both system-challenging and system-defending collective action in the context of the 2020 Black Lives Matter protests in the United States. By varying the protest's cause (for/against defunding the police) as well as the participants' and protesters' group memberships (Black/White), Experiment 2 compares the relative evidence for Hypotheses 1a, 1b, 2a, and 2b. Together, the preregistered experiments provide a comprehensive test of the hypothesized identity- and ideology-based double standards in judging collective action.
+
+<!-- > **Hypothesis 1.** People will consider *more* controversial actions acceptable means of protest if (a) the protesters are ingroup members *or* if (b) the cause of the protest aligns with the ingroup's interests. -->
+
+<!-- > **Hypothesis 2.** People will consider *more* controversial actions acceptable means of protest if (a) the protest's cause supports, rather than challenges, the system *or* if (b) the protest's cause aligns with their system-justifying beliefs. -->
+
+# Scale Development
+
+<!-- In two studies, we developed an instrument of 25 protest actions to capture double standards in judging collective action. -->
+
+```{=latex}
+\begin{figure*}[!t]
+\centering
+\caption{Examples of protest actions rated in Study 2}
+\includegraphics[scale=1]{../Scale Development/figures/figure-2}
+\caption*{\textit{Note.} Percentages reflect the proportion of participants who thought that an action was \textit{sometimes}, \textit{often}, or \textit{always} an acceptable means to a advance a cause. Darker bars mark actions that were included in the final scale.}
+\label{fig:f2}
+\end{figure*}
+```
+
+## Study 1
+
+In Study 1, we compiled protest actions from participants' responses and other sources. We recruited 60 participants from the Prolific subject pool, all of whom were citizens of the UK or the US. To increase the socioeconomic diversity of our sample, we recruited 30 non-students without a university degree, 15 non-students with a university degree, and 15 current university students. 
+
+Participants first read an accessible definition of what a social group is and that collective action is any action group members take to promote the interests of their social group. Participants were then asked to name between five and ten actions that fit that definition. Participants were encouraged to think of actions that varied in how acceptable they were in their opinion. We recoded responses into a smaller set of unique actions, which we supplemented with protest actions from the psychological and political science literature [e.g., @sharp_nonviolent_1973]. This process resulted in 72 actions that varied in how acceptable we would expect them to be. For details, see Supplemental Online Material (SOM).
+
+## Study 2
+
+In Study 2, we measured how acceptable participants judged the actions from Study 1 to be and applied item response theory to develop an instrument to capture double standards in judging collective action. We recruited 158 participants ($\textit{Mdn} = 30$ years, age range: 18--68 years; 103 women, 52 men, 2 other, 1 prefer not to say) from the Prolific subject pool, all of whom were citizens of the UK or the US. To increase the socioeconomic diversity of our sample, we recruited 80 non-students without a university degree, 37 non-students with a university degree, and 41 current university students. We excluded 15 participants who failed an attention check, leaving a final sample of 143 participants for our analyses. 
+
+Participants again read an accessible definition of collective action. Participants were then asked to think of different causes and circumstances and to rate how often a given action would be an acceptable means for a group to advance one of these causes (1 = *never*, 2 = *rarely*, 3 = *sometimes*, 4 = *often*, 5 = *always*). In addition, participants rated how disruptive, violent, and extreme they considered an action to be (1 = *not at all*, 4 = *very*) and how positive or negative they felt, in general, about an action (1 = *very positive*, 5 = *very negative*). Each participant rated 20 of the 72 actions from Study 1 so that each action was rated by 29--53 participants.
+
+We estimated a graded response model [@burkner_bayesian_2021; @samejima_graded_1997]---an item response theory model for ordinal response variables---for participants' ratings of how often an action would be an acceptable form of collective action.^[Ratings of how often a given action would be an acceptable form of collective action were strongly and negatively correlated with how disruptive, violent, and extreme participants considered the action to be and how negative they felt about it (Table S3).] Based on the results, we selected the 25 most discriminating, informative, and relevant protest actions to form an instrument for measuring double standards in judging collective action in Experiments 1 and 2. We selected controversial, and thus diagnostic, actions (e.g., disrupting traffic) over actions that almost all respondents considered acceptable (e.g., signing petitions) or unacceptable (e.g., political violence; Figure \ref{fig:f2}). For detailed ratings and results, see SOM.
+
+# Experiment 1
+
+\ldots
+
+## Method
+
+We preregistered the sample size as well as all hypotheses, inclusion/exclusion criteria, measures, and manipulations.^[[https://osf.io/24wrx/?view_only=8560eb60286149498f8da48bc9f9d99b](https://osf.io/24wrx/?view_only=8560eb60286149498f8da48bc9f9d99b)] We made all materials, data, and analysis scripts available online.^[[https://osf.io/d3yev/?view_only=40782034017c40f0bcecb1cc87760b62](https://osf.io/d3yev/?view_only=40782034017c40f0bcecb1cc87760b62)] We followed sample size recommendations for item response theory models [@demars_irt_2010, p. 36], planning to recruit 500 participants.
+
+### Study Design
+
+We used a 2 (quasi-experimental: higher-status/lower-status participants) $\times$ 2 (experimental: higher-status/lower-status protesters) between-subjects design to test our hypotheses.
+
+### Participants
+
+We recruited 515 participants from the Prolific subject pool who were UK citizens, 25 years old or older, and not current students.^[We had preregistered a sample of 500 participants, before exclusions, but included another 15 participants who completed the study without returning an approval code to the Prolific platform. Participants received, on average, \pounds 9.00 (\$10.93) per hour of participation.] As preregistered, we excluded 71 participants who failed an attention check. This resulted in a final sample of 443 participants ($\textit{Mdn} = 41$ years, age range: 25--76 years; 272 women, 171 men, 1 non-binary). Of these, 210 participants considered their past, current, or future jobs to be working-class jobs. Participants in this lower-status group did not have a university degree and placed themselves on the bottom three ranks of the subjective socioeconomic status ladder. Another 233 participants considered their past, current job, or future jobs to be middle-class/professional jobs. Participants in this higher-status group had at least an undergraduate degree and placed themselves on the top four ranks of the subjective socioeconomic status ladder.
+
+### Procedure
+
+We used a screening survey to recruit participants who satisfied our preregistered inclusion criteria for the lower-status and higher-status groups. For the lower-status group, we recruited 475 participants who did not have a university degree and placed themselves on the bottom three ranks of a subjective socioeconomic status ladder. For the higher-status group, we recruited 400 participants who had at least an undergraduate degree and placed themselves on the top four ranks of the subjective socioeconomic status ladder. 
+
+In the screening survey, participants read an accessible definition of what working-class and middle-class/professional jobs are (for details, see SOM). Participants then answered, among other questions, whether they considered their current job---or the jobs they had had in the past or expected to have in the future---to be a working-class job or a middle-class/professional job. As preregistered, we excluded participants from the lower-status group who did not respond  "working-class job" and participants from the higher-status group who did not respond "middle-class/professional job". 
+
+We recruited 500 participants from the remaining 687 participants, 250 from the lower-status group and 250 from the higher-status group. Participants were randomly assigned to read a vignette about a government bill affecting either people in working-class jobs (lower-status protesters) or people in professional jobs (higher-status protesters). Participants in both conditions were instructed to carefully read the vignette and to try to imagine what it would be like if this situation was real. Participants in the lower-status protestprs condition read the following introduction:
+
+> The government, though not necessarily the current government, is going to introduce a bill that will mostly affect people in working-class jobs. Working-class jobs, in this case, are jobs done by skilled, semi-skilled, unskilled manual workers or by casual workers. These are jobs that do not usually require a university degree. Other jobs are unlikely to be affected.
+
+\noindent Participants in the higher-status protesters condition instead read the following introduction:
+
+> The government, though not necessarily the current government, is going to introduce a bill that will mostly affect people in professional jobs. Professional jobs are administrative, managerial, or other jobs that usually require a university degree. Other jobs are unlikely to be affected.
+
+\noindent Participants in both conditions then read an almost identically worded paragraph: 
+
+> This government measure would make it easier for companies to hire workers during economic growth and to lay off workers during an economic crisis. As a consequence, companies would be able to fire employees with little notice and without giving a reason. Trade unions are opposed to the measure. They argue that the bill would compromise job security, and prevent employees from challenging harassment or other abuse without the fear of being fired. People in [working-class/professional] jobs are particularly at risk, and there is a rise in tension and outrage among them.
+
+On the next pages, participants completed all remaining measures. On the final page, we asked participants to recall who the people most affected by the fictitious government bill were. As preregistered, we excluded all participants whose response did not qualitatively match their experimental condition.
+
+### Measures
+
+We measured the outcome variable by asking participants to decide, for each of 25 protest actions presented in a randomized order, whether they thought this action was "an acceptable means for people in [working-class/professional] jobs to protest against the government bill" (1 = *yes*, 0 = *no*; see Table A1).
+
+We assessed reactions to the vignette by asking participants how outraged they would be if the government were to introduce this bill in real life, to what extent it would affect them personally, and to what extent the it would affect people like them (1 = *not at all*, 7 = *very much*). We also asked participants to what extent they identified with people with the kinds of jobs most affected by the proposed bill (1 = *not at all*, 7 = *very much*) and how often, if at all, they had participated in protest actions such as the ones we asked about (1 = *never*, 5 = *very often*).
+
+We measured social dominance orientation with the eight-item $\text{SDO}_{7(s)}$ scale [@ho_nature_2015], for example, "it is unjust to try to make groups equal" (1 = *strongly oppose*, 7 = *strongly favour*; McDonald's $\omega = .89$). A confirmatory factor analysis model in which all items loaded onto a single factor showed acceptable fit, $\chi^2 (20) = 108.69; \text{CFI} = 0.92; \text{TLI} = 0.88; \text{RMSEA} = 0.11, [0.09, 0.14]$. 
+
+We measured system-justifying beliefs with eight items [adapted from @kay_complementary_2003], for example, "in general, I find society to be fair" (1 = *strongly disagree*, 7 = *strongly agree*; McDonald's $\omega = .89$). A confirmatory factor analysis model in which all items loaded onto a single factor showed acceptable fit, $\chi^2 (20) = 77.37; \text{CFI} = 0.94; \text{TLI} = 0.92; \text{RMSEA} = 0.09, [0.07, 0.12]$.
+
+In the screening survey, we recorded participants' gender, age, nationality, student status, and employment status. We also included two three-item scales measuring social identification with people in working-class and middle-class/professional jobs [adapted from @becker_committed_2011] and a one-item semantic differential scale measuring political orientation ("People often describe their political orientation as left-wing or right-wing. On a scale from left to right, where would you position yourself?"; 1 = *left*, 7 = *right*).
+
+## Results
+
+```{=latex}
+\begin{figure*}[!t]
+\centering
+\caption{Results from the preregistered (\textbf{A}) and non-preregistered (\textbf{B}) analyses for Experiment 1}
+\includegraphics[scale=1]{../Experiment 1/figures/figure-3}
+\caption*{\textit{Note.} HS = Higher Status, LS = Lower Status. $\theta_{(z)}$ is the \textit{z}-standardized tendency to consider more controversial actions acceptable means of protest. (\textbf{A}) $p$ and $n$ are, respectively, the predicted proportion and number of actions a participant would consider acceptable means of protest in each condition. Bars enclose the 95\% most plausible estimates. (\textbf{B}) Ribbons enclose, from the darkest to the lightest shade, the 50\%, 80\%, 95\%, and 99\% most plausible estimates.}
+\label{fig:f3}
+\end{figure*}
+```
+
+### Reactions to the Manipulation
+
+Participants with professional jobs thought that they would be more outraged if the government were to introduce a bill affecting people with similar jobs ($M = 6.00, SD = 1.05$) than by a bill affecting people with working-class jobs ($M = 5.38, SD = 1.28$; Cohen's $d = 0.50$). Conversely, participants with working-class jobs thought that they would be more outraged by a bill affecting people in similar jobs ($M = 6.26, SD = 1.05$) than by a bill affecting people in professional jobs ($M = 5.61, SD = 1.47$; $d = 0.52$). Participants thought that a bill affecting people with similar jobs would affect them personally ($d = 1.14$) and people like them ($d = 1.33$) more than a bill affecting people with other jobs. Participants identified to a greater extent with people in similar jobs ($M = 6.21, SD = 1.12$) than with people in other jobs ($M = 4.06, SD = 1.65$; $d = 1.22$). Overall, participants' reactions suggested that the experimental design worked as intended and that participants in the lower-status and higher-status groups understood the vignette in ingroup--outgroup terms.
+
+### Preregistered Analyses
+
+To test our hypotheses, we estimated a two-parameter logistic item response theory model [@burkner_bayesian_2021] with participants' responses to the question whether they thought each action was an acceptable means of protest as the outcome variable. For each action $i$, the model estimated how acceptable ($\beta_i$) and discriminating ($\alpha_i$) that protest action was. For each participant $j$, the model estimated their unique propensity to consider protest actions acceptable ($\theta_j$). In addition, the model estimated how accepting participants were of controversial protest actions as a function of three dummy-coded variables that encoded the group status of the protesters and the participant.
+
+We estimated this model in CmdStan [@cmdstanr_2021; @cmdstan_2021] using Bayesian statistical methods. Bayesian inference involves choosing a likelihood function and prior distributions. A likelihood function links the observed data to the model parameters and states how likely the observed data are given different values of said model parameters. Prior distributions state how plausible different values of said model parameters are before considering the observed data. Bayesian inference applies Bayes' theorem to update prior distributions in light of the observed data to produce posterior distributions. In contrast to $p$-values and confidence intervals, posterior distributions have a straight-forward interpretation as stating how plausible different values of the model parameters are given the observed data.
+
+Our model derived the likelihood of participants' responses from a Bernoulli likelihood function with a logistic regression equation linking the two item parameters ($\alpha_i$, $\beta_i$), the one participant parameter ($\theta_j$), and the three regression coefficients to the observed data. To identify the model, we constrained $\theta_j$ to have a mean of zero and constrained $\alpha_i$ to have a fixed mean and to be non-negative. We used partial pooling to estimate $\alpha_i$, $\beta_i$, and $\theta_j$. Our model assigned weakly informative prior distributions [@gelman_prior_2017] to all model parameters.^[Our model assigned $\text{Half-Cauchy} (0, 3)$ prior distributions to the standard deviations of $\alpha_i$, $\beta_i$, and $\theta_j$ and $\text{Normal} (0, 3)$ prior distributions to all other model parameters.] We report point estimates, based on the median of posterior samples, and uncertainty intervals, based on the quantiles of posterior samples, that enclose the 95% most plausible estimates. 
+
+Figure \ref{fig:f3} (A) shows estimates for each combination of the protesters' and the participants' group membership. Overall, we found that participants' responses depended on both the protesters' and the participants' group status---but not in the directions predicted by our hypotheses. Contradicting Hypothesis 1, participants did not consider protest actions performed by their ingroup to be more acceptable, on average, than the same actions performed by the relevant outgroup (Cohen's $d = 0.00, [-0.20, 0.20]$). Instead, we found that participants from higher-status backgrounds considered protest actions performed by both lower-status ($d = 0.34, [0.07, 0.59$]) and higher-status ($d = 0.33, [0.03, 0.63]$) protesters to be, on average, more acceptable than participants from lower-status backgrounds. Contradicting Hypothesis 2, participants considered protest actions performed by higher-status protesters to be less acceptable, on average, than the same actions performed by lower-status protesters ($d = -0.20, [-0.40, -0.00]$).
+
+### Non-Preregistered Analyses
+
+We explored to what extent participants' ideological orientations influenced how acceptable they considered various protest actions to be. To that end, we estimated another two-parameter logistic item response model that estimated participants' responses as a function of the participant's and the protesters' group status and of the participants' political orientation, social dominance orientation, and system-justifying beliefs. We used factor scores to quantify social dominance orientation and system-justifying beliefs and standardized all new predictor variables. We report standardized regression coefficients that quantify by how many standard deviations a participant's propensity to consider more collective actions acceptable increases for each additional standard deviation of the predictor variable.
+
+Figure \ref{fig:f3} (B) the $z$-standardized propensity to consider more controversial protest actions acceptable as a function of the three ideological orientation variables. We found that participants who reported a more right-wing political orientation ($\beta_{xy} = -0.25, [-0.37, -0.15]$) and who expressed more agreement with system-justifying beliefs ($\beta_{xy} = -0.20, [-0.30, -0.10]$) tended to find fewer collective actions to be acceptable. In contrast, we found that, after controlling for the other two variables, social dominance orientation was not associated with participants' judgements about how acceptable various collective actions are ($\beta_{xy} = -0.05, [-0.15, 0.05]$). Overall, these findings suggest that people who are right-wing and endorse system-justifying beliefs tend to find various collective actions to be less acceptable than people who are left-wing and do not endorse system-justifying beliefs.^[We ran additional analyses to explore how these associations differed across experimental conditions. We found uncertainty intervals for these associations to overlap across conditions, suggesting that we did not have enough data to differentiate these varying effects.]
+
+## Discussion
+
+# Experiment 2
+
+- Explain why defunding the police (public support for BLM, so needed to be more controversial)
+
+In Experiment 2, we tested five hypotheses. We tested two predictions derived from social identity theory. First, we hypothesize that observers are more likely to judge an action as an acceptable means of protest when the protesters are ingroup members than when they are outgroup members (Hypothesis 1a). Second, we hypothesize that observers are more likely to judge an action as an acceptable means of protest when the goal of the protests would benefit the observers' ingroup (Hypothesis 1b). We will test two predictions derived from system justification theory. First, we hypothesize that observers are more likely to judge an action as an acceptable means of protest when the goal of the protest is to support rather than challenge the system (Hypothesis 2a). Second, we hypothesize that observers who endorse system-justifying beliefs are more likely to consider system-supporting actions acceptable means of protest-and less likely to consider system-challenging actions acceptable means of protest-than observers who do not endorse system-justifying beliefs (Hypothesis 2b). In addition, we will test an alternative hypothesis. We hypothesize that observers are more likely to consider actions as acceptable means of protest when they support the cause of the protesters than when they oppose their cause (Hypothesis 3). We note that Hypotheses 1a, 1b, and 2a make competing predictions about differences between conditions while Hypotheses 2b and 3 need not contradict each other or any of the other hypotheses.
+
+## Method
+
+We preregistered the sample size as well as all hypotheses, inclusion/exclusion criteria, measures, and manipulations.^[[https://osf.io/skxjt/?view_only=d8ce44a700884b5ab36b64ef08f833a1](https://osf.io/skxjt/?view_only=d8ce44a700884b5ab36b64ef08f833a1)] We made all materials, data, and analysis scripts available online.^[[https://osf.io/d3yev/?view_only=40782034017c40f0bcecb1cc87760b62](https://osf.io/d3yev/?view_only=40782034017c40f0bcecb1cc87760b62)] As reported in the preregistration, we ran simulations, using data from Experiment 1, to determine that a sample size of $N = 1,600$ ($n = 200$ per condition) was sufficient to detect even small differences between conditions ($0.09 < \text{Cohen's}~d < 0.16$).
+
+### Study Design
+
+We used a 2 (quasi-experimental: Black/White participants) $\times$ 2 (experimental: Black/White protesters) $\times$ 2 (experimental: for/against defunding the police) between-subjects design to test our hypotheses.
+
+### Participants
+
+We recruited 1,773 Black and White American participants from the Prolific subject pool who were 18 years old or older, lived in the US, and were US citizens.^[Data were collected between January 15 and 28, 2021. Participants received, on average, \$12.89 per hour of participation.] As preregistered, we excluded 173 participants who failed at least one of three attention checks or who reported a different ethnic background than they had reported in the Prolific prescreening questionnaire. This resulted in a final sample of 1,600 participants ($\textit{Mdn} = 31$ years, age range: 18--84 years; 864 women, 708 men, 27 sex/gender diverse) of whom 800 identified as Black and 800 identified as White.
+
+### Procedure
+
+Participants read the following paragraphs:
+
+> In 2020, police officers killed Breonna Taylor and George Floyd. Many were outraged that police officers had, once again, killed unarmed Black Americans. Across the United States, people called for changes to prevent future police violence.
+
+> Some argue that, to end police violence, we should take money away from police departments. Reducing police funding would mean fewer police officers on the street. Fewer police officers would mean fewer opportunities for them to turn violent. Reducing police funding would also leave more money for other services. Proponents argue for reallocating police funding to social services, housing, and education. Doing so would keep communities safer with fewer police officers. We refer to this position as "defunding the police". This position differs from "reforming the police" which might mean increasing police funding and also differs from "abolishing the police" which means disbanding police departments altogether.
+
+\noindent Participants were then asked to answer whether the text had been about "reforming the police", "defunding the police", or "abolishing the police". If they selected the wrong answer, they were instructed to reread the text and select the right answer. On the next page, participants stated whether they supported or opposed the proposed solution.
+
+Participants in the system-challenging protest condition then read a text about protesters in support of defunding the police:
+
+> Earlier, you read about defunding the police as a possible solution to end police violence. Some local residents want to protest for defunding the police. They argue that reducing police funding would prevent police violence.
+
+\noindent Participants in the system-supporting protest condition instead read about protesters rallying against defunding the police:
+
+> Some local residents want to protest against defunding the police. They argue that reducing police funding would mean fewer police officers serving their community.
+
+\noindent Participants then read either that "most of the protesters are Black" or that "most of the protesters are White". Participants again had to correctly answer multiple choice questions about the text ("Are the protesters for or against defunding the police?", "Who are the protesters?") before being able to proceed.
+
+On the next pages, participants completed all remaining measures. On the final page, participants responded to three attention checks: "In this study, you first read about a proposed solution to police violence. What was it?" (*reforming the police*, *defunding the police*, *abolishing the police*); "In this study, you then read about protesters. Were these protesters for or against the proposed solution?" (*for*, *against*); and "Were most of the protesters Black or White?" (*Black*, *White*). As preregistered, we excluded participants who gave an answer inconsistent with their assigned experimental condition.
+
+### Measures
+
+We measured the outcome variable by asking participants to think about the protesters they had read about and to decide, for each of 25 protest actions presented in a randomized order, whether they thought this action was "an acceptable means for them to protest [for/against] defunding the police" (1 = *yes*, 0 = *no*). We replaced some actions from Experiment 1 because they either did not fit the study context or had been considered acceptable by almost all participants (see Table B1).
+
+We measured system-justifying beliefs with eight items [adapted from @kay_complementary_2003], for example, "in general, I find society to be fair" (1 = *strongly disagree*, 7 = *strongly agree*; McDonald's $\omega = .91$). A confirmatory factor analysis model in which all items loaded onto a single factor showed acceptable fit, $\chi^2 (28) = 4309.15; \text{CFI} = 0.95; \text{TLI} = 0.93; \text{RMSEA} = 0.11, [0.10, 0.12]$.
+
+We measured support for defunding the police with one item: "Do you support or oppose defunding the police?" (1 = *strongly oppose*, 5 = *strongly support*).
+
+We included additional measures to describe the sample, to describe reactions to the manipulation, or to use in non-preregistered analyses. In addition to demographic questions, we asked participants how outraged they were about recent incidents of police violence against Black Americans, to what extent they identifed with the protesters described in the study, and to what extent they identifed with their racial ingroup (1 = *not at all*, 7 = *very much*). We also asked how often, if at all, participants had participated in protest actions such as the ones we had asked about (1 = *never*, 5 = *very often*) and whether they has participated in protests for reforming, defunding or abolishing the police; against reforming, defunding or abolishing the police; or in neither. We measured political orientation with a one-item semantic differential scale: "People often describe their political orientation as liberal or conservative. On a scale from liberal to conservative, where would you position yourself?"; 1 = *liberal*, 7 = *conservative*).
+
+## Results
+
+```{=latex}
+\begin{figure*}[!t]
+\centering
+\caption{Results from the preregistered analyses for Experiment 2}
+\includegraphics[scale=1]{../Experiment 2/figures/figure-4}
+\caption*{\textit{Note.} Against = Protesters oppose defunding the police. For = Protesters support defunding the police. $\theta_{(z)}$ is the \textit{z}-standardized tendency to consider more controversial actions acceptable means of protest. Ribbons enclose, from the darkest to the lightest shade, the 50\%, 80\%, 95\%, and 99\% most plausible estimates.}
+\label{fig:f4}
+\end{figure*}
+```
+
+```{=latex}
+\begin{figure*}[!t]
+\centering
+\caption{Predictions from the preregistered (system justification) and non-preregistered (political orientation) analyses for Experiment 2}
+\includegraphics[scale=1]{../Experiment 2/figures/figure-5}
+\caption*{\textit{Note.} Against = Protesters oppose defunding the police. For = Protesters support defunding the police. $\theta_{(z)}$ is the \textit{z}-standardized tendency to consider more controversial actions acceptable means of protest.}
+\label{fig:f5}
+\end{figure*}
+```
+
+### Reactions to the Manipulation
+
+As expected, Black participants ($M = 6.18, \textit{SD} = 1.31$) reported being more outraged about recent incidents of police violence than White participants ($M = 5.56, \textit{SD} = 1.61$; Cohen's $d = 0.42$). Black participants strongly identified with their ingroup ($M = 6.46, \textit{SD} = 1.09$) and, across experimental conditions, identified more with Black protesters ($M = 4.66, \textit{SD} = 1.99$) than with White protesters ($M = 4.03, \textit{SD} = 2.16$; $d = 0.30$). In contrast, White participants identified less strongly with their ingroup ($M = 4.85, \textit{SD} = 1.53$; $d = 1.21$) and did not identify more with White protesters ($M = 3.58, \textit{SD} = 2.01$) than with Black protesters ($M = 3.81, \textit{SD} = 1.77$; $d = -0.12$). Both White ($d = 0.67$) and Black ($d = 0.53$) participants tended to identify more with protesters protesting *for* defunding the police. On average, participants tended to describe their political orientation as moderately liberal ($M = 2.92, \textit{SD} = 1.73$) but, as expected, were divided in their support for defunding the police ($M = 3.37, \textit{SD} = 1.42$).
+
+### Preregistered Analyses
+
+To test our hypotheses, we estimated a series of two-parameter logistic item response theory models with participants' responses to the question whether they thought each action was an acceptable means of protest as the outcome variable. Our models differed from the models used in Experiment 1 in two ways. First, we estimated the item parameters ($\alpha_i$, $\beta_i$) as *correlated* varying effects. Second, we used varying, rather than fixed, effects to estimate differences between the eight conditions. This resulted in partial pooling---condition-wise estimates were shrunk towards each other---and allowed us to compare conditions without multiple comparison problems [@gelman_why_2012]. Our models assigned weakly informative prior distributions to all model parameters.^[Our model assigned $\text{LKJ} (2)$ prior distributions to the Cholesky-transformed correlation matrices for varying effects and $(\text{Half-})\text{Cauchy} (0, 5)$ prior distributions to all other model parameters.] Figure \ref{fig:f4} shows results from three preregistered models we estimated to test our hypotheses. 
+
+```{r, include = FALSE}
+
+  # Import results
+  m1 <- read_rds("../Experiment 2/results/m1_post.rds")
+
+  # Define contrasts
+  m1 <- m1 %>% 
+    mutate(
+      h1a_contrast = case_when(
+        Participant == Protesters ~ +1L,
+        Participant != Protesters ~ -1L,
+      ),
+      h1b_contrast = case_when(
+        Participant == "Black" & Cause == "For" ~ +1L,
+        Participant == "White" & Cause == "Against" ~ +1L,
+        TRUE ~ -1L,
+      ),
+      h2a_contrast = case_when(
+        Cause == "For" ~ -1L,
+        Cause == "Against" ~ +1L
+      ),
+      nh1_contrast = case_when(
+        Participant == "Black" ~ -1L,
+        Participant == "White" ~ +1L,
+      ),
+      nh2_contrast = case_when(
+        Participant == "White" & Cause == "Against" ~ -1L,
+        Participant == "White" & Cause == "For" ~ +1L,
+        Participant == "Black" ~ 0L
+      ),
+      nh3_contrast = case_when(
+        Participant == "Black" & Cause == "Against" ~ -1L,
+        Participant == "Black" & Cause == "For" ~ +1L,
+        Participant == "White" ~ 0L
+      )
+    )
+  
+  # Calculate contrasts
+  m1 <- m1 %>% 
+    group_by(.draw) %>% 
+    summarize(
+      across(
+        ends_with("_contrast"),
+        ~mean(z * .)
+      )
+    ) %>% 
+    pivot_longer(
+      ends_with("_contrast"),
+      names_to = "contrast",
+      values_to = "d"
+    ) %>% 
+    group_by(contrast) %>% 
+    median_qi(d)
+  
+  # Make text
+  m1 <- m1 %>% 
+    mutate(
+      across(
+        c(d, .lower, .upper), 
+        f_num, digits = 2, retain.leading.zero = T
+      ),
+      d_text = glue(
+        "$d = {d}, [{.lower}, {.upper}]$"
+      )
+    )
+  
+
+```
+
+Model 1 (M1) estimated varying intercepts for the eight conditions to test whether, in line with Hypotheses 1a, 1b, or 2a, participants' responses depended on their own group membership, the protesters' group membership, or the protesters' cause. Contradicting Hypothesis 1a, participants did not consider protest actions performed by their ingroup to be more acceptable, on average, than the same actions performed by the relevant outgroup (`r with(m1, d_text[contrast == "h1a_contrast"])`). Contradicting Hypothesis 1b, participants did not consider protest actions for a cause that was nominally aligned with their ingroup's interests to be more acceptable, on average, than protest actions for a cause not aligned with their ingroup's interests (`r with(m1, d_text[contrast == "h1b_contrast"])`). Contradicting Hypothesis 2a, participants did not consider protest actions for a system-defending cause to be more acceptable, on average, than protest actions for a system-challenging cause (`r with(m1, d_text[contrast == "h2a_contrast"])`). Instead, we found that, on average, White participants considered all protest actions to be more acceptable than Black participants (`r with(m1, d_text[contrast == "nh1_contrast"])`) and both Black (`r with(m1, d_text[contrast == "nh3_contrast"])`) and White (`r with(m1, d_text[contrast == "nh2_contrast"])`) participants considered the same actions to be more acceptable when protests were for, rather than against, defunding the police. As in Experiment 1, we thus found that participants' responses depended on both the participants' and the protesters' group memberships---but not in the directions predicted by our hypotheses.
+
+```{r, include = FALSE}
+
+  # Import results
+  m2 <- read_rds("../Experiment 2/results/m2_post.rds")
+
+  # Hypothesis 2
+  m2_h2 <- m2 %>% 
+    distinct(.draw, b_sjb_for, b_sjb_against) %>% 
+    pivot_longer(
+      c(b_sjb_for, b_sjb_against),
+      names_to = "Cause",
+      names_prefix = "b_sjb_",
+      values_to = "b"
+    ) %>% 
+    group_by(Cause) %>% 
+    mutate(
+      b = case_when(
+        Cause == "for" ~ -b,
+        Cause == "against" ~ b
+      )
+    ) %>% 
+    median_qi(b) %>% 
+    mutate(
+      across(
+        c(b, .lower, .upper), 
+        f_num, digits = 2, retain.leading.zero = T
+      ),
+      b_text = glue(
+        "$\\beta_{xy} = (b), [(.lower), (.upper)]$",
+        .open = "(", .close = ")"
+      )
+    )
+
+```
+
+Model 2 (M2) extended Model 1 by estimating participants' responses as a function of their *z*-standardized endorsement of system-justifying beliefs. As preregistered, we modeled this relationship with two fixed effects, one estimating the effect of system-justifying beliefs on judgements about system-defending protest actions and one estimating their effect on judgements about system-challenging protest actions, and one varying effect estimating its variance across conditions. Supporting Hypothesis 2b, participants who *rejected* system-justifying beliefs were *more* likely to consider system-challenging protest actions (for defunding the police) to be acceptable means of protest (`r with(m2_h2, b_text[Cause == "for"])`). We did not, however, find evidence for the ideological symmetry implied by Hypothesis 2b since participants who *endorsed* system-justifying beliefs were *not* more likely to consider system-defending protest actions (against defunding the police) to be acceptable means of protest (`r with(m2_h2, b_text[Cause == "against"])`). 
+
+Figure \ref{fig:f5} shows the predicted pattern of condition-wise differences underlying those fixed effects. Participants who endorsed system-justifying beliefs tended to consider system-challenging and system-defending protest actions to be equally unacceptable. In contrast, participants who rejected system-justifying beliefs evinced ideology-based double standards: In line with Hypothesis 2b, they considered the same protest actions to be more acceptable if the protesters challenged the system or, to a lesser extent, if the protesters were from the disadvantaged group.
+
+```{r, include = FALSE}
+
+  # Import results
+  m3 <- read_rds("../Experiment 2/results/m3_post.rds")
+
+  # Hypothesis 2
+  m3_h3 <- m3 %>% 
+    distinct(.draw, b_sup) %>%
+    rename(b = b_sup) %>% 
+    median_qi(b) %>% 
+    mutate(
+      across(
+        c(b, .lower, .upper), 
+        f_num, digits = 2, retain.leading.zero = T
+      ),
+      b_text = glue(
+        "$\\beta_{y} = (b), [(.lower), (.upper)]$",
+        .open = "(", .close = ")"
+      )
+    )
+
+```
+
+Model 3 (M3) extended Model 1 by estimating participants' responses as a function of their self-reported support for the cause of the protest. We recoded participants' responses to create a predictor variable that encoded support for defunding the police when protesters supported defunding the police and opposition to defunding the police when protesters opposed defunding the police. As preregistered, we modeled this relationship as a monotonic effect [@burkner_modelling_2020] that estimated the average change in the outcome variable across predictor categories as well as how much of this change occurred between each of the four pairs of adjacent predictor categories.^[Our model assigned a Dirichlet prior, $\alpha = {1, 1, 1, 1}$, to the proportions of the overall change that was expected to occur between each of the four pairs of predictor categories.] Contradicting Hypothesis 3, participants who supported the protesters' cause did not, on average, consider the same protest actions to be more acceptable than participants who opposed the protesters' cause (`r with(m3_h3, b_text)`). Ergo, our results did not support the alternative hypothesis that ideology-based double standards can be reduced to support for, or opposition to, the cause of a protest.
+
+### Non-Preregistered Analyses
+
+```{r, include = FALSE}
+
+  # Import results
+  m4 <- read_rds("../Experiment 2/results/m4_post.rds")
+
+  # Hypothesis 2
+  m4_exp <- m4 %>% 
+    distinct(.draw, b_pol_for, b_pol_against) %>% 
+    pivot_longer(
+      c(b_pol_for, b_pol_against),
+      names_to = "Cause",
+      names_prefix = "b_pol_",
+      values_to = "b"
+    ) %>% 
+    group_by(Cause) %>% 
+    mutate(
+      b = case_when(
+        Cause == "for" ~ -b,
+        Cause == "against" ~ b
+      )
+    ) %>% 
+    median_qi(b) %>% 
+    mutate(
+      across(
+        c(b, .lower, .upper), 
+        f_num, digits = 2, retain.leading.zero = T
+      ),
+      b_text = glue(
+        "$\\beta_{xy} = (b), [(.lower), (.upper)]$",
+        .open = "(", .close = ")"
+      )
+    )
+
+```
+
+We reran Model 3 with political orientation, instead of system justification, as an alternative predictor variable. Our results mirrored results from the preregistered analyses: More liberal participants were more likely to consider protest actions for defunding the police to be acceptable (`r with(m4_exp, b_text[Cause == "for"])`) but more conservative participants were not more likely to consider protest actions against defunding the police to be acceptable (`r with(m4_exp, b_text[Cause == "against"])`). As Figure 5 shows, conservative participants tended to consider all protest actions to be equally unacceptable while liberal participants considered the same protest actions to be more acceptable if protesters rallied around a progressive cause. Our non-preregistered analyses thus found evidence for ideology-based double standards in judging collective action with a different operationalization of political ideology.
+
+## Discussion
+
+# General Discussion
+
+- Summary: No evidence for identity-based double standards, but some evidence for ideology-based double standards
+- Two plausible interpretations: (1) conservatives oppose controversial protest (no matter the end) *or* (2) the end justifies the mean
+- Re (1) it's plausible but what about recent events? (see public polling from grant)
+- Re (2) why is there no asymmetry?
+- Outline the-end-justifies-the-mean idea, highlighting that just supporting a cause is not enough, it needs moralization
+- Discuss why high-status group are more accepting of controversial protest actions
+- Discuss limitations (two cultures, two issues, liberal samples; system-defending vs. system-supporting actions; what about other conservative causes?)
+- Invite researchers to use our paradigm
+
+\refsection
+
+\begingroup
+
+\noindent
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+\small
+
+<div id="refs"></div>
+
+\endgroup
+
+\newpage
+
+```{=latex}
+\setcounter{table}{0}
+\renewcommand{\thetable}{A\arabic{table}}
+
+\begin{table*}
+
+\section{Appendix A}
+
+\caption{List of protest actions used in Experiment 1}
+\small
+\begin{tabularx}{\linewidth}{rXr}
+\addlinespace
+\toprule
+\# & Action & Pr\\
+\midrule
+1 & participate in a public meeting of representatives and elected officials & 97\%\\
+2 & hold meetings to inform the public & 96\%\\
+3 & make a public speech & 96\%\\
+4 & hold meetings to influence the public & 93\%\\
+5 & attend or organise a protest march & 93\%\\
+6 & attend or organise a protest rally & 92\%\\
+7 & use social media (e.g., Facebook, Twitter, Instagram) to influence the public & 92\%\\
+8 & do not buy goods or services from companies who support the bill (consumers' boycott) & 92\%\\
+9 & paste up posters with political messages in places where it is allowed and encouraged & 89\%\\
+10 & join or form a group of activists who oppose the bill & 87\%\\
+11 & refuse to accept honours or awards in protest & 82\%\\
+12 & donate to political parties who oppose the bill & 80\%\\
+13 & refuse to work (strike) & 80\%\\
+14 & pay for adverts on social media (e.g., Facebook, Twitter, Instagram) to influence public opinion & 78\%\\
+15 & donate to activist groups who oppose the bill & 77\%\\
+16 & visit people in their homes to convince them about the issue (canvassing, door knocking) & 54\%\\
+17 & stand or sit in a building and refuse to leave (stand-in, sit-in) & 51\%\\
+18 & refuse to honour national symbols and traditions (e.g., refusing to sing the national anthem) until the bill is abandoned & 47\%\\
+19 & enter and refuse to leave a building (occupation) & 38\%\\
+20 & paste up posters with political messages in places where it is not allowed or encouraged & 35\%\\
+21 & disrupt traffic (e.g., blocking roads) & 22\%\\
+22 & refuse to cooperate with the police and other government agencies & 19\%\\
+23 & mock or insult individuals who support the bill & 14\%\\
+24 & spray paint political messages in public places & 14\%\\
+25 & deface flags or other national symbols & 12\%\\
+\bottomrule
+\end{tabularx}
+\caption*{\textit{Note.} Actions are ordered by the proportion of participants, across all conditions, who considered it to be an acceptable means of protest in Experiment 1.}
+
+\end{table*}
+```
+
+```{=latex}
+\setcounter{table}{0}
+\renewcommand{\thetable}{B\arabic{table}}
+
+\begin{table*}
+
+\section{Appendix B}
+
+\caption{List of protest actions used in Experiment 2}
+\small
+\begin{tabularx}{\linewidth}{rXr}
+\addlinespace
+\toprule
+\# & Action & Pr\\
+\midrule
+1 & make a public speech & 94\%\\
+2 & \textit{hand out flyers, leaflets, or pamphlets} & 93\%\\
+3 & use social media (e.g., Facebook, Twitter, Instagram) to influence the public & 91\%\\
+4 & hold meetings to influence the public & 91\%\\
+5 & paste up posters with political messages in places where it is allowed and encouraged & 91\%\\
+6 & attend or organise a protest march & 91\%\\
+7 & donate to activist groups & 89\%\\
+8 & join or form a group of activists & 89\%\\
+9 & \textit{wear or display political symbols (e.g., patches, flags, bumper stickers)} & 86\%\\
+10 & refuse to buy goods or services from companies that advocate [against/for] defunding the police (boycott) & 85\%\\
+11 & pay for adverts on social media (e.g., Facebook, Twitter, Instagram) to influence public opinion & 83\%\\
+12 & donate to politicians who advocate [for/against] defunding the police & 82\%\\
+13 & refuse to accept honors or awards in protest & 80\%\\
+14 & refuse to work (strike) & 61\%\\
+15 & visit people in their homes to convince them about the issue (canvassing, door knocking) & 61\%\\
+16 & stand or sit in a building and refuse to leave (stand-in, sit-in) & 55\%\\
+17 & \textit{attend a protest march even though it might turn violent} & 44\%\\
+18 & \textit{attend a protest march even though it might be unlawful} & 42\%\\
+19 & \textit{attend a protest march while carrying a firearm (where legal)} & 35\%\\
+20 & enter and refuse to leave a building (occupation) & 34\%\\
+21 & paste up posters with political messages in places where it is not allowed or encouraged & 29\%\\
+22 & \textit{refuse to pay fees, fines, or taxes in protest} & 29\%\\
+23 & disrupt traffic (e.g., blocking roads) & 25\%\\
+24 & spray paint political messages in public places & 23\%\\
+25 & mock or insult individuals who are [against/for] defunding the police & 15\%\\
+\bottomrule
+\end{tabularx}
+\caption*{\textit{Note.} Actions are ordered by the proportion of participants, across all conditions, who considered it to be an acceptable means of protest in Experiment 2. Actions in \textit{italics} replaced actions used in Experiment 1 that were either redundant or did not fit the context of Experiment 2.}
+
+\end{table*}
+```

@@ -1,0 +1,7 @@
+.Rproj.user
+Documents/preprint*
+Documents/*.docx
+Scale Development/models/.exe
+Experiment 1/models/.exe
+Experiment 2/models/.exe
+Experiment 1/results/results_exploratory_analyses.rds

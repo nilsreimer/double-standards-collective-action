@@ -1,0 +1,44 @@
+\documentclass[12pt, letterpaper]{article}
+
+% Font
+\usepackage[utf8]{inputenc}
+\usepackage{MinionPro} 
+\input{glyphtounicode}
+\pdfgentounicode=1 
+\usepackage{microtype}
+
+% Format
+\usepackage[letterpaper, margin = 1in]{geometry}
+\setcounter{secnumdepth}{0}
+\usepackage{titlesec}  
+\titleformat*{\section}{\centering\normalfont\Large\bfseries}
+
+% Links
+\usepackage[colorlinks = true, linkcolor = black, urlcolor = black, citecolor = black]{hyperref} 
+
+% Figures
+\usepackage{graphicx}
+\usepackage[labelfont = bf, font = small, labelsep = newline, singlelinecheck = false]{caption}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+
+% Tables
+\usepackage{booktabs}
+\usepackage{xltabular}
+
+% References
+$if(csl-refs)$
+\newenvironment{CSLReferences}[2]{}{}
+$endif$
+
+% Frontmatter
+\title{ $title$:\\\textit{$subtitle$} }
+\author{ $author$ }
+
+\begin{document}
+
+\maketitle
+
+$body$
+
+\end{document}

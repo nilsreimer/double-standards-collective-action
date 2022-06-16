@@ -142,7 +142,7 @@ rm(list = ls())
 # Compare -----------------------------------------------------------------
 
   # By ingroup
-  d_fig %>%
+  post %>%
     group_by(.draw, .chain, .iteration, ingroup) %>%
     summarize(
       z = mean(z)
@@ -150,10 +150,11 @@ rm(list = ls())
     ungroup() %>%
     pivot_wider(names_from = ingroup, values_from = z) %>%
     # summarize(p = mean(ingroup > outgroup))
-    median_qi(d = ingroup - outgroup)
+    median_qi(d = Ingroup - Outgroup) %>% 
+    mutate(across(where(is.double), round, 2))
 
   # By actor
-  d_fig %>%
+  post %>%
     group_by(.draw, .chain, .iteration, actor) %>%
     summarize(
       z = mean(z)
@@ -161,13 +162,16 @@ rm(list = ls())
     ungroup() %>%
     pivot_wider(names_from = actor, values_from = z) %>%
     # summarize(p = mean(HS > LS))
-    median_qi(d = HS - LS)
+    median_qi(d = HS - LS) %>% 
+    mutate(across(where(is.double), round, 2))
 
   # By actor/observer
-  d_fig %>%
-    select(-sample, -target, -n, -p, -ingroup) %>%
-    pivot_wider(names_from = observer, values_from = z) %>%
-    group_by(actor) %>%
+  post %>%
+    # select(-sample, -target, -n, -p, -ingroup) %>%
+    select(-sample, -target, -ingroup, -kk) %>%
+    pivot_wider(names_from = actor, values_from = z) %>%
+    group_by(observer) %>%
     # summarize(p = mean(HS > LS))
-    median_qi(d = HS - LS)
+    median_qi(d = HS - LS) %>% 
+    mutate(across(where(is.double), round, 2))
   

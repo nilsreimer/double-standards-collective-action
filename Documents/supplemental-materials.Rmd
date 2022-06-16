@@ -70,13 +70,15 @@ First, we recruited a larger pool of 875 participants. Of these, 475 participant
 
 \noindent As preregistered, we excluded participants from the lower-status group who had responded "middle-class/professional job" or "neither" to this question; we excluded participants from the higher-status group who had responded "working-class job" or "neither" to this question. This left 687 participants for the next step of the selection procedure.
 
-Second, we set out to recruit 500 participants from the remaining 687 participants, 250 from the lower-status group and 250 from the higher-status group. After giving their informed consent, participants were randomly assigned to read a vignette about a government bill affecting either people in working-class jobs (*lower-status actors*) or people in professional jobs (*higher-status actors*). Participants in both conditions were instructed to carefully read the vignette and to try to imagine what it would be like if this situation was real. Participants in the lower-status actors condition then read the following introduction:
+Second, we set out to recruit 500 participants from the remaining 687 participants, 250 from the lower-status group and 250 from the higher-status group. After giving their informed consent, participants were randomly assigned to read a vignette about a government bill affecting either people in working-class jobs (*lower-status protesters*) or people in professional jobs (*higher-status protesters*). Participants in both conditions were instructed to carefully read the vignette and to try to imagine what it would be like if this situation was real. Participants in the lower-status protesters condition then read the following introduction:
 
 > The government, though not necessarily the current government, is going to introduce a bill that will mostly affect people in working-class jobs. Working-class jobs, in this case, are jobs done by skilled, semi-skilled, unskilled manual workers or by casual workers. These are jobs that do not usually require a university degree. Other jobs are unlikely to be affected.
-Participants in the higher-status actors condition instead read the following introduction:
+
+\noindent Participants in the higher-status protesters condition instead read the following introduction:
 
 > The government, though not necessarily the current government, is going to introduce a bill that will mostly affect people in professional jobs. Professional jobs are administrative, managerial, or other jobs that usually require a university degree. Other jobs are unlikely to be affected.
-Participants in the two conditions then read this almost identically worded paragraph: 
+
+\noindent Participants in the two conditions then read this almost identically worded paragraph: 
 
 >This government measure would make it easier for companies to hire workers during economic growth and to lay off workers during an economic crisis. As a consequence, companies would be able to fire employees with little notice and without giving a reason. Trade unions are opposed to the measure. They argue that the bill would compromise job security, and prevent employees from challenging harassment or other abuse without the fear of being fired. People in [working-class/professional] jobs are particularly at risk, and there is a rise in tension and outrage among them.
 

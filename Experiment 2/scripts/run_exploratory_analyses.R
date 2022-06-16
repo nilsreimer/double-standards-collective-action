@@ -39,7 +39,8 @@ rm(list = ls())
       id,
       x_sjb = (sjb - mean(sjb))/sd(sjb),
       x_sup = (q5 - mean(q5))/sd(q5),
-      x_pol = (q19_1 - mean(q19_1))/sd(q19_1)
+      x_pol = (q19_1 - mean(q19_1))/sd(q19_1),
+      x_ide = (q16 - mean(q16, na.rm = T))/sd(q16, na.rm = T)
     ) %>% 
     left_join(dl, ., by = "id") %>% 
     mutate(

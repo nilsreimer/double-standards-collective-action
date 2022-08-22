@@ -223,15 +223,16 @@ rm(list = ls())
   # Make plot
   f_5_p <- ggplot(d_fig, aes(x = z, y = fct_rev(factor(order)), group = x)) + 
     geom_ribbon(
-      data = d_fig %>% group_by(order, x, predictor) %>% median_qi(z),
-      aes(xmin = .lower, xmax = .upper, fill = x),
+      data = d_fig %>% group_by(order, x, predictor, Participant) %>% median_qi(z),
+      aes(xmin = .lower, xmax = .upper, fill = x, group = interaction(Participant, x)),
       alpha = 0.4
     ) +
     stat_pointinterval(
       aes(shape = x, colour = x, group = x),
       fill = "white",
       size = 0.455,
-      point_size = 3*0.455
+      point_size = 3*0.455,
+      .width = 0.95
     ) +
     geom_hline(yintercept = c(0.5, 8.5), size = 0.455) +
     geom_hline(yintercept = c(4.5), size = 3*0.455, colour = "white") +

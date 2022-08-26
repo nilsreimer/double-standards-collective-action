@@ -118,7 +118,7 @@ rm(list = ls())
   # Extract posterior draws
   ide_post_ii <- ide_ps %>% spread_draws(alpha[ii], beta[ii]) %>% ungroup()
   ide_post_jj <- ide_ps %>% spread_draws(theta[jj]) %>% ungroup()
-  ide_post_kk <- ide_ps %>% spread_draws(delta[kk], b_ide_kk[kk]) %>% ungroup()
+  ide_post_kk <- ide_ps %>% spread_draws(delta[kk], b_ide_kk[kk], b_ide) %>% ungroup()
   
   # Calculate effect sizes
   ide_post <- dl %>% 
@@ -126,25 +126,43 @@ rm(list = ls())
     left_join(ide_post_kk, by = c("kk")) %>% 
     left_join(ide_post_jj, by = c("jj", ".draw", ".chain", ".iteration")) %>% 
     group_by(.draw) %>% 
-    summarize(
-      mean = mean(theta + delta + b_ide_kk * z_ide),
-      sd = sd(theta + delta + b_ide_kk * z_ide)
-    ) %>% 
-    crossing(
-      kk = 1:8, 
-      z_ide = -1:1
-    ) %>% 
-    left_join(ide_post_kk, by = c(".draw", "kk")) %>% 
     mutate(
-      z = ((delta + b_ide_kk * z_ide) - mean)/sd
+      b_ide = b_ide/sd(theta + delta + b_ide_kk*z_ide),
+      b_ide_kk = b_ide_kk/sd(theta + delta + b_ide_kk*z_ide),
     ) %>% 
-    right_join(
-      dl %>% 
-        select(kk, participant_ideology, participant_gender, protesters_cause) %>% 
-        distinct(),
-      by = "kk"
-    ) %>% 
-    select(.draw, kk, z_ide, z, participant_ideology, participant_gender, protesters_cause)
+    ungroup() %>%
+    distinct(.chain, .iteration, .draw, kk, b_ide, b_ide_kk) %>% 
+      right_join(
+        dl %>%
+          select(kk, participant_ideology, participant_gender, protesters_cause) %>%
+          distinct(),
+        by = "kk"
+      )
+    
+  # ide_post <- dl %>% 
+  #   distinct(jj, kk, z_ide) %>% 
+  #   left_join(ide_post_kk, by = c("kk")) %>% 
+  #   left_join(ide_post_jj, by = c("jj", ".draw", ".chain", ".iteration")) %>% 
+  #   group_by(.draw) %>% 
+  #   summarize(
+  #     mean = mean(theta + delta + b_ide_kk * z_ide),
+  #     sd = sd(theta + delta + b_ide_kk * z_ide)
+  #   ) %>% 
+  #   crossing(
+  #     kk = 1:8, 
+  #     z_ide = -1:1
+  #   ) %>% 
+  #   left_join(ide_post_kk, by = c(".draw", "kk")) %>% 
+  #   mutate(
+  #     z = ((delta + b_ide_kk * z_ide) - mean)/sd
+  #   ) %>% 
+  #   right_join(
+  #     dl %>% 
+  #       select(kk, participant_ideology, participant_gender, protesters_cause) %>% 
+  #       distinct(),
+  #     by = "kk"
+  #   ) %>% 
+  #   select(.draw, kk, z_ide, z, participant_ideology, participant_gender, protesters_cause)
   
   # Export results as .rds
   write_rds(ide_post, "Experiment 3/results/ide_post.rds")

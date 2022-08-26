@@ -2,7 +2,7 @@
 title: "Double Standards in Judging Collective Action"
 header: "DOUBLE STANDARDS"
 keywords: protest, collective action, double standards, social identity theory, system justification theory, Black Lives Matter
-abstract: "Collective action is a powerful force driving social change but often sparks contention about what actions are acceptable means to effect social change. In five studies (total *N* = 2,979), we investigated double standards in judging collective action---that is, whether observers will judge the same protest actions as more acceptable if the protesters are ingroup members and their cause aligns with the ingroup's interests (*identity-based double standards*) or if the protesters' cause aligns with the observers' ideological positions (*ideology-based double standards*). In two studies, we developed an instrument of 25 controversial protest actions, based in item response theory, to measure where people draw the line between acceptable and unacceptable forms of collective action. In three preregistered experiments, we used this instrument to test for double standards in judging collective action for workers' rights in the United Kingdom and for or against defunding the police and for or against restricting abortion in the United States. We found evidence for ideology-based, but not for identity-based, double standards: Participants judged the same protest actions to be more acceptable when the protesters' cause aligned with their own ideological position---but showed no ingroup bias when judging collective action by ingroup and outgroup members. Our findings have theoretical and practical implications for understanding the often divided response to prominent social movements."
+abstract: "Collective action is a powerful force driving social change but often sparks contention about what actions are acceptable means to effect social change. In five studies (total *N* = 2,979), we investigated double standards in judging collective action---that is, whether observers will judge the same protest actions as more acceptable if the protesters are ingroup members and their cause aligns with the ingroup's interests (*identity-based double standards*) or if the protesters' cause aligns with the observers' ideological positions (*ideology-based double standards*). In two studies, we developed an instrument of 25 controversial protest actions, based in item response theory, to measure where people draw the line between acceptable and unacceptable forms of collective action. In three preregistered experiments, we used this instrument to test for double standards in judging collective action for workers' rights in the United Kingdom and for or against defunding the police and for or against restricting abortion in the United States. We found evidence for ideology-based, but not for identity-based, double standards: Participants judged the same protest actions to be more acceptable when the protesters' cause aligned with their own ideological position---but showed no consistent ingroup bias when judging collective action by ingroup and outgroup members. Our findings have theoretical and practical implications for understanding the often divided response to prominent social movements."
 bibliography: references.bib
 csl: apa.csl
 output:
@@ -27,7 +27,7 @@ Protest movements often spark contention about what actions are acceptable means
 <!-- Likewise, 42\% of Americans thought that, in the 2020 Black Lives Matter protests, most protesters were trying to incite violence or destroy property, even though very few protests involved any violence or property destruction [@acled_year_2021]. -->
 This and other examples suggest that *who* the protesters are and *what* they are protesting influences how acceptable observers judge their actions to be. 
 
-In this paper, we examine double standards in judging collective action---that is, whether observers judge the same protest actions as more or less acceptable depending on their own and the protesters' group memberships (*identity-based double standards*) or on the protesters' cause and how it aligns with their own ideological positions (*ideology-based double standards*). In two studies, we first develop an instrument of 25 controversial protest actions, based in item response theory, to capture double standards in judging collective action. In three preregistered experiments, we then use this instrument to test for double standards in judging protest actions for workers' rights in the United Kingdom and for or against defunding the police and for or against restricting abortion in the United States. We find evidence for ideology-based, but not for identity-based, double standards: People judge the same protest actions to be more acceptable when the protesters' cause aligns with their own ideological positions---but do not show ingroup bias when judging collective action by ingroup and outgroup members.
+In this paper, we examine double standards in judging collective action---that is, whether observers judge the same protest actions as more or less acceptable depending on their own and the protesters' group memberships (*identity-based double standards*) or on the protesters' cause and how it aligns with their own ideological positions (*ideology-based double standards*). In two studies, we first develop an instrument of 25 controversial protest actions, based in item response theory, to capture double standards in judging collective action. In three preregistered experiments, we then use this instrument to test for double standards in judging protest actions for workers' rights in the United Kingdom and for or against defunding the police and for or against restricting abortion in the United States. We find evidence for ideology-based, but not for identity-based, double standards: People judge the same protest actions to be more acceptable when the protesters' cause aligns with their own ideological positions---but do not show consistent ingroup bias when judging collective action by ingroup and outgroup members.
 
 <!-- In the next sections, we, first, introduce the consequential distinction between normative and nonnormative collective action and define double standards in judging what actions are acceptable and unacceptable means to effect social change. We, second, derive predictions from social psychological theories about identity- and ideology-based double standards that might affect judgements about collective action. We, third, introduce item response theory as a conceptual and statistical framework for study double standards in judging collective action. We, finally, provide an overview of the present research. -->
 
@@ -81,13 +81,14 @@ where $\Pr ( y_{ij} = 1 )$ is the probability that respondent $j$ considers acti
 
 Figure \ref{fig:f1} illustrates those relationships for three hypothetical protest actions. $\theta_{(z)}$ is the *z*-standardized tendency for a participant to be more accepting of various actions so that $\beta_i$ determines the probability that the average respondent ($\theta_{(z)} = 0$) considers an action an acceptable means of protest. Action 2 ($\beta_2 = 1.28$) is more acceptable than Actions 1 and 2 ($\{ \beta_2, \beta_3 \} = 0$) as the average respondent is more likely to consider the former ($\Pr = .78$) than the latter ($\Pr = .50$) acceptable means of protest. Action 3 ($\alpha_3 = 3.60$) is more discriminating than Actions 1 and 2 ($\{ \alpha_1, \alpha_2 \} = 1$) as the slope for the relationship between how accepting a respondent is and how likely they are to consider an action acceptable is steeper for the former action. This means that knowing whether someone considers Action 3 acceptable provides more information about them than knowing whether they consider Actions 1 or 2 acceptable.
 
-In this research, item response theory serves two purposes. First, item response theory provides a statistical framework for scale development. In Studies 1 and 2, we select the most discriminating and informative actions to build an instrument for capturing double standards in the experiments. Second, item response theory provides a formal and statistical definition of double standards in judging collective action as respondents being more accepting of the same protest actions depending on who the protesters and what they are protesting. In Experiments 1 and 2, we operationalize double standards as the differences in $\theta_{(z)}$ between conditions which, as $\theta_{(z)}$ is $z$-standardized, correspond to Cohen's $d$ effect sizes. 
+In this research, item response theory serves two purposes. First, item response theory provides a statistical framework for scale development. In Studies 1 and 2, we select the most discriminating and informative actions to build an instrument for capturing double standards in the experiments. Second, item response theory provides a formal and statistical definition of double standards in judging collective action as respondents being more accepting of the same protest actions depending on who the protesters and what they are protesting. In Experiments 1--3, we operationalize double standards as the differences in $\theta_{(z)}$ between conditions which, as $\theta_{(z)}$ is $z$-standardized, correspond to Cohen's $d$ effect sizes. 
 
 ## Purpose of the Present Research
 
-The first purpose of our research is to develop an instrument to measure where people draw the line between acceptable and unacceptable forms of collective action. In Study 1, we ask participants to generate more and less extreme protest actions and compile a pool of protest actions for scale development. In Study 2, we ask participants to rate how acceptable they consider each of those protest action to be and use item response theory to select the most discriminating and informative protest actions for our instrument. In so doing, we build an instrument that enables both present and future research to capture double standards in judging collective action. In this way, our research situates the distinction between normative and non-normative collective action in the eye of the beholders and opens it to scientific investigation.
+The first purpose of our research is to develop an instrument to measure where people draw the line between acceptable and unacceptable forms of collective action. In Study 1, we ask participants to generate more and less extreme protest actions and compile a pool of protest actions for scale development. In Study 2, we ask participants to rate how acceptable they consider each of those protest action to be and use item response theory to select the most discriminating and informative protest actions for our instrument. In so doing, we build an instrument that enables both present and future research to capture double standards in judging collective action. 
+<!-- In this way, our research situates the distinction between normative and non-normative collective action in the eye of the beholders and opens it to scientific investigation. -->
 
-The second purpose of our research is to test for double standards in judging collective action---that is, whether people judge the same protest actions as more acceptable if the protesters' are ingroup members or the protesters' cause aligns with the ingroup's interests (*Hypothesis 1a*, *1b*) or if the protesters' cause aligns with their own system-justifying or system-challenging motives (*Hypotheses 2a*, *2b*). In Experiment 1, we use the instrument developed in Studies 1 and 2 to test for double standards in how acceptable participants consider collective action for workers' rights in the United Kingdom. By varying both the participants' and the protesters' group memberships (working/middle class), Experiment 1 compares the relative evidence for identity-based (*Hypothesis 1a*, *1b*) and ideology-based double standards (*Hypothesis 2a*). Extending Experiment 1, Experiment 2 considers both system-challenging and system-defending collective action in the context of the 2020 Black Lives Matter protests in the United States. By varying the protesters' cause (for/against defunding the police) as well as the participants' and the protesters' group memberships (Black/White), Experiment 2 compares the relative evidence identity-based (*Hypothesis 1a*, *1b*) and ideology-based double standards (*Hypothesis 2a*, *2b*). Together, the preregistered experiments provide a comprehensive test of the hypothesized double standards in judging collective action.
+The second purpose of our research is to test for double standards in judging collective action---that is, whether people judge the same protest actions as more acceptable if the protesters' are ingroup members or the protesters' cause aligns with the ingroup's interests (*Hypothesis 1a*, *1b*) or if the protesters' cause aligns with their own system-justifying or system-challenging motives (*Hypotheses 2a*, *2b*). In Experiment 1, we use the instrument developed in Studies 1 and 2 to test for double standards in how acceptable participants consider collective action for workers' rights in the United Kingdom. By varying both the participants' and the protesters' group memberships (working/middle class), Experiment 1 compares the relative evidence for identity-based (*Hypothesis 1a*, *1b*) and ideology-based double standards (*Hypothesis 2a*). Extending Experiment 1, Experiment 2 considers both system-challenging and system-defending collective action in the context of the 2020 Black Lives Matter protests in the United States. By varying the protesters' cause (for/against defunding the police) as well as the participants' and the protesters' group memberships (Black/White), Experiment 2 compares the relative evidence for identity-based (*Hypothesis 1a*, *1b*) and ideology-based double standards (*Hypothesis 2a*, *2b*). Building on Experiments 1--2, Experiment 3 examines how liberal and conservative men and women judge collective action for or against restricting abortion in anticipation of the Supreme Court overturning its *Roe v. Wade* decision on reproductive rights in the United States. By varying the protesters' cause as well as the participants' ideology and gender, Experiment 3 compares the relative evidence for identity-based (*Hypothesis 1b*) and ideology-based (*Hypothesis 2b*) double standards in judging collective action concerning a conservative cause in a sample balanced by gender and ideology. Together, the preregistered experiments provide a comprehensive test of the hypothesized double standards in judging collective action.
 
 <!-- > **Hypothesis 1.** People will consider *more* controversial actions acceptable means of protest if (a) the protesters are ingroup members *or* if (b) the cause of the protest aligns with the ingroup's interests. -->
 
@@ -519,9 +520,17 @@ We also explored whether we would find ideology-based double standards when oper
  
 Experiment 2 provided a complete test of the hypothesized identity- and ideology-based double standards in judging collective action. As in Experiment 1, we found that participants' responses depended on both the participants' and the protesters' group memberships---but not in the hypothesized directions. We found that, contrary to *Hypothesis 1a*, participants considered protest actions taken by ingroup and outgroup members to be equally acceptable and that, contrary to *Hypothesis 1b*, participants did not consider the same protest actions to be more acceptable when the protesters' cause aligned with their ingroup's interests. Like Experiment 1, Experiment 2 thus found no evidence for identity-based double standards---even though it focused on an issue of direct and current relevance to the participants.
 
-Expanding Experiment 1, Experiment 2 considered reactions to both system-challenging and system-defending collective action and, in so doing, provided a stronger test of the hypothesized ideology-based double standards. Contrary to *Hypothesis 2a* and the underlying assumption of a universal system-justifying motive, we found that participants considered the same protest actions to be *more* acceptable when judging system-challenging collective action (for defunding the police) than when judging system-defending collective action. This finding might reflect our liberal-leaning sample. In line with *Hypothesis 2b*, we found that participants who rejected system-justifying beliefs considered the same protest action more acceptable when judging system-challenging collective action (for defunding the police). We did not, however, find evidence for ideological symmetry in this relationship as participants who endorsed system-justifying beliefs considered system-challenging and system-defending collective action to be equally unacceptable. In addition, we did not find evidence for the alternative, simpler *Hypothesis 3* that that participants would judge the same protest actions to be acceptable when they supported the protesters' cause. In this way, Experiment 2 provided evidence for ideology-based, but not for identity-based, double standards in judging collective action.
+Expanding Experiment 1, Experiment 2 considered reactions to both system-challenging and system-defending collective action and, in so doing, provided a stronger test of the hypothesized ideology-based double standards. Contrary to *Hypothesis 2a* and the underlying assumption of a universal system-justifying motive, we found that participants considered the same protest actions to be *more* acceptable when judging system-challenging collective action (for defunding the police) than when judging system-defending collective action. This finding might reflect our liberal-leaning sample. 
+
+In line with *Hypothesis 2b*, we found that participants who rejected system-justifying beliefs considered the same protest action more acceptable when judging system-challenging collective action (for defunding the police). We did not, however, find evidence for ideological symmetry in this relationship as participants who endorsed system-justifying beliefs considered system-challenging and system-defending collective action to be equally unacceptable. In addition, we did not find evidence for the alternative, simpler *Hypothesis 3* that that participants would judge the same protest actions to be acceptable when they supported the protesters' cause. 
+
+One reason why we did not find evidence for ideological symmetry might be that participants judged protests for or against a progressive cause and that *opposing* a progressive cause is not equivalent to *supporting* a conservative cause. Another reason might be that our sample skewed liberal and lacked committed conservatives who might accept more extreme means to oppose a progressive cause. Experiment 3 addressed those limitations by testing for ideology-based double standards in judging collective action for or against a conservative cause in a balanced sample of conservatives and progressives.
 
 # Experiment 3
+
+In Experiment 3, we investigated potential double standards in judging collective action for or against restricting abortion in the United States. That is, we tested whether liberal and conservative women and men applied different standards when judging collective action opposing or supporting further restricting or banning abortion. We conducted this study in June 2022 when many expected the Supreme Court to overturn its *Roe v. Wade* decision that hitherto had guaranteed access to legal abortions in the first 20--24 weeks of pregnancy in the United States. We focused on restricting abortion as it is a conservative issue, as it primarily affects women's reproductive rights, and as the anticipated Supreme Court decision would prompt several states to restrict or ban abortion. 
+
+By varying the participants' political orientation and the protesters' cause, we tested the preregistered hypothesis that, in line with *symmetrical* ideology-based double standards, conservatives would judge the same protest actions to be more acceptable if the protesters supported restricting abortion and that liberals would judge the same protest actions to be more acceptable if the protesters opposed restricting abortion. We tested the alternative hypothesis that, in line with *asymmetrical* ideology-based double standards, conservatives would judge all protest actions to be equally unacceptable while liberals would judge the same protest actions to be more acceptable if the protesters opposed restricting abortion. By varying the participants' gender, we further tested the preregistered hypothesis that, in line with identity-based double standards, female participants would judge protest actions against restricting abortion to be more acceptable, on average, than male participants or protest actions for restricting abortion.
 
 ## Method
 
@@ -567,7 +576,7 @@ We measured support for restricting abortion with one item: "Do you support or o
 
 We measured gender-related system-justifying beliefs with eight items [adapted from @jost_exposure_2005], for example, "in general, relations between men and women are fair" (1 = *strongly disagree*, 7 = *strongly agree*; McDonald's $\omega = .93$). A confirmatory factor analysis model in which all items loaded onto a single factor showed acceptable fit, $\chi^2 (20) = 111.90; \text{CFI} = 0.97; \text{TLI} = 0.95; \text{RMSEA} = 0.09, [0.08, 0.11]$.
 
-We will measured moral concerns with the 36-item moral foundations questionnaire [MFQ-2, @atari_morality_2022] which assesses to what extent participants endorse concerns about care, equality, proportionality, loyalty, authority, and purity (e.g., "I believe chastity is an important virtue."; 1 = *does not describe me at all*, 5 = *describes me extremely well*). We embedded three further attention checks within the questionnaire (e.g., "To show that you are paying attention and giving your best effort, please select 'moderately describes me'.").
+We measured moral concerns with the 36-item moral foundations questionnaire [MFQ-2, @atari_morality_2022] which assesses to what extent participants endorse concerns about care, equality, proportionality, loyalty, authority, and purity (e.g., "I believe chastity is an important virtue."; 1 = *does not describe me at all*, 5 = *describes me extremely well*). We embedded three further attention checks within the questionnaire (e.g., "To show that you are paying attention and giving your best effort, please select 'moderately describes me'.").
 
 In addition to demographic questions, we asked participants to what extent they identified with their gender (1 = *strongly disagree*, 7 = *strongly agree*) and measured political orientation with a one-item semantic differential scale: "People often describe their political orientation as liberal or conservative. On a scale from liberal to conservative, where would you position yourself?" (1 = *liberal*, 7 = *conservative*).
 
@@ -590,8 +599,6 @@ As expected, participants who identified as conservative reported being far more
 ```
 
 ```{r, include = FALSE}
-
-  # THIS MIGHT BE WRONG
 
   # Import results
   m1 <- read_rds("../Experiment 3/results/m1_post.rds")
@@ -685,8 +692,9 @@ As expected, participants who identified as conservative reported being far more
 
 To test our hypotheses, we used a two-parameter logistic item response theory model, identical to the one used in Experiment 2, to estimate how likely participants were to consider each action an acceptable means of protest as a function of the protesters' cause and of the participants' gender and ideology. Figure \ref{fig:f6} shows the results of our preregistered analyses.
 
-As in Experiments 1 and 2, we found no evidence for identity-based double standards: Female participants did not consider protest actions *against* restricting abortion to be any more acceptable, on average, than male participants or protest actions *for* restricting abortion (`r with(m1, d_text[contrast == "h1_contrast"])`). Instead, we again found evidence for ideology-based double standards: Conservative participants considered the same protest actions to be more acceptable, on average, when protesters *supported* restricting abortion (`r with(m1, d_text[contrast == "nh1_contrast"])`) while liberal participants considered the same protest actions to be more acceptable when protesters *opposed* restricting abortion (`r with(m1, d_text[contrast == "nh2_contrast"])`).
-This pattern was consistent across subsamples as conservative women (`r with(m1, d_text[contrast == "nh4_contrast"])`) and, to a lesser extent, conservative men (`r with(m1, d_text[contrast == "nh3_contrast"])`) considered the same protest actions to be more acceptable when protesters *supported* restricting abortion and as both liberal men (`r with(m1, d_text[contrast == "nh5_contrast"])`) and women (`r with(m1, d_text[contrast == "nh6_contrast"])`) considered the same protest actions to be more acceptable when protesters *opposed* restricting abortion. This double standard was, however, more pronounced among liberal participants (`r with(m1, d_text[contrast == "nh7_contrast"])`). In this way, Experiment 3 provided evidence for both ideological symmetry and asymmetry in judging collective action for and against restricting abortion.
+As in Experiments 1 and 2, we found evidence for ideology-based double standards: Conservative participants considered the same protest actions to be more acceptable, on average, when protesters *supported* restricting abortion (`r with(m1, d_text[contrast == "nh1_contrast"])`) while liberal participants considered the same protest actions to be more acceptable when protesters *opposed* restricting abortion (`r with(m1, d_text[contrast == "nh2_contrast"])`). This double standard was more pronounced among liberal participants (`r with(m1, d_text[contrast == "nh7_contrast"])`). In this way, Experiment 3 provided evidence for both ideological symmetry and asymmetry in judging collective action for and against restricting abortion. 
+
+We found some evidence for identity-based double standards: Female participants considered protest actions *against* restricting abortion to be more acceptable, on average, than male participants or protest actions *for* restricting abortion (`r with(m1, d_text[contrast == "h1_contrast"])`). This pattern was, however, overshadowed by stronger ideology-based double standards that were consistent across subsamples: Conservative women (`r with(m1, d_text[contrast == "nh4_contrast"])`) and, to a lesser extent, conservative men (`r with(m1, d_text[contrast == "nh3_contrast"])`) considered the same protest actions to be more acceptable when protesters *supported* restricting abortion and both liberal women (`r with(m1, d_text[contrast == "nh6_contrast"])`) and men (`r with(m1, d_text[contrast == "nh5_contrast"])`) considered the same protest actions to be more acceptable when protesters *opposed* restricting abortion. In this way, Experiment 3 provided more consistent evidence for ideology-based than for identity-based double standards in judging collective action.
 
 ### Non-Preregistered Analyses
 
@@ -695,54 +703,73 @@ This pattern was consistent across subsamples as conservative women (`r with(m1,
   # Import results
   ide <- read_rds("../Experiment 3/results/ide_post.rds")
 
-  # Define contrasts
-  ide <- ide %>% 
-    mutate(
-      h1_contrast = case_when(
-        participant_gender == "Woman" & protesters_cause == "Against" ~ +1L,
-        TRUE ~ -1L,
-      ),
-      nh1_contrast = case_when(
-        participant_gender == "Woman" & protesters_cause == "Against" ~ +1L,
-        participant_gender == "Woman" & protesters_cause == "For" ~ -1L,
-        TRUE ~ NA_integer_
-      ),
-      nh2_contrast = case_when(
-        participant_gender == "Man" & protesters_cause == "Against" ~ +1L,
-        participant_gender == "Man" & protesters_cause == "For" ~ -1L,
-        TRUE ~ NA_integer_
-      )
-    )
-  
-  # Calculate contrasts
-  ide <- ide %>% 
-    pivot_longer(
-      ends_with("_contrast"),
-      names_to = "contrast",
-      values_to = "direction",
-      values_drop_na = TRUE
-    ) %>% 
-    group_by(.draw, z_ide, contrast, direction) %>% 
-    summarize(z = mean(z)) %>% 
-    summarize(d = sum(z * direction)) %>% 
-    group_by(z_ide, contrast) %>% 
-    median_qi(d)
-  
   # Make text
-  ide <- ide %>% 
+  ide <- ide %>%
+    group_by(.draw, participant_gender, protesters_cause) %>% 
+    summarize(
+      b = mean(b_ide_kk)
+    ) %>% 
+    group_by(participant_gender, protesters_cause) %>%
+    median_qi(b) %>% 
     mutate(
       across(
-        c(d, .lower, .upper), 
+        c(b, .lower, .upper),
         f_num, digits = 2, retain.leading.zero = T
       ),
-      d_text = glue(
-        "$d = {d}, [{.lower}, {.upper}]$"
+      b_text = glue(
+        "$\\beta_{xy} = (b), [(.lower), (.upper)]$",
+        .open = "(", .close = ")"
       )
     )
+
+  # # Define contrasts
+  # ide <- ide %>% 
+  #   mutate(
+  #     h1_contrast = case_when(
+  #       participant_gender == "Woman" & protesters_cause == "Against" ~ +1L,
+  #       TRUE ~ -1L,
+  #     ),
+  #     nh1_contrast = case_when(
+  #       participant_gender == "Woman" & protesters_cause == "Against" ~ +1L,
+  #       participant_gender == "Woman" & protesters_cause == "For" ~ -1L,
+  #       TRUE ~ NA_integer_
+  #     ),
+  #     nh2_contrast = case_when(
+  #       participant_gender == "Man" & protesters_cause == "Against" ~ +1L,
+  #       participant_gender == "Man" & protesters_cause == "For" ~ -1L,
+  #       TRUE ~ NA_integer_
+  #     )
+  #   )
+  # 
+  # # Calculate contrasts
+  # ide <- ide %>% 
+  #   pivot_longer(
+  #     ends_with("_contrast"),
+  #     names_to = "contrast",
+  #     values_to = "direction",
+  #     values_drop_na = TRUE
+  #   ) %>% 
+  #   group_by(.draw, z_ide, contrast, direction) %>% 
+  #   summarize(z = mean(z)) %>% 
+  #   summarize(d = sum(z * direction)) %>% 
+  #   group_by(z_ide, contrast) %>% 
+  #   median_qi(d)
+  # 
+  # # Make text
+  # ide <- ide %>% 
+  #   mutate(
+  #     across(
+  #       c(d, .lower, .upper), 
+  #       f_num, digits = 2, retain.leading.zero = T
+  #     ),
+  #     d_text = glue(
+  #       "$d = {d}, [{.lower}, {.upper}]$"
+  #     )
+  #   )
 
 ```
 
-<!-- We explored whether group identification moderated how the participants' and the protesters' group memberships affected participants' responses. We found some evidence that, when considering only strongly identified (+1*SD*) men and women, female participants considered protest actions *against* restricting abortion to be more acceptable, on average, than male participants or protest actions *for* restricting abortion (`r with(ide, d_text[contrast == "h1_contrast" & z_ide == 1L])`). Our non-preregistered analyses thus suggested that gender identification might moderate gender differences in judgements about collective action concerning reproductive rights. -->
+We explored whether group identification moderated participants' judgements. We found, however, that gender identification neither affected how women judged protesters opposing (`r with(ide, b_text[participant_gender == "Woman" & protesters_cause == "Against"])`) or supporting (`r with(ide, b_text[participant_gender == "Woman" & protesters_cause == "For"])`) abortion restrictions nor how men judged protesters opposing (`r with(ide, b_text[participant_gender == "Man" & protesters_cause == "Against"])`) or supporting (`r with(ide, b_text[participant_gender == "Man" & protesters_cause == "For"])`) abortion restrictions. Our non-preregistered analyses thus suggested that gender identification did not moderate identity-based double standards in judging collective action concerning reproductive rights.
 
 ```{r, include = FALSE}
 
@@ -777,9 +804,11 @@ This pattern was consistent across subsamples as conservative women (`r with(m1,
 
 ## Discussion
 
+Experiment 3 tested for double standards in judging collective action for and against restricting abortion in a sample balanced by gender and political orientation. As in Experiments 1--2, participants judged the same protest actions to be more acceptable when the protesters' cause aligned with their ideological orientation. While participants in Experiment 2 judged protests opposing or supporting a progressive cause (defunding police), participants in Experiment 3 considered protests opposing or supporting a conservative cause (restricting abortion). As both conservative and liberal participants judged protests for a cause aligned with their ideological orientation to be more acceptable and as this double standard was stronger among liberal participants, Experiment 3 provided evidence for both symmetry and asymmetry in ideology-based double standards in judging collective action. In contrast to Experiments 1--2, Experiment 3 provided some evidence for identity-based double standards, although any gender differences in judging protests for or against restricting abortion were overshadowed by more consistent ideology-based double standards.
+
 # General Discussion
 
-Our research was motivated by real-world examples that seemed to suggest that where people draw the line between acceptable and unacceptable protest actions depends on *who* the protesters are and *what* they are protesting---in other words, that there are double standards in judging collective action. Our findings, however, showed that it is not so simple. Contradicting our hypothesis of identity-based double standards, participants in two preregistered experiments did not show ingroup bias when judging controversial protest actions taken by ingroup and outgroup members to advance their group's interests. Instead, supporting our hypothesis of ideology-based double standards, participants judged the same controversial protest actions to be more acceptable when the protesters' cause aligned with their own (system-challenging) ideological position. 
+Our research was motivated by real-world examples that seemed to suggest that where people draw the line between acceptable and unacceptable protest actions depends on *who* the protesters are and *what* they are protesting---in other words, that there are double standards in judging collective action. Our findings, however, showed that it is not so simple. Contradicting our hypothesis of identity-based double standards, participants in three preregistered experiments did not show consistent ingroup bias---in terms of class, race, and gender---when judging controversial protest actions taken by ingroup and outgroup members to advance their group's interests. Instead, supporting our hypothesis of ideology-based double standards, participants judged the same controversial protest actions to be more acceptable when the protesters' cause---protecting workers' rights, defunding the police, restricting abortion---aligned with their own ideological position. 
 <!-- This suggests that where observers draw the line between acceptable and unacceptable forms of collective action depends not so much on the protesters' and the observers' identities, but on the protesters' cause and how it aligns with the observers' political and ideological orientation.  -->
 In the remainder of this General Discussion, we consider some limiting conditions on our findings and discuss theoretical and practical implications for understanding the often divided response to collective action. 
 
@@ -787,9 +816,23 @@ In the remainder of this General Discussion, we consider some limiting condition
 
 Our research applied item response theory to judgements about collective action to investigate whether where people draw the line between acceptable and unacceptable means of protest depends on who the protesters are and what they are protesting. In so doing, we moved the distinction between normative and non-normative collective action from the realm of the researcher's intuition into the realm of scientific investigation, allowing us to test for double standards in judging collective action. 
 
-Despite its strengths, our research is qualified by important limitations. First, our research examined the hypothesized relationships for three political causes---protecting workers' rights, defunding the police, restricting abortion---and thus provided only limited evidence that our findings generalize beyond those causes. Relying on few stimuli to establish an effect threatens the validity and replicability of research findings and constrains the generalizability of psychological research [@yarkoni_generalizability_2022]. Future research should sample a wider range of causes to address this pervasive but often ignored problem [@judd_treating_2012]. This is particularly important when studying collective action as recent theorizing [@jost_missing_2017] and research [@osborne_protesting_2019] highlighted the importance of differentiating between progressive and conservative causes. Second, our research was based on samples from two Western, Educated, Industrialized, Rich, and Democratic (WEIRD; Henrich et al., 2010) contexts---the United Kingdom and the United States---which limits the cross-cultural generalizability of our findings.
+Despite its strengths, our research is qualified by several limitations. First, our research examined the hypothesized relationships for three political causes---protecting workers' rights, defunding the police, restricting abortion---and thus provided only limited evidence that our findings generalize beyond those causes. Relying on few stimuli to establish an effect threatens the validity and replicability of research findings and constrains the generalizability of psychological research [@yarkoni_generalizability_2022]. Future research should sample a wider range of causes to address this pervasive but often ignored problem [@judd_treating_2012]. This is particularly important when studying collective action as recent theorizing [@jost_missing_2017] and research [@osborne_protesting_2019] highlighted the importance of differentiating between progressive and conservative causes. Second, our research was based on samples from two Western, Educated, Industrialized, Rich, and Democratic [WEIRD, @henrich_weirdest_2010] contexts---the United Kingdom and the United States---which limits the cross-cultural generalizability of our findings.
 
 ## Implications
+
+Growing evidence shows that, in many situations, observers apply a more lenient standards when judging moral transgressions by ingroup members [@abrams_double_2013; @endevelt_everyone_2021]. And yet, our findings suggest that, unlike judgements in other domains, judgements about collective action are not subject to double standards based on group identities such as class, race, or gender---not even among highly identified group members. One reason might be that collective action, even in its controversial forms, is not judged as a moral transgression. Instead, observers might understand collective action primarily as a means to an end and judge how acceptable a form of collective action is in relation to its end. This aligns with our finding that how acceptable participants judged protest actions to be depended on the protesters' cause, not their group membership.
+
+Our findings showed that progressives and, to a lesser extent, conservatives consider the same controversial protest actions to be more acceptable when the protesters' cause aligns with their ideological position. So far, we explained this ideology-based double standard as resulting from conservatives being motivated to defend the system, progressives being motivated to challenge the system, and both being motivated to support collective action to those effects [@jost_missing_2017; @osborne_protesting_2019]. An alternative explanation is to understand those double standards as an expression of ingroup bias based on an opinion-based [@mcgarty_collective_2009] or partisan [@finkel_political_2020] identity. This aligns with Verkuyten et al.'s [-@verkuyten_intolerance_2022] finding that participants were more tolerant of the same transgressive protest actions when taken by their most-liked, rather than their least-liked, political group (e.g., climate activists). Another explanation is that their different moral concerns [@graham_liberals_2009; @kivikangas_moral_2021] lead progressives and conservatives to see their support of certain causes as a fundamental matter of right or wrong [@skitka_psychology_2021] and, by thus moralizing those causes, to accept more extreme means to achieving them. This aligns with Richardson & Conway's [-@richardson_standing_2022] finding that their different moral concerns explained why liberals rated protesting for liberal causes as more moral than conservatives and vice versa. Future research should seek to establish which of those plausible mechansims best explains partisan differences in judging collective action.
+
+Our findings raised the question why double standards in judging collective action were more pronounced among liberal than among conservative participants. One reason for this ideological asymmetry might be that collective action that violates prevailing norms or laws is seen as inherently threatening to the status quo, even if its aim is to bolster and defend the system. Political conservatism can be understood as having two psychologically related but distinguishable dimensions, resistance to change and justification of inequality [@jost_political_2003]. In this way, conservatives might be expected to condemn disruptive protest even if the protest's cause is to defend inequality. Future research should seek to establish how consistent this ideological asymmetry is across different political causes and cultural contexts.
+
+<!-- Why do we find ideology-based double standards? We argued for system justification as the relevant distinction. One alternative explanation is opinion-based groups, see Verkuhyten et al. Another alternative explanation is moral concerns, see Richardson et al. Ultimately, ideology-based double standards are probably multiply determined. -->
+
+<!-- 1. There are well-documented identity-based double standards in other domains. And yet, we did not find consistent evidence that judgements about collective action are subject to double standards based on social categories such as class, race, and gender---not even among highly identified group members. Why is that? (1) Collective action is not a moral transgression. (2) Opinion-based groups is one way to look at ideology. -->
+
+<!-- 2. Our findings provide strong evidence for ideology-based double standards such that ... This aligns with other recent research that provides converging evidence. This all suggest that the right cause can justify the means of protest. -->
+
+<!-- 3. Why asymmetry? System Justification != Social Change == Collective Action. However, that we do find effects for a conservative cause ... One explanation might lie in the different moral values by ... moral conviction ... -->
 
 <!-- Our findings raised the question why we did not find double standards in judging collective action, even though there are well-documents double standards in other domains. -->
 
@@ -797,14 +840,6 @@ Despite its strengths, our research is qualified by important limitations. First
 <!-- We do not find ingroup bias, at least not for broad social categories such as race and class, in contrast to evidence and predictions from social identity theory. Protest actions are not the same as moral transgressions, perhaps. We might have reached a different conclusion when adopting the framework of opinion-based group memberships and understanding political ideology in partisan identity terms. -->
 <!-- 2. What does it mean that we did not find symmetrical ideology-based double standards? -->
 <!-- It could just be that conservatives don't like protest. But consider Jan. 6 --- maybe it's about the cause of the protest? We know about the distinct moral values of conservatives and liberals (see MFT, see MFT and political orientation) and how they shape attitudes toward policy issues (see MFT and culture war issues). This aligns with Verkuyten and Richardson's finding of morality and tolerance judgements. -->
-
-Most broadly, our results showed that, for many controversial protest actions, there is no consensus on what is and is not an acceptable means to advance a cause. Instead, this judgement seems to depend on what the cause of a protest is and how it aligns with one's beliefs and values. In this way, our results confirm our contention that the distinction between normative and non-normative forms of collective action should be situated in the eye of the beholder. By developing an instrument for measuring where people draw the line between acceptable and unacceptable forms of collective action, we provided a paradigm that we hope will stimulate research on when and why people differ in making this distinction. 
-
-After all, this distinction can be consequential. If people believe that even extreme actions are acceptable means to advance a cause they support, especially if they moralize their support for that cause [@mooijman_moralization_2018], they might support violent extremism. In this way, our findings could explain why 45% of Republicans supported the storming of the U.S. Capitol on January 6, 2021 [@yougov_capitol_2021] even though it was illegal, destructive, and violent. If people believe that even non-violent actions are unacceptable means to advance a cause they oppose, they might support stifling dissent. In this way, our findings could explain why Republicans responded to Black Lives Matter protests by seeking to further criminalize disruptive protest [e.g., blocking highways, @pew_republicans_2021] that might be most effective at challenging injustice [@shuman_disrupting_2021; @shuman_protest_2022]. For those reasons, we  encourage researchers to use our paradigm to further investigate when and why people apply different standards when judging collective action for different causes.
-
-# Conclusion
-
-Opinion polls show deep divides not only about the ends of protests, but also about the means of protest. For example, only 11\% of Republicans and 29\% of White Americans---compared to 59\% of Democrats and 66\% of Black Americans---considered kneeling during the national anthem---a non-violent form of collective action---an appropriate means to protest racist police violence [@yougov_nfl_2017]. Our research showed that, in contrast to well-documented double standards in other domains, people do not apply a different standard when judging collective action by ingroup members or for a cause aligned with the ingroup's interests. Instead, our research demonstrated that people consider the same protest actions to be more acceptable when the cause of the protest aligns with their own ideological positions---in other words, that there are partisan double standards in judging collective action.
 
 <!-- In two preregistered experiments, we showed that, unlike judgements in other domains, judgements what are acceptable means of protest are not subject to double standards based on group identities (such as class and race) but instead depend on whether the protesters' cause aligns with one's ideological orientation.  -->
 
@@ -838,6 +873,14 @@ Opinion polls show deep divides not only about the ends of protests, but also ab
 <!-- - Discuss why high-status group are more accepting of controversial protest actions -->
 <!-- - Discuss limitations (two cultures, two issues, liberal samples; system-defending vs. system-supporting actions; what about other conservative causes?; ingroup bias might need zero-sum situation to succeed) -->
 <!-- - Invite researchers to use our paradigm -->
+
+Most broadly, our findings showed that, for many controversial protest actions, there is no consensus on what is and is not an acceptable means to advance a cause. Instead, this judgement seems to depend on what the cause of a protest is and how it aligns with one's beliefs and values. In this way, our results confirm our contention that the distinction between normative and non-normative forms of collective action should be situated in the eye of the beholder. By developing an instrument for measuring where people draw the line between acceptable and unacceptable forms of collective action, we provide a paradigm that we hope will stimulate research on when and why people differ in making this distinction. 
+
+After all, this distinction is often consequential. If people believe that even extreme actions are acceptable means to advance a cause they support, especially if they moralize their support for that cause [@mooijman_moralization_2018], they might support violent extremism. In this way, our findings could explain why 45% of Republicans supported the storming of the U.S. Capitol on January 6, 2021 [@yougov_capitol_2021] even though it was illegal, destructive, and violent. If people believe that even non-violent actions are unacceptable means to advance a cause they oppose, they might support stifling dissent. In this way, our findings could explain why Republicans responded to Black Lives Matter protests by seeking to further criminalize disruptive protest [e.g., blocking highways, @pew_republicans_2021] that might be most effective at challenging injustice [@shuman_disrupting_2021; @shuman_protest_2022]. For those reasons, we  encourage researchers to use our paradigm to further investigate when and why people apply different standards when judging collective action for different causes.
+
+# Conclusion
+
+Opinion polls show deep divides not only about the ends of protests, but also about the means of protest. For example, only 11\% of Republicans and 29\% of White Americans---compared to 59\% of Democrats and 66\% of Black Americans---considered kneeling during the national anthem---a non-violent form of collective action---an appropriate means to protest racist police violence [@yougov_nfl_2017]. Our research showed that, in contrast to well-documented double standards in other domains, people do not apply a different standard when judging collective action by members of the same class, race or gender or for a cause aligned with their own group's interests. Instead, our research demonstrated that people consider the same protest actions to be more acceptable when the cause of the protest aligns with their own ideological positions---in other words, that there are partisan double standards in judging collective action.
 
 \refsection
 

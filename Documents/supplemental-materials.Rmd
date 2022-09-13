@@ -84,6 +84,20 @@ Second, we set out to recruit 500 participants from the remaining 687 participan
 
 After reading the vignette, participants responded to the other measures (in the order in which they are presented in the main text). On the final page, we reminded participants that they had read about a bill that the government planned to introduce and that some people objected to. As an attention check, we then asked participants to recall who the people most affected by this measure were. As preregistered, we excluded all participants who did not respond with an accurate description of the group they had read about.
 
+# Experiment 3
+
+## Method
+
+### Measures
+
+We included additional measures not used in the analyses reported in this paper. 
+
+We included a three-item measure of moral conviction [@ryan_reconsidering_2014] that assessed to what extent participants' feelings about restricting or banning abortion were, for example, connected to their core moral beliefs or convictions (1 = *not at all*, 5 = *very much*). 
+
+We measured gender-related system-justifying beliefs with eight items [adapted from @jost_exposure_2005], for example, "in general, relations between men and women are fair" (1 = *strongly disagree*, 7 = *strongly agree*; McDonald's $\omega = .93$). A confirmatory factor analysis model in which all items loaded onto a single factor showed acceptable fit, $\chi^2 (20) = 111.90; \text{CFI} = 0.97; \text{TLI} = 0.95; \text{RMSEA} = 0.09, [0.08, 0.11]$.
+
+We measured moral concerns with the 36-item moral foundations questionnaire [MFQ-2, @atari_morality_2022] which assesses to what extent participants endorse concerns about care, equality, proportionality, loyalty, authority, and purity (e.g., "I believe chastity is an important virtue."; 1 = *does not describe me at all*, 5 = *describes me extremely well*). We embedded three further attention checks within the questionnaire (e.g., "To show that you are paying attention and giving your best effort, please select 'moderately describes me'.").
+
 \newpage
 
 # References

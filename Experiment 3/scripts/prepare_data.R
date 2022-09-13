@@ -70,7 +70,15 @@ rm(list = ls())
         q64_1 == "white" ~ NA_character_,
         q64_1 == "Women" ~ "woman"
       ),
-      age = as.integer(q64_2)
+      age = as.integer(q64_2),
+      race = recode_factor(
+        q65,
+        "1" = "White",
+        "2" = "Black",
+        "3" = "Asian",
+        "4" = "Mixed",
+        "5" = "Other"
+      )
     )
   
   # Transform predictor and outcome variables
@@ -280,7 +288,7 @@ rm(list = ls())
     select(
       id,
       participant_ideology, participant_gender, protesters_cause,
-      age,
+      age, race,
       sup, mor_1:mor_3,
       starts_with("mfq_"),
       starts_with("sjb_"),

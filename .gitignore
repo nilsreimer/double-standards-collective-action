@@ -6,7 +6,8 @@ Documents
 !Documents/*.bib
 !Documents/*.csl
 Documents/preprint*
+Experiment 1/results/results_exploratory_analyses.rds
 Scale Development/models/*.exe
 Experiment 1/models/*.exe
 Experiment 2/models/*.exe
-Experiment 1/results/results_exploratory_analyses.rds
+Experiment 3/models/*.exe

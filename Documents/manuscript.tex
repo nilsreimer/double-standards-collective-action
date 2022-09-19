@@ -1,31 +1,24 @@
-\documentclass[12pt, letterpaper]{article}
+\documentclass[twocolumn, 11pt, letterpaper]{article}
 
 % Font
 \usepackage[utf8]{inputenc}
-\usepackage{amsmath}
+\usepackage{MinionPro} 
+\input{glyphtounicode}
+\pdfgentounicode=1 
 \usepackage{microtype}
 
 % Format
 \usepackage[letterpaper, margin = 1in]{geometry}
+\setlength{\columnsep}{18pt}
 \setcounter{secnumdepth}{0}
-\setlength{\parindent}{0.5in}
 \usepackage[compact]{titlesec}
-\titleformat*{\section}{\centering\normalfont\normalsize\bfseries}
+\titleformat*{\section}{\centering\normalfont\Large\bfseries}
 \titleformat*{\subsection}{\raggedright\normalfont\normalsize\bfseries}
 \titleformat*{\subsubsection}{\raggedright\normalfont\normalsize\bfseries\itshape}
-\newcommand{\refsection}{\newpage \section{References}}
-\usepackage{indentfirst}
-\usepackage[hang,flushmargin]{footmisc}
+\usepackage{authblk}
+\renewcommand\Affilfont{\small}
+\newcommand{\refsection}{\section{References}}
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
-% Header
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
-\setlength{\headheight}{14.5pt}
-\renewcommand{\headrulewidth}{0pt}
-\fancyhead[L]{DOUBLE STANDARDS}
-\fancyhead[R]{\thepage}
 
 % Links
 \usepackage[colorlinks = true, linkcolor = black, urlcolor = black, citecolor = black]{hyperref} 
@@ -41,20 +34,33 @@
 % References
 \newenvironment{CSLReferences}[2]{}{}
 
-% Line spacing
-\usepackage[doublespacing]{setspace}
-
 % Frontmatter
-\title{ Double Standards in Judging Collective Action }
+\title{ Double Standards in Judging Collective Action\thanks{} }
+\author[1]{Nils K. Reimer}
+\affil[1]{University of California, Santa Barbara, United States}
+\author[2]{Marija Brankovi\'{c}}
+\affil[2]{Singidunum University and University of Belgrade, Serbia}
+\author[3]{Iniobong Essien}
+\affil[3]{Leuphana University of L\"{u}neburg, Germany}
+\author[4]{Jin X. Goh}
+\affil[4]{Colby College, United States}
+\author[5]{S\'{e}bastien Goudeau}
+\affil[5]{University of Poitiers, France}
+\author[6]{N\'{o}ra A. Lantos}
+\affil[6]{E\"{o}tv\"{o}s Lor\'{o}nd University, Hungary}
+\author[7]{Jenny Veldman}
+\affil[7]{NYU Abu Dhabi, United Arab Emirates}
 
 \begin{document}
 
-\section{Abstract}
-
-\noindent Collective action is a powerful force driving social change
-but often sparks contention about what actions are acceptable means to
-effect social change. In five studies (total \emph{N} = 2,979), we
-investigated double standards in judging collective action---that is,
+\twocolumn[
+  \begin{@twocolumnfalse}
+    \maketitle
+    \begin{abstract}
+      \noindent Collective action is a powerful force driving social
+change but often sparks contention about what actions are acceptable
+means to effect social change. In five studies (total \emph{N} = 2,979),
+we investigated double standards in judging collective action---that is,
 whether observers will judge the same protest actions as more acceptable
 if the protesters are ingroup members and their cause aligns with the
 ingroup's interests (\emph{identity-based double standards}) or if the
@@ -74,16 +80,25 @@ showed no consistent ingroup bias when judging collective action by
 ingroup and outgroup members. Our findings have theoretical and
 practical implications for understanding the often divided response to
 prominent social movements.
+    \end{abstract}
+  \end{@twocolumnfalse}
+  % \renewcommand{\abstractname}{Statement of Relevance}
+  % \begin{@twocolumnfalse}
+  %   \maketitle
+  %   \begin{abstract}
+  %   \noindent 
+  %   \end{abstract}
+  % \end{@twocolumnfalse}
+]
 
-\textit{Keywords:} protest, collective action, double standards, social
-identity theory, system justification theory, Black Lives Matter
+{
+  \renewcommand{\thefootnote}%
+    {\fnsymbol{footnote}}
+  \footnotetext[1]{M.B.--J.V. are listed in alphabetical order. This research was supported by a Seedcorn Research Grant from the European Association of Social Psychology.}
+}
 
-\newpage
-
-\section{Double Standards in Judging Collective Action}
-
-Protest movements often spark contention about what actions are
-acceptable means of protest. Reactions to Black American athletes
+\noindent Protest movements often spark contention about what actions
+are acceptable means of protest. Reactions to Black American athletes
 kneeling during the national anthem to protest racist police violence
 are a case in point. Kneeling during the national anthem is not violent,
 disruptive, or illegal. And yet, only 29\% of White Americans (compared
@@ -140,17 +155,20 @@ non-normative, non-violent collective action is more effective than
 either normative or violent collective action at gaining concessions
 from those most resistant to social change. Feinberg et al. (2020)
 demonstrated, however, that observers are less supportive of social
-movements that use extreme protest actions. Similarly, Teixeira et al.
-(2020) found that advantaged-group members perceive non-normative
-collective action by disadvantaged-group members as more damaging to
-their ingroup's social image and are thus less supportive of such
-action. Verkuyten et al. (2022) found that, in general, the public tends
-to be intolerant of non-normative collective action. This means that
-activists face the dilemma that non-normative collective action might be
-most effective at gaining concessions but that it also risks reducing
-popular support for a cause. Together, these studies show that the
-distinction between normative and non-normative collective action is
-psychologically and societally consequential.
+movements that use extreme protest actions.\footnote{In contrast, White
+  Americans exposed to pictures of destructive Black Lives Matter
+  protests were not, on average, any less supportive of systemic change
+  than those exposed to pictures of peaceful protests (Teixeira et al.,
+  2022).} Similarly, Teixeira et al. (2020) found that advantaged-group
+members perceive non-normative collective action by disadvantaged-group
+members as more damaging to their ingroup's social image and are thus
+less supportive of such action. Verkuyten et al. (2022) found that, in
+general, the public tends to be intolerant of non-normative collective
+action. This means that activists face the dilemma that non-normative
+collective action might be most effective at gaining concessions but
+that it also risks reducing popular support for a cause. Together, these
+studies show that the distinction between normative and non-normative
+collective action is psychologically and societally consequential.
 
 These and other studies have, for the most part, relied on ad-hoc
 distinctions between what researchers themselves considered normative
@@ -1634,6 +1652,26 @@ disruptive protest even if the protest's cause is to defend inequality.
 Future research should seek to establish how consistent this ideological
 asymmetry is across different political causes and cultural contexts.
 
+Our findings provided a relevant comparison to findings from a recent
+experiment in which White Americans viewed pictures of either peaceful
+or destructive Black Lives Matter protests and rated how legitimate
+(i.e., fair, reasonable, legitimate, and justified) they considered the
+pictured protests to be (Teixeira et al., 2022). In this experiment,
+more conservative participants rated destructive and, to a lesser
+extent, peaceful protests to be less legitimate than more liberal
+participants. Likewise, participants who identified more strongly with
+their ethnic ingroup rated destructive and, to a lesser extent, peaceful
+protests to be less legitimate than participants who identified less
+strongly with their ingroup. However, participants' group identification
+was no longer associated with their protest ratings after controlling
+for their political orientation.\footnote{These findings are based on
+  our reanalysis, reported in the SOM, of Teixeira et al.'s (2022)
+  experiment. We thank the authors for making their data available
+  online.} In this way, results from the experiment aligned with our
+conclusion that political ideologies are more important than social
+identities for shaping how people judge controversial forms of
+collective action.
+
 Most broadly, our findings showed that, for many controversial protest
 actions, there is no consensus on what is and is not an acceptable means
 to advance a cause. Instead, this judgment seems to depend on what the
@@ -1984,6 +2022,13 @@ and reference manual} (Version 2.27.0). \url{http://mc-stan.org/}
 Tajfel, H., \& Turner, J. C. (1979). An integrative theory of intergroup
 conflict. In W. G. Austin \& S. Worchel (Eds.), \emph{The psychology of
 intergroup relations} (pp. 33--48). Brooks/Cole.
+
+\leavevmode\vadjust pre{\hypertarget{ref-teixeira_white_2022}{}}%
+Teixeira, C. P., Leach, C. W., \& Spears, R. (2022). White {Americans}'
+belief in systemic racial injustice and in-group identification affect
+reactions to ({peaceful} vs. {destructive}) {``{Black Lives Matter}''}
+protest. \emph{Psychology of Violence}, \emph{12}(4), 280--292.
+\url{https://doi.org/10.1037/vio0000425}
 
 \leavevmode\vadjust pre{\hypertarget{ref-teixeira_is_2020}{}}%
 Teixeira, C. P., Spears, R., \& Yzerbyt, V. Y. (2020). Is {Martin}

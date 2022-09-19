@@ -1,11 +1,12 @@
 .Rproj.user
-Documents
+/Documents/**
 !Documents/*.Rmd
 !Documents/*.tex
 !Documents/*.pdf
 !Documents/*.bib
 !Documents/*.csl
 Documents/preprint*
+Documents/Submission
 Experiment 1/results/results_exploratory_analyses.rds
 Scale Development/models/*.exe
 Experiment 1/models/*.exe

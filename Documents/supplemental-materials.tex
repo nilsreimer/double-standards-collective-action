@@ -275,6 +275,82 @@ people most affected by this measure were. As preregistered, we excluded
 all participants who did not respond with an accurate description of the
 group they had read about.
 
+\hypertarget{experiment-3}{%
+\section{Experiment 3}\label{experiment-3}}
+
+\hypertarget{method-1}{%
+\subsection{Method}\label{method-1}}
+
+\hypertarget{measures}{%
+\subsubsection{Measures}\label{measures}}
+
+We included additional measures not used in the analyses reported in
+this paper.
+
+We included a three-item measure of moral conviction (Ryan, 2014) that
+assessed to what extent participants' feelings about restricting or
+banning abortion were, for example, connected to their core moral
+beliefs or convictions (1 = \emph{not at all}, 5 = \emph{very much}).
+
+We measured gender-related system-justifying beliefs with eight items
+(adapted from Jost \& Kay, 2005), for example, ``in general, relations
+between men and women are fair'' (1 = \emph{strongly disagree}, 7 =
+\emph{strongly agree}; McDonald's \(\omega = .93\)). A confirmatory
+factor analysis model in which all items loaded onto a single factor
+showed acceptable fit,
+\(\chi^2 (20) = 111.90; \text{CFI} = 0.97; \text{TLI} = 0.95; \text{RMSEA} = 0.09, [0.08, 0.11]\).
+
+We measured moral concerns with the 36-item moral foundations
+questionnaire (MFQ-2, Atari et al., 2022) which assesses to what extent
+participants endorse concerns about care, equality, proportionality,
+loyalty, authority, and purity (e.g., ``I believe chastity is an
+important virtue.''; 1 = \emph{does not describe me at all}, 5 =
+\emph{describes me extremely well}). We embedded three further attention
+checks within the questionnaire (e.g., ``To show that you are paying
+attention and giving your best effort, please select `moderately
+describes me'.'').
+
+\hypertarget{reanalysis-of-teixeira-et-al.s--teixeira_white_2022-experiment}{%
+\section{Reanalysis of Teixeira et al.'s (2022)
+experiment}\label{reanalysis-of-teixeira-et-al.s--teixeira_white_2022-experiment}}
+
+At the height of the 2020 Black Lives Matter protests, Teixeira et al.
+(2022) exposed White Americans (\(N = 399\)) to photos of either
+peaceful or destructive Black Lives Matter protests and asked them to
+rate how legitimate (i.e., fair, reasonable, legitimate, and justified)
+they thought the pictured protests were. As such, their findings make
+for an interesting comparison to our findings. Teixeira et al. (2022),
+however, reported results from a linear model estimating the three-way
+interaction between the experimental manipulation, belief in systemic
+racial injustice, and group identification while controlling for
+political orientation. This analysis did not provide a direct comparison
+to our findings.
+
+To compare theirs to our findings, we instead estimated a series of
+simpler linear regression models, using the brms R package (Bürkner,
+2017, 2018) and weakly informative Student-\emph{t} \((3, 0, 2.5)\)
+prior distributions, with participants' ratings of how legitimate the
+pictured protests were as the outcome variable.\footnote{We thank the
+  authors for making their data available online
+  (\url{https://osf.io/sud2y/}).} First, we found that, as expected,
+participants considered peaceful protests far more legitimate than
+destructive protests (\(\text{Cohen's}~d = 1.14, [0.98, 1.30]\)).
+Second, we found that more conservative participants rated destructive
+protests (\(\beta_{xy} = -0.59, [-0.68, -0.49]\)) and, to a lesser
+extent, peaceful protests (\(\beta_{xy} = -0.20, [-0.30, -0.10]\)) to be
+less legitimate than more liberal participants. Third, we found that
+participants who identified more strongly with their (White American)
+ethnic identity rated destructive protests
+(\(\beta_{xy} = -0.35, [-0.45, -0.24]\)) and, to a lesser extent,
+peaceful protests (\(\beta_{xy} = -0.10, [-0.21, 0.01]\)) to be less
+legitimate than participants who identified less strongly with their
+(White American) ethnic identity. Finally, we found that participants'
+group identification was no longer associated with how legitimate they
+rated peaceful (\(\beta_{xy} = -0.02, [-0.13, 0.05]\)) and destructive
+(\(\beta_{xy} = -0.06, [-0.17, 0.05]\)) protests to be after controlling
+for their political orientation. We refer to findings from our
+reanalysis of Teixeira et al.'s (2022) experiment in the main text.
+
 \newpage
 
 \hypertarget{references}{%
@@ -286,14 +362,42 @@ group they had read about.
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-atari_morality_2022}{}}%
+Atari, M., Haidt, J., Graham, J., Koleva, S., Stevens, S. T., \&
+Dehghani, M. (2022). Morality beyond the {WEIRD}: How the nomological
+network of morality varies across cultures. \emph{PsyArXiv}.
+\url{https://doi.org/10.31234/osf.io/q6c9r}
+
 \leavevmode\vadjust pre{\hypertarget{ref-betancourt_ordinal_2019}{}}%
 Betancourt, M. (2019). \emph{Ordinal regression}.
 \url{https://betanalpha.github.io/assets/case_studies/ordinal_regression.html}
+
+\leavevmode\vadjust pre{\hypertarget{ref-burkner_brms_2017}{}}%
+Bürkner, P.-C. (2017). {brms}: An {R} package for bayesian multilevel
+models using {Stan}. \emph{Journal of Statistical Software},
+\emph{80}(1), 1--28. \url{https://doi.org/10.18637/jss.v080.i01}
+
+\leavevmode\vadjust pre{\hypertarget{ref-burkner_advanced_2018}{}}%
+Bürkner, P.-C. (2018). Advanced bayesian multilevel modeling with the
+{R} package brms. \emph{The R Journal}, \emph{10}(1), 395--411.
+\url{https://doi.org/10.32614/RJ-2018-017}
 
 \leavevmode\vadjust pre{\hypertarget{ref-burkner_bayesian_2021}{}}%
 Bürkner, P.-C. (2021). Bayesian item response modeling in {R} with brms
 and {Stan}. \emph{Journal of Statistical Software}, \emph{100}(5).
 \url{https://doi.org/10.18637/jss.v100.i05}
+
+\leavevmode\vadjust pre{\hypertarget{ref-jost_exposure_2005}{}}%
+Jost, J. T., \& Kay, A. C. (2005). Exposure to benevolent sexism and
+complementary gender stereotypes: Consequences for specific and diffuse
+forms of system justification. \emph{Journal of Personality and Social
+Psychology}, \emph{88}(3), 498--509.
+\url{https://doi.org/10.1037/0022-3514.88.3.498}
+
+\leavevmode\vadjust pre{\hypertarget{ref-ryan_reconsidering_2014}{}}%
+Ryan, T. J. (2014). Reconsidering moral issues in politics. \emph{The
+Journal of Politics}, \emph{76}(2), 380--397.
+\url{https://doi.org/10.1017/S0022381613001357}
 
 \leavevmode\vadjust pre{\hypertarget{ref-samejima_graded_1997}{}}%
 Samejima, F. (1997). Graded response model. In W. J. van der Linden \&
@@ -303,6 +407,13 @@ R. K. Hambleton (Eds.), \emph{Handbook of modern item response theory}
 \leavevmode\vadjust pre{\hypertarget{ref-sharp_nonviolent_1973}{}}%
 Sharp, G. (1973). \emph{The politics of nonviolent action}. Porter
 Sargent.
+
+\leavevmode\vadjust pre{\hypertarget{ref-teixeira_white_2022}{}}%
+Teixeira, C. P., Leach, C. W., \& Spears, R. (2022). White {Americans}'
+belief in systemic racial injustice and in-group identification affect
+reactions to ({peaceful} vs. {destructive}) {``{Black Lives Matter}''}
+protest. \emph{Psychology of Violence}, \emph{12}(4), 280--292.
+\url{https://doi.org/10.1037/vio0000425}
 
 \end{CSLReferences}
 

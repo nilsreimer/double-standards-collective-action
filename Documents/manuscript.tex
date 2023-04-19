@@ -1,25 +1,23 @@
-\documentclass[twocolumn, 11pt, letterpaper]{article}
+\documentclass[12pt, letterpaper]{article}
 
 % Font
-\usepackage[MnSymbol]{mathspec}
-\setmainfont{Minion Pro}
-\setmathsfont(Digits,Latin,Greek)
-[Numbers={Lining,Proportional}]{Minion Pro}
+\usepackage{amsmath, amssymb}
+\usepackage{lmodern}
 \usepackage{microtype}
 
 % Format
 \usepackage[letterpaper, margin = 1in]{geometry}
-\setlength{\columnsep}{18pt}
 \setcounter{secnumdepth}{0}
+\setlength{\parindent}{0.5in}
 \usepackage[compact]{titlesec}
-\titleformat*{\section}{\centering\normalfont\Large\bfseries}
+\titleformat*{\section}{\centering\normalfont\normalsize\bfseries}
 \titleformat*{\subsection}{\raggedright\normalfont\normalsize\bfseries}
 \titleformat*{\subsubsection}{\raggedright\normalfont\normalsize\bfseries\itshape}
-\usepackage{authblk}
-\renewcommand\Affilfont{\small}
+\usepackage{indentfirst}
 
 % References/Footnotes
-\newcommand{\refsection}{\section{References}}
+\newcommand{\refsection}{\newpage \section{References}}
+\usepackage[hang, flushmargin]{footmisc}
 
 % Header
 \usepackage{fancyhdr}
@@ -49,33 +47,17 @@
 % References
 \newenvironment{CSLReferences}[2]{}{}
 
-% Front matter
-\title{ Double Standards in Judging Collective Action\thanks{} }
-\author[1]{Nils K. Reimer}
-\affil[1]{University of California, Santa Barbara, United States}
-\author[2]{Marija Brankovi\'{c}}
-\affil[2]{Singidunum University and University of Belgrade, Serbia}
-\author[3]{Iniobong Essien}
-\affil[3]{Leuphana University of L\"{u}neburg, Germany}
-\author[4]{Jin X. Goh}
-\affil[4]{Colby College, United States}
-\author[5]{S\'{e}bastien Goudeau}
-\affil[5]{University of Poitiers, France}
-\author[6]{N\'{o}ra A. Lantos}
-\affil[6]{E\"{o}tv\"{o}s Lor\'{o}nd University, Hungary}
-\author[7]{Jenny Veldman}
-\affil[7]{NYU Abu Dhabi, United Arab Emirates}
+% Line spacing
+\usepackage[doublespacing]{setspace}
 
 \begin{document}
 
-\twocolumn[
-  \begin{@twocolumnfalse}
-    \maketitle
-    \begin{abstract}
-      \noindent Collective action is a powerful force driving social
-change but often sparks contention about what actions are acceptable
-means to effect social change. In five studies (total \emph{N} = 2,979),
-we investigated double standards in judging collective action---that is,
+\section{Abstract}
+
+\noindent Collective action is a powerful force driving social change
+but often sparks contention about what actions are acceptable means to
+effect social change. In five studies (total \emph{N} = 2,979), we
+investigated double standards in judging collective action---that is,
 whether observers will judge the same protest actions as more acceptable
 if the protesters are ingroup members and their cause aligns with the
 ingroup's interests (\emph{identity-based double standards}) or if the
@@ -95,25 +77,16 @@ showed no consistent ingroup bias when judging collective action by
 ingroup and outgroup members. Our findings have theoretical and
 practical implications for understanding the often divided response to
 prominent social movements.
-    \end{abstract}
-  \end{@twocolumnfalse}
-  % \renewcommand{\abstractname}{Statement of Relevance}
-  % \begin{@twocolumnfalse}
-  %   \maketitle
-  %   \begin{abstract}
-  %   \noindent 
-  %   \end{abstract}
-  % \end{@twocolumnfalse}
-]
 
-{
-  \renewcommand{\thefootnote}%
-    {\fnsymbol{footnote}}
-  \footnotetext[1]{M.B.--J.V. are listed in alphabetical order. This research was supported by a Seedcorn Research Grant from the European Association of Social Psychology.}
-}
+\textit{Keywords:} collective action, double standards, social identity
+theory, system justification theory, Black Lives Matter
 
-\noindent Protest movements often spark contention about what actions
-are acceptable means of protest. Reactions to Black American athletes
+\newpage
+
+\section{ Double Standards in Judging Collective Action }
+
+Protest movements often spark contention about what actions are
+acceptable means of protest. Reactions to Black American athletes
 kneeling during the national anthem to protest racist police violence
 are a case in point. Kneeling during the national anthem is not violent,
 disruptive, or illegal. And yet, only 29\% of White Americans (compared

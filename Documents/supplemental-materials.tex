@@ -1,10 +1,10 @@
 \documentclass[12pt, letterpaper]{article}
 
 % Font
-\usepackage[utf8]{inputenc}
-\usepackage{MinionPro} 
-\input{glyphtounicode}
-\pdfgentounicode=1 
+\usepackage[MnSymbol]{mathspec}
+\setmainfont{Minion Pro}
+\setmathsfont(Digits,Latin,Greek)
+[Numbers={Lining,Proportional}]{Minion Pro}
 \usepackage{microtype}
 
 % Format
@@ -25,6 +25,10 @@
 % Tables
 \usepackage{booktabs}
 \usepackage{xltabular}
+
+% Lists
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 % References
 \newenvironment{CSLReferences}[2]{}{}
@@ -672,6 +676,59 @@ protest. \emph{Psychology of Violence}, \emph{12}(4), 280--292.
 \addlinespace
 \end{tabular}
 \caption*{\textit{Note.} Acceptable (1 = \textit{never}, 5 = \textit{always}); Disruptive, Violent, Extreme (1 = \textit{not at all}, 4 = \textit{very}); Negative (1 = \textit{very positive}, 5 = \textit{very negative})}
+\end{table}
+
+\setcounter{table}{3}
+
+\begin{table}[t!]
+\caption{Correlations between variables in Experiment 1}
+\centering
+\begin{tabular}{rlrrrr}
+\toprule
+\# & Variable              &    1 &    2 &    3 &    4 \\ \midrule
+ 1 & Proportion            &      & -.31 & -.16 & -.23 \\
+ 2 & Political Orientation & -.31 &      &  .41 &  .41 \\
+ 3 & Social Dominance      & -.16 &  .41 &      &  .29 \\
+ 4 & System Justification  & -.23 &  .41 &  .29 &      \\ \bottomrule
+\addlinespace
+\end{tabular}
+\caption*{\textit{Note.} Proportion of actions considered acceptable (0--1); Political Orientation (1 = \textit{left}, 7 = \textit{right}); Social Dominance Orientation (\textit{factor score}); Systen-Justifying Beliefs (\textit{factor score})}
+\end{table}
+
+\setcounter{table}{4}
+
+\begin{table}[t!]
+\caption{Correlations between variables in Experiment 2}
+\centering
+\begin{tabular}{rlrrrrr}
+\toprule
+\# & Variable              &    1 &    2 &    3 &    4 &    5 \\ \midrule
+ 1 & Proportion            &      & -.21 &  .29 & -.23 & -.07 \\
+ 2 & System Justification  & -.21 &      & -.45 &  .47 &  .04 \\
+ 3 & Policy Support        &  .29 & -.45 &      & -.49 &  .00 \\
+ 4 & Political Orientation & -.23 &  .47 & -.49 &      &  .03 \\
+ 5 & Identification        & -.07 &  .04 &  .00 &  .03 &      \\ \bottomrule
+\addlinespace
+\end{tabular}
+\caption*{\textit{Note.} Proportion of actions considered acceptable (0--1); Systen-Justifying Beliefs (\textit{factor score}); Policy Support (1 = \textit{strongly oppose}, 5 = \textit{strongly support}); Political Orientation (1 = \textit{liberal}, 7 = \textit{conservative}); Racial Identification (1 = \textit{not at all}, 7 = \textit{very much})}
+\end{table}
+
+\setcounter{table}{5}
+
+\begin{table}[t!]
+\caption{Correlations between variables in Experiment 3}
+\centering
+\begin{tabular}{rlrrrrr}
+\toprule
+\# & Variable              &    1 &    2 &    3 &    4 &    5 \\ \midrule
+ 1 & Proportion            &      & -.27 & -.22 & -.32 & -.11 \\
+ 2 & System Justification  & -.27 &      &  .61 &  .78 &  .16 \\
+ 3 & Policy Support        & -.22 &  .61 &      &  .74 &  .16 \\
+ 4 & Political Orientation & -.32 &  .78 &  .74 &      &  .20 \\
+ 5 & Identification        & -.11 &  .16 &  .16 &  .20 &      \\ \bottomrule
+\addlinespace
+\end{tabular}
+\caption*{\textit{Note.} Proportion of actions considered acceptable (0--1); Systen-Justifying Beliefs (\textit{factor score}); Policy Support (1 = \textit{strongly oppose}, 5 = \textit{strongly support}); Political Orientation (1 = \textit{liberal}, 7 = \textit{conservative}); Gender Identification (1 = \textit{not at all}, 7 = \textit{very much})}
 \end{table}
 
 \end{document}

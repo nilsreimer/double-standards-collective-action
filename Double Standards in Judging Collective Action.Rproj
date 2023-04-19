@@ -10,6 +10,6 @@ NumSpacesForTab: 2
 Encoding: ISO8859-1
 
 RnwWeave: Sweave
-LaTeX: pdfLaTeX
+LaTeX: XeLaTeX
 
 QuitChildProcessesOnExit: Yes

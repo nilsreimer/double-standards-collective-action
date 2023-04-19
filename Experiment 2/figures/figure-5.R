@@ -238,9 +238,9 @@ rm(list = ls())
     geom_hline(yintercept = c(4.5), size = 3*0.455, colour = "white") +
     scale_x_continuous(minor_breaks = NULL) +
     scale_y_discrete(expand = c(0, 0)) +
-    scale_shape_manual(values = c("+1SD" = 19, "-1SD" = 21)) +
-    scale_colour_manual(values = c("+1SD" = "#648FFF", "-1SD" = "#DC267F")) +
-    scale_fill_manual(values = c("+1SD" = "#648FFF", "-1SD" = "#DC267F")) +
+    scale_shape_manual(values = c("+1SD" = 21, "-1SD" = 19)) +
+    scale_colour_manual(values = c("+1SD" = "#DC267F", "-1SD" = "#648FFF")) +
+    scale_fill_manual(values = c("+1SD" = "#DC267F", "-1SD" = "#648FFF")) +
     facet_grid(. ~ predictor) +
     coord_cartesian(ylim = c(0.5, 8.5)) +
     theme_grey(base_size = 10) +

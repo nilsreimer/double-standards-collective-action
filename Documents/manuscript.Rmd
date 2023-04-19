@@ -57,6 +57,12 @@ Just as system justification affects support for, and opposition to, collective 
 
 As system-justifying beliefs are closely related to political conservatism [@jost_political_2003], this hypothesis could explain partisan differences in what actions liberals and conservatives consider acceptable means of protest for progressive and conservative causes. Ideology-based double standards could, for example, explain why far more Democrats than Republicans considered it appropriate to kneel during the national anthem to protest racist police violence [@yougov_nfl_2017].
 
+### Are Partisan Double Standards Based in Ideology or Identity?
+
+So far, we ... 
+
+<!-- Throughout this paper, we will use "identity-based" as a shorthand for double standards based on social categories such as race, gender, and class and "ideology-based" as a shorthand for double standards based on system-justification and political ideology. -->
+
 ## Using Item Response Theory to Detect Double Standards
 
 ```{=latex}
@@ -70,8 +76,8 @@ As system-justifying beliefs are closely related to political conservatism [@jos
 ```
 
 Item response theory is a conceptual and statistical framework for understanding how the characteristics of both items and respondents shape responses to a set of items [@demars_irt_2010]. <!-- As such, it allows us to disentangle how acceptable protest actions are from how accepting respondents are of them and, in so doing, to detect double standards in judging collective action. --> When respondents judge whether each of a set of actions is an acceptable means of protest (1 = *yes*, 0 = *no*), a two-parameter logistic item response theory model estimates responses as a function of several latent (unobserved) parameters: 
-$$ \Pr ( y_{ij} = 1 ) = \text{logit}^{-1} ( \alpha_i ( \theta_j + \beta_i ) ) $$
-where $\Pr ( y_{ij} = 1 )$ is the probability that respondent $j$ considers action $i$ an acceptable means of protest, $\theta_j$ estimates how *accepting* respondent $j$ is of various protest actions, $\beta_i$ estimates how *acceptable* action $i$ is, and $\alpha_i$ estimates how *discriminating* action $i$ is.
+$$ \Pr ( y_\textit{ij} = 1 ) = \text{logit}^{-1} ( \alpha_i ( \theta_j + \beta_i ) ) $$
+where $\Pr ( y_\textit{ij} = 1 )$ is the probability that respondent $j$ considers action $i$ an acceptable means of protest, $\theta_j$ estimates how *accepting* respondent $j$ is of various protest actions, $\beta_i$ estimates how *acceptable* action $i$ is, and $\alpha_i$ estimates how *discriminating* action $i$ is.
 
 Figure \ref{fig:f1} illustrates those relationships for three hypothetical protest actions. $\theta_{(z)}$ is the *z*-standardized tendency for a participant to be more accepting of various actions so that $\beta_i$ determines the probability that the average respondent ($\theta_{(z)} = 0$) considers an action an acceptable means of protest. Action 2 ($\beta_2 = 1.28$) is more acceptable than Actions 1 and 2 ($\{ \beta_2, \beta_3 \} = 0$) as the average respondent is more likely to consider the former ($\Pr = .78$) than the latter ($\Pr = .50$) acceptable means of protest. Action 3 ($\alpha_3 = 3.60$) is more discriminating than Actions 1 and 2 ($\{ \alpha_1, \alpha_2 \} = 1$) as the slope for the relationship between how accepting a respondent is and how likely they are to consider an action acceptable is steeper for the former action. This means that knowing whether someone considers Action 3 acceptable provides more information about them than knowing whether they consider Actions 1 or 2 acceptable.
 

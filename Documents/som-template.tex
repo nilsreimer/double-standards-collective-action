@@ -1,10 +1,10 @@
 \documentclass[12pt, letterpaper]{article}
 
 % Font
-\usepackage[utf8]{inputenc}
-\usepackage{MinionPro} 
-\input{glyphtounicode}
-\pdfgentounicode=1 
+\usepackage[MnSymbol]{mathspec}
+\setmainfont{Minion Pro}
+\setmathsfont(Digits,Latin,Greek)
+[Numbers={Lining,Proportional}]{Minion Pro}
 \usepackage{microtype}
 
 % Format
@@ -25,6 +25,10 @@
 % Tables
 \usepackage{booktabs}
 \usepackage{xltabular}
+
+% Lists
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 % References
 $if(csl-refs)$

@@ -1,10 +1,10 @@
 \documentclass[twocolumn, 11pt, letterpaper]{article}
 
 % Font
-\usepackage[utf8]{inputenc}
-\usepackage{MinionPro} 
-\input{glyphtounicode}
-\pdfgentounicode=1 
+\usepackage[MnSymbol]{mathspec}
+\setmainfont{Minion Pro}
+\setmathsfont(Digits,Latin,Greek)
+[Numbers={Lining,Proportional}]{Minion Pro}
 \usepackage{microtype}
 
 % Format
@@ -17,11 +17,22 @@
 \titleformat*{\subsubsection}{\raggedright\normalfont\normalsize\bfseries\itshape}
 \usepackage{authblk}
 \renewcommand\Affilfont{\small}
+
+% References/Footnotes
 \newcommand{\refsection}{\section{References}}
-\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{14.5pt}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[L]{ DOUBLE STANDARDS }
+\fancyhead[R]{\thepage}
 
 % Links
-\usepackage[colorlinks = true, linkcolor = black, urlcolor = black, citecolor = black]{hyperref} 
+\usepackage[colorlinks = true, linkcolor = black, urlcolor = black, citecolor = black]{hyperref}
+\usepackage{xurl}
 
 % Figures
 \usepackage{graphicx}
@@ -31,10 +42,14 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 
+% Lists
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
 % References
 \newenvironment{CSLReferences}[2]{}{}
 
-% Frontmatter
+% Front matter
 \title{ Double Standards in Judging Collective Action\thanks{} }
 \author[1]{Nils K. Reimer}
 \affil[1]{University of California, Santa Barbara, United States}
@@ -125,8 +140,9 @@ for or against restricting abortion in the United States. We find
 evidence for ideology-based, but not for identity-based, double
 standards: People judge the same protest actions to be more acceptable
 when the protesters' cause aligns with their own ideological
-positions---but do not show consistent ingroup bias when judging
-collective action by ingroup and outgroup members.
+positions---but do not show consistent ingroup bias (in terms of class,
+race, and gender) when judging collective action by ingroup and outgroup
+members.
 
 \hypertarget{double-standards-in-judging-collective-action}{%
 \subsection{Double Standards in Judging Collective
@@ -135,9 +151,8 @@ Action}\label{double-standards-in-judging-collective-action}}
 Collective action---that is, any action taken by group members to
 advance a shared political goal (for similar definitions, see Becker,
 2012; van Zomeren, 2016)---is a powerful force driving social change.
-For example, Black Lives Matter protests lastingly shifted public
-discourse about racial inequity toward antiracist ideas (Dunivin et al.,
-2022).
+For example, Black Lives Matter protests shifted public discourse about
+racial inequity toward antiracist ideas (Dunivin et al., 2022).
 
 Collective action can take many forms. Psychologists distinguish between
 \emph{normative} collective action that seeks to achieve a political
@@ -185,18 +200,15 @@ In this research, we move this distinction from the researcher's
 intuition into the realm of scientific investigation and test for double
 standards in where people draw the line between acceptable (normative)
 and unacceptable (non-normative) forms of collective action. For that
-purpose, we define a double standard as judging the same action as more
-or less acceptable depending on who is performing the action and for
-what reason (for an analogous definition, see Foschi, 2000).\footnote{Feinberg
-  et al. (2020) provided incidental evidence for double standards in
-  judging collective action as, in a manipulation check, Black
-  participants rated Black Lives Matter protests as less extreme than
-  White participants and liberal participants rated protest actions for
-  progressive causes as less extreme than conservative participants.} In
-this section, we derive predictions from social psychological theories
-about how identity-based and ideology-based double standards could lead
-people to judge the same protest actions as more or less acceptable
-depending on who the protesters are and what they are protesting.
+purpose, we define a double standard as judging the same protest actions
+as more or less acceptable depending on who the protesters are and what
+they are protesting. (for an analogous definition, see Foschi,
+2000).\footnote{Feinberg et al. (2020) provided incidental evidence for
+  double standards in judging collective action as, in a manipulation
+  check, Black participants rated Black Lives Matter protests as less
+  extreme than White participants and liberal participants rated protest
+  actions for progressive causes as less extreme than conservative
+  participants.}
 
 \hypertarget{identity-based-double-standards}{%
 \subsubsection{Identity-Based Double
@@ -222,7 +234,7 @@ than when performed by an outgroup member. Other studies (Abrams et al.,
 Pinto et al., 2010) provided further evidence for ingroup bias in
 judging moral transgressions by ingroup and outgroup members.
 
-In the same vain, we propose that ingroup bias results in identity-based
+In the same vein, we propose that ingroup bias results in identity-based
 double standards in judging collective action by ingroup and outgroup
 members. That is, we hypothesize that people will judge the same protest
 actions as more acceptable if the protesters are ingroup members
@@ -275,10 +287,29 @@ system-supporting and system-challenging collective action.
 As system-justifying beliefs are closely related to political
 conservatism (Jost et al., 2003), this hypothesis could explain partisan
 differences in what actions liberals and conservatives consider
-acceptable means of protest for progressive and conservative causes.
-Ideology-based double standards could, for example, explain why far more
-Democrats than Republicans considered it appropriate to kneel during the
-national anthem to protest racist police violence (YouGov, 2017).
+acceptable means of protest for progressive and conservative
+causes---for example, why far more Democrats than Republicans considered
+it appropriate to kneel during the national anthem to protest racist
+police violence (YouGov, 2017).
+
+\hypertarget{are-partisan-double-standards-based-in-ideology-or-identity}{%
+\subsubsection{Are Partisan Double Standards Based in Ideology or
+Identity?}\label{are-partisan-double-standards-based-in-ideology-or-identity}}
+
+\begin{itemize}
+\tightlist
+\item
+  Are Partisan Double Standards Based in Ideology or Identity?
+\item
+  Evidence for partisanship as a elective affinity (Jost, 2021)
+\item
+  Evidence for partisanship as a social identity
+\item
+  We will use ``identity-based'' as a shorthand for double standards
+  based on assigned categories such as class, race, and gender and
+  ``ideology-based'' as a shorthand for double standards based on
+  system-justification and political orientation.
+\end{itemize}
 
 \hypertarget{using-item-response-theory-to-detect-double-standards}{%
 \subsection{Using Item Response Theory to Detect Double
@@ -299,12 +330,13 @@ whether each of a set of actions is an acceptable means of protest (1 =
 \emph{yes}, 0 = \emph{no}), a two-parameter logistic item response
 theory model estimates responses as a function of several latent
 (unobserved) parameters:
-\[ \Pr ( y_{ij} = 1 ) = \text{logit}^{-1} ( \alpha_i ( \theta_j + \beta_i ) ) \]
-where \(\Pr ( y_{ij} = 1 )\) is the probability that respondent \(j\)
-considers action \(i\) an acceptable means of protest, \(\theta_j\)
-estimates how \emph{accepting} respondent \(j\) is of various protest
-actions, \(\beta_i\) estimates how \emph{acceptable} action \(i\) is,
-and \(\alpha_i\) estimates how \emph{discriminating} action \(i\) is.
+\[ \Pr ( y_\textit{ij} = 1 ) = \text{logit}^{-1} ( \alpha_i ( \theta_j + \beta_i ) ) \]
+where \(\Pr ( y_\textit{ij} = 1 )\) is the probability that respondent
+\(j\) considers action \(i\) an acceptable means of protest,
+\(\theta_j\) estimates how \emph{accepting} respondent \(j\) is of
+various protest actions, \(\beta_i\) estimates how \emph{acceptable}
+action \(i\) is, and \(\alpha_i\) estimates how \emph{discriminating}
+action \(i\) is.
 
 Figure \ref{fig:f1} illustrates those relationships for three
 hypothetical protest actions. \(\theta_{(z)}\) is the
@@ -1009,7 +1041,7 @@ in the study, and to what extent they identifed with their racial
 ingroup (1 = \emph{not at all}, 7 = \emph{very much}). We also asked how
 often, if at all, participants had participated in protest actions such
 as the ones we had asked about (1 = \emph{never}, 5 = \emph{very often})
-and whether they has participated in protests for reforming, defunding
+and whether they had participated in protests for reforming, defunding
 or abolishing the police; against reforming, defunding or abolishing the
 police; or in neither. We measured political orientation with a one-item
 semantic differential scale: ``People often describe their political
@@ -1291,6 +1323,7 @@ those findings are beyond the scope of this manuscript and will be
 reported in a future publication. We made all materials, data, and
 analysis scripts available online
 (\url{https://osf.io/d3yev/?view_only=40782034017c40f0bcecb1cc87760b62}).
+Our sample size was determined by budget and time constraints.
 
 \hypertarget{study-design-2}{%
 \subsubsection{Study Design}\label{study-design-2}}
@@ -1597,8 +1630,7 @@ lenient standards when judging moral transgressions by ingroup members
 (Abrams et al., 2013; Endevelt et al., 2021). And yet, our findings
 suggest that, unlike judgments in other domains, judgments about
 collective action are not subject to double standards based on group
-identities such as class, race, or gender. Why did we not find any
-evidence for identity-based double standards?
+identities such as class, race, or gender.
 
 One reason for this discrepancy might be that participants did not
 identify strongly enough with the social categories examined in our
@@ -1664,26 +1696,6 @@ et al., 2003). In this way, conservatives might be expected to condemn
 disruptive protest even if the protest's cause is to defend inequality.
 Future research should seek to establish how consistent this ideological
 asymmetry is across different political causes and cultural contexts.
-
-Our findings provided a relevant comparison to findings from a recent
-experiment in which White Americans viewed pictures of either peaceful
-or destructive Black Lives Matter protests and rated how legitimate
-(i.e., fair, reasonable, legitimate, and justified) they considered the
-pictured protests to be (Teixeira et al., 2022). In this experiment,
-more conservative participants rated destructive and, to a lesser
-extent, peaceful protests to be less legitimate than more liberal
-participants. Likewise, participants who identified more strongly with
-their ethnic ingroup rated destructive and, to a lesser extent, peaceful
-protests to be less legitimate than participants who identified less
-strongly with their ingroup. However, participants' group identification
-was no longer associated with their protest ratings after controlling
-for their political orientation.\footnote{These findings are based on
-  our reanalysis, reported in the SOM, of Teixeira et al.'s (2022)
-  experiment. We thank the authors for making their data available
-  online.} In this way, results from the experiment aligned with our
-conclusion that political ideologies are more important than social
-identities for shaping how people judge controversial forms of
-collective action.
 
 Most broadly, our findings showed that, for many controversial protest
 actions, there is no consensus on what is and is not an acceptable means
@@ -1879,6 +1891,10 @@ collective action. \emph{Journal of Social Issues}, \emph{71}(3),
 \leavevmode\vadjust pre{\hypertarget{ref-jost_theory_2020}{}}%
 Jost, J. T. (2020). \emph{A theory of system justification}. Harvard
 University Press.
+
+\leavevmode\vadjust pre{\hypertarget{ref-jost_left_2021}{}}%
+Jost, J. T. (2021). \emph{Left and right: The psychological significance
+of a political distinction}. Oxford University Press.
 
 \leavevmode\vadjust pre{\hypertarget{ref-jost_decade_2004}{}}%
 Jost, J. T., Banaji, M. R., \& Nosek, B. A. (2004). A decade of system

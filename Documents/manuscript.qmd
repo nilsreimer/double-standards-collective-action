@@ -1,7 +1,7 @@
 ---
 title: "Double Standards in Judging Collective Action"
 header: "DOUBLE STANDARDS"
-abstract: "Collective action is a powerful force driving social change but often sparks contention about what actions are acceptable means to effect social change. In five studies (total *N* = 2,979), we investigated double standards in judging collective action---that is, whether observers will judge the same protest actions as more acceptable if the protesters are ingroup members and their cause aligns with the ingroup's interests (*identity-based double standards*) or if the protesters' cause aligns with the observers' ideological positions (*ideology-based double standards*). In two studies, we developed an instrument of 25 controversial protest actions, based in item response theory, to measure where people draw the line between acceptable and unacceptable forms of collective action. In three preregistered experiments, we used this instrument to test for double standards in judging collective action for workers' rights in the United Kingdom and for or against defunding the police and for or against restricting abortion in the United States. We found evidence for ideology-based, but not for identity-based, double standards: Participants judged the same protest actions to be more acceptable when the protesters' cause aligned with their own ideological position---but showed no consistent ingroup bias when judging collective action by ingroup and outgroup members. Our findings have theoretical and practical implications for understanding the often divided response to prominent social movements."
+abstract: "Collective action is a powerful force driving social change but often sparks contention about what actions are acceptable means to effect social change. In five studies (total *N* = 2,979), we investigated double standards in judging collective action---that is, whether observers will judge the same protest actions as more acceptable if the protesters are ingroup members and their cause aligns with the ingroup's interests (*identity-based double standards*) or if the protesters' cause aligns with the observers' ideological positions (*ideology-based double standards*). In two studies, we developed an instrument of 25 controversial protest actions, based in item response theory, to measure where people draw the line between acceptable and unacceptable forms of collective action. In three preregistered experiments, we used this instrument to test for double standards in judging collective action for workers' rights in the United Kingdom and for or against defunding the police and for or against restricting abortion in the United States. We found evidence for ideology-based, but not for identity-based, double standards: Participants judged the same protest actions to be more acceptable when the protesters' cause aligned with their own ideological position---but showed no consistent ingroup bias in terms of class, race, and gender. Our findings have theoretical and practical implications for understanding the often divided response to prominent social movements."
 keywords: collective action, double standards, social identity theory, system justification theory, Black Lives Matter
 bibliography: references.bib
 csl: apa.csl
@@ -59,15 +59,9 @@ As system-justifying beliefs are closely related to political conservatism [@jos
 
 ### Are Partisan Double Standards Based in Ideology or Identity?
 
-<!-- Write it in your own words and structure it (with references) later. -->
-<!-- Political orientation can be understood as ideology and identity. -->
+Partisan differences can result from two social psychological processes. On the one hand, political partisanship reflects ideological differences in resistance to social change and acceptance of inequality which, in turn, are motivated by epistemic, existential, and relational needs [@jost_political_2003; @jost_left_2021]. As motivated cognition, ideological orientations shape how we think and feel about issues, actions, and events. On the other hand, political partisanship functions as a social identity [@finkel_political_2020; @osborne_psychology_2022] with evidence suggesting that partisans' policy preferences depends more on the stated position of their party than policy content [@cohen_party_2003]. Like other identities, political identities result in group-serving biases in how we evaluate ingroup and outgroup members. In practice, the two processes are often difficult to disentangle.
 
-- Are Partisan Double Standards Based in Ideology or Identity?
-- Evidence for partisanship as a elective affinity [@jost_left_2021]
-- Evidence for partisanship as a social identity
-- We will use "identity-based" as a shorthand for double standards based on assigned categories such as class, race, and gender and "ideology-based" as a shorthand for double standards based on system-justification and political orientation.
-
-<!-- I could move the last paragraph of the previous section to here. -->
+For now, we use "identity-based" to refer to double standards based on assigned social categories such as class, race, and gender and "ideology-based" to refer to double standards based on ideological alignment. We compare the evidence for identity and ideology processes in the General Discussion.
 
 ## Using Item Response Theory to Detect Double Standards
 
@@ -748,9 +742,10 @@ Despite its strengths, our research is qualified by several limitations. First, 
 ## Implications
 
 Growing evidence shows that, in many situations, observers apply a more lenient standards when judging moral transgressions by ingroup members [@abrams_double_2013; @endevelt_everyone_2021]. And yet, our findings suggest that, unlike judgments in other domains, judgments about collective action are not subject to double standards based on group identities such as class, race, or gender. 
-<!-- Why did we not find any evidence for identity-based double standards? -->
 
 One reason for this discrepancy might be that participants did not identify strongly enough with the social categories examined in our studies. This explanation, however, is not plausible because, first, we examined social categories (class, race, gender) that are central to most people's identities and because, second, we did not find evidence for ingroup bias even among highly identified group members. Another reason for this discrepancy might be that participants did not perceive the protesters' causes as relevant to the social identities examined in our studies. This explanation, however, conflicts with participants' reactions to the manipulation which, at least in Experiment 1--2, showed that participants understood the vignette in ingroup--outgroup terms. 
+
+<!-- Instead, I should offer three explanations for the observed partisan biases: (1) ideology (Jost, 2020, 2021), (2) identity, and (3) moralizaton. I could close by suggesting experiments to tease them apart. Assymmetry is evidence against identity-based processes as we would expect ingroup bias in both directions. -->
 
 A more plausible explanation might be that collective action, even in its controversial forms, is not judged as a moral transgression [as in previous research on identity-based double standards, e.g., @abrams_double_2013]. Instead, observers might understand collective action primarily as a means to an end and judge how acceptable a form of collective action is in relation to its end ("the end justifies the mean"). This aligns with our finding that how acceptable participants judged protest actions to be depended on the protesters' cause, not their group membership.
 

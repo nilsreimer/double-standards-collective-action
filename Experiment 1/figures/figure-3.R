@@ -233,13 +233,11 @@ rm(list = ls())
   # Export as .png
   ggsave(
     "Experiment 1/figures/figure-3.png",
-    width = 6.5, height = 6.5/3*2, units = "in", dpi = 600,
-    type = "cairo"
+    width = 6.5, height = 6.5/3*2, units = "in", dpi = 600
   )
   
   # Export as .pdf
   ggsave(
     "Experiment 1/figures/figure-3.pdf",
-    width = 6.5, height = 6.5/3*2, units = "in", dpi = 600,
-    device = cairo_pdf
+    width = 6.5, height = 6.5/3*2, units = "in", dpi = 600
   )  

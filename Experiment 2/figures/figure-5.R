@@ -278,14 +278,12 @@ rm(list = ls())
   # Export as .png
   ggsave(
     "Experiment 2/figures/figure-5.png",
-    width = 6.5, height = 6.5/5*2, units = "in", dpi = 600,
-    type = "cairo"
+    width = 6.5, height = 6.5/5*2, units = "in", dpi = 600
   )
   
   # Export as .pdf
   ggsave(
     "Experiment 2/figures/figure-5.pdf",
-    width = 6.5, height = 6.5/5*2, units = "in",
-    device = cairo_pdf
+    width = 6.5, height = 6.5/5*2, units = "in"
   )  
   

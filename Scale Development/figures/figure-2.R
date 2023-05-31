@@ -89,13 +89,12 @@ rm(list = ls())
   ggsave(
     "Scale Development/figures/figure-2.png",
     width = 6.5, height = 6.5/7*3, units = "in", 
-    dpi = 600, type = "cairo"
+    dpi = 600
   )
   
   # Export as .pdf
   ggsave(
     "Scale Development/figures/figure-2.pdf",
-    width = 6.5, height = 6.5/7*3, units = "in", 
-    device = cairo_pdf
+    width = 6.5, height = 6.5/7*3, units = "in"
   )
   

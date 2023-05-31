@@ -2,7 +2,6 @@ rm(list = ls())
 
 # Notes -------------------------------------------------------------------
 
-  # CHECK FIGURE M1
 
 # Library -----------------------------------------------------------------
 
@@ -428,14 +427,12 @@ rm(list = ls())
   # Export as .png
   ggsave(
     "Experiment 2/figures/figure-4.png",
-    width = 6.5, height = 6.5/4*3, units = "in", dpi = 600,
-    type = "cairo"
+    width = 6.5, height = 6.5/4*3, units = "in", dpi = 600
   )
   
   # Export as .pdf
   ggsave(
     "Experiment 2/figures/figure-4.pdf",
-    width = 6.5, height = 6.5/4*3, units = "in",
-    device = cairo_pdf
+    width = 6.5, height = 6.5/4*3, units = "in"
   )  
   

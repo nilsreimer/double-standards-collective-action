@@ -15,7 +15,10 @@ format:
 ```{r setup, include = FALSE}
 
   # Load packages
-  library(tidyverse); library(tidybayes); library(numform)
+  library(tidyverse)
+  library(tidybayes)
+  library(numform)
+  library(glue)
 
   # knitr options
   knitr::opts_chunk$set(echo = FALSE)
@@ -54,9 +57,21 @@ Participants first read an accessible description of collective action:
 
 \noindent Participants were then asked to "suppose that one or more members of a group took the following action to advance a cause in their group's interest" and were presented with one of the actions from Study 1. Participants answered several questions about the protest action. First, they rated how disruptive, violent, and extreme they considered this action to be (1 = *not at all*, 4 = *very*). Second, they were asked to think of a range of different causes and circumstances, and to rate how often this action would be an acceptable means for a group to advance one of these causes (1 = *never*, 2 = *rarely*, 3 = *sometimes*, 4 = *often*, 5 = *always*). Finally, they rated how positive or negative they felt, in general, about this action (1 = *very positive*, 5 = *very negative*). Each participant answered these questions for 20 of the 72 actions from Study 1 so that each action was rated by 29--53 participants.
 
-We estimated a graded response model [@burkner_bayesian_2021; @samejima_graded_1997], an item response theory model for ordinal response variables, for participants' ratings of how often an action would be an acceptable form of collective action. For each participant $j$, the model estimated their unique propensity ($\theta_j$) to consider collective actions acceptable in more situations. For each item $i$, the model estimated four acceptability thresholds ($\beta_{ik}$), separating the five response options, and one discrimination parameter ($\alpha_i$) indicating how well the item differentiates between participants with different propensities to consider collective actions acceptable. We estimated the model in *CmdStanR* using similar prior distribution as in Experiment. We used an induced Dirichlet prior [@betancourt_ordinal_2019] for the item-specific difficulty thresholds.
+We estimated a graded response model [@burkner_bayesian_2021; @samejima_graded_1997], an item response theory model for ordinal response variables, for participants' ratings of how often an action would be an acceptable form of collective action. For each participant $j$, the model estimated their unique propensity ($\theta_j$) to consider collective actions acceptable in more situations. For each item $i$, the model estimated four acceptability thresholds ($\beta_{ik}$), separating the five response options, and one discrimination parameter ($\alpha_i$) indicating how well the item differentiates between participants with different propensities to consider collective actions acceptable. We estimated the model in *CmdStanR* using similar prior distribution as in Experiment 1. We used an induced Dirichlet prior [@betancourt_ordinal_2019] for the item-specific difficulty thresholds.
 
-Table S1 shows each actions' item information and discrimination as well as proportions for the observed responses. Table S2 shows participants' averaged ratings of how acceptable, disruptive, violent, extreme, and negative they considered each action to be. Table S3 shows that all five ratings were strongy correlated across actions and participants. We considered both estimates from the graded response model and their relevance to the social contexts to select actions for Experiments 1 and 2.
+Table S1 shows each protest action's information and discrimination parameters as well as the proportions of participants choosing each answer option. Table S2 shows participants' averaged ratings of how acceptable, disruptive, violent, extreme, and negative they considered each action to be. Table S3 shows that all five ratings were strongly correlated across actions and participants. 
+
+Figure \ref{fig:s1} shows the scale information curves for scales composed of, respectively, the 1--72 most informative and discriminating protest actions. We selected the 25 most informative actions to construct the final scale to be used in Experiments 1--3. While adding more actions to the scale would have improved the information provided by the instrument, the added benefit of each additional action included in the scale would have been small (see Figure \ref{fig:s1}). We limited the number of protest actions to 25 so as to not overwhelm participants and to prevent satisficing. Tables A1, B1, and C1 list the protest actions used in Experiments 1--3.
+
+```{=latex}
+\begin{figure*}[!t]
+\centering
+\caption{Scale information curves for scales composed of the 1--72 most informative and discriminating protest actions}
+\includegraphics[scale=1]{../Scale Development/figures/figure-s1}
+\caption*{\textit{Note.} The information curve for the final scale of 25 actions is highlighted in red. As in Figure 1, $\theta_{(z)}$ follows a standard normal distribution and is shown as both $z$-scores (bottom) and percentiles (top).}
+\label{fig:s1}
+\end{figure*}
+```
 
 # Experiment 1
 
@@ -105,6 +120,420 @@ We measured moral concerns with the 36-item moral foundations questionnaire [MFQ
 <!-- At the height of the 2020 Black Lives Matter protests, @teixeira_white_2022 exposed White Americans ($N = 399$) to photos of either peaceful or destructive Black Lives Matter protests and asked them to rate how legitimate (i.e., fair, reasonable, legitimate, and justified) they thought the pictured protests were. As such, their findings make for an interesting comparison to our findings. @teixeira_white_2022, however, reported results from a linear model estimating the three-way interaction between the experimental manipulation, belief in systemic racial injustice, and group identification while controlling for political orientation. This analysis did not provide a direct comparison to our findings.  -->
 
 <!-- To compare theirs to our findings, we instead estimated a series of simpler linear regression models, using the brms R package [@burkner_brms_2017; @burkner_advanced_2018] and weakly informative Student-*t* $(3, 0, 2.5)$ prior distributions, with participants' ratings of how legitimate the pictured protests were as the outcome variable.^[We thank the authors for making their data available online ([https://osf.io/sud2y/](https://osf.io/sud2y/)).] First, we found that, as expected, participants considered peaceful protests far more legitimate than destructive protests ($\text{Cohen's}~d = 1.14, [0.98, 1.30]$). Second, we found that more conservative participants rated destructive protests ($\beta_{xy} = -0.59, [-0.68, -0.49]$) and, to a lesser extent, peaceful protests ($\beta_{xy} = -0.20, [-0.30, -0.10]$) to be less legitimate than more liberal participants. Third, we found that participants who identified more strongly with their (White American) ethnic identity rated destructive protests ($\beta_{xy} = -0.35, [-0.45, -0.24]$) and, to a lesser extent, peaceful protests ($\beta_{xy} = -0.10, [-0.21, 0.01]$) to be less legitimate than participants who identified less strongly with their (White American) ethnic identity. Finally, we found that participants' group identification was no longer associated with how legitimate they rated peaceful ($\beta_{xy} = -0.02, [-0.13, 0.05]$) and destructive ($\beta_{xy} = -0.06, [-0.17, 0.05]$) protests to be after controlling for their political orientation. We refer to findings from our reanalysis of Teixeira et al.'s [-@teixeira_white_2022] experiment in the main text. -->
+
+# Reanalyses Without Exclusions
+
+We replicated the analyses for Experiments 1-3 using the complete data without excluding participants based on the (preregistered) exclusion criteria.
+
+## Experiment 1
+
+```{=latex}
+\begin{figure*}[!t]
+\centering
+\caption{Results from the preregistered (\textbf{A}) and non-preregistered (\textbf{B}) analyses for Experiment 1 without exclusions}
+\includegraphics[scale=1]{../Experiment 1/figures/figure-s2}
+\caption*{\textit{Note.} HS = Higher Status, LS = Lower Status. $\theta_{(z)}$ is the \textit{z}-standardized tendency to consider more controversial actions acceptable means of protest. (\textbf{A}) $p$ and $n$ are, respectively, the predicted proportion and number of actions a participant would consider acceptable means of protest in each condition. Bars enclose the 95\% most plausible estimates. (\textbf{B}) Ribbons enclose, from the darkest to the lightest shade, the 50\%, 80\%, 95\%, and 99\% most plausible estimates.}
+\label{fig:s2}
+\end{figure*}
+```
+
+Figure \ref{fig:s2} (A) shows estimates for each combination of the protesters' and the participants' group membership. Overall, we found that participants' responses depended on both the protesters' and the participants' group status---but not in the directions predicted by our hypotheses. Contradicting our first hypothesis, participants did not consider protest actions performed by their ingroup to be more acceptable, on average, than the same actions performed by the relevant outgroup (Cohen's $d = -0.01, [-0.20, 0.16]$). Instead, we found that participants from higher-status backgrounds considered protest actions performed by both lower-status ($d = 0.40, [0.15, 0.66$]) and higher-status ($d = 0.37, [0.10, 0.63]$) protesters to be, on average, more acceptable than participants from lower-status backgrounds. Contradicting our second hypothesis, participants considered protest actions performed by higher-status protesters to be less acceptable, on average, than the same actions performed by lower-status protesters ($d = -0.20, [-0.37, -0.02]$).
+
+Figure \ref{fig:s2} shows (B) the $z$-standardized propensity to consider more controversial protest actions acceptable as a function of the three ideological orientation variables. We found that participants who reported a more right-wing political orientation ($\beta_{xy} = -0.24, [-0.34, -0.15]$) and who expressed more agreement with system-justifying beliefs ($\beta_{xy} = -0.21, [-0.31, -0.12]$) tended to find fewer collective actions to be acceptable. In contrast, we found that, after controlling for the other two variables, social dominance orientation was not associated with participants' judgments about how acceptable various collective actions are ($\beta_{xy} = -0.06, [-0.16, 0.03]$). Overall, these findings suggest that people who are right-wing and endorse system-justifying beliefs tend to find various collective actions to be less acceptable than people who are left-wing and do not endorse system-justifying beliefs.
+
+## Experiment 2
+
+### Preregistered Analyses
+
+```{=latex}
+\begin{figure*}[!t]
+\centering
+\caption{Results from the preregistered analyses for Experiment 2}
+\includegraphics[scale=1]{../Experiment 2/figures/figure-s3}
+\caption*{\textit{Note.} Against = Protesters oppose defunding the police. For = Protesters support defunding the police. $\theta_{(z)}$ is the \textit{z}-standardized tendency to consider more controversial actions acceptable means of protest. Ribbons enclose, from the darkest to the lightest shade, the 50\%, 80\%, 95\%, and 99\% most plausible estimates.}
+\label{fig:s3}
+\end{figure*}
+```
+
+```{=latex}
+\begin{figure*}[!t]
+\centering
+\caption{Predictions from the preregistered (system justification) and non-preregistered (political orientation) analyses for Experiment 2 without exclusions}
+\includegraphics[scale=1]{../Experiment 2/figures/figure-s4}
+\caption*{\textit{Note.} Against = Protesters oppose defunding the police. For = Protesters support defunding the police. $\theta_{(z)}$ is the \textit{z}-standardized tendency to consider more controversial actions acceptable means of protest.}
+\label{fig:s4}
+\end{figure*}
+```
+
+Figure \ref{fig:s3} shows results from three preregistered models we estimated to test our hypotheses. 
+
+```{r, include = FALSE}
+
+  # Import results
+  m1 <- read_rds("../Experiment 2/results/m1_post_without_exclusions.rds")
+
+  # Define contrasts
+  m1 <- m1 %>% 
+    mutate(
+      h1a_contrast = case_when(
+        Participant == Protesters ~ +1/8,
+        Participant != Protesters ~ -1/8,
+      ),
+      h1b_contrast = case_when(
+        Participant == "Black" & Cause == "For" ~ +1/8,
+        Participant == "White" & Cause == "Against" ~ +1/8,
+        TRUE ~ -1/8,
+      ),
+      h2a_contrast = case_when(
+        Cause == "For" ~ -1/8,
+        Cause == "Against" ~ +1/8
+      ),
+      nh1_contrast = case_when(
+        Participant == "Black" ~ -1/8,
+        Participant == "White" ~ +1/8
+      ),
+      nh2_contrast = case_when(
+        Participant == "White" & Cause == "Against" ~ -1/4,
+        Participant == "White" & Cause == "For" ~ +1/4,
+        Participant == "Black" ~ 0
+      ),
+      nh3_contrast = case_when(
+        Participant == "Black" & Cause == "Against" ~ -1/4,
+        Participant == "Black" & Cause == "For" ~ +1/4,
+        Participant == "White" ~ 0
+      )
+    )
+  
+  # Calculate contrasts
+  m1 <- m1 %>% 
+    group_by(.draw) %>% 
+    summarize(
+      across(
+        ends_with("_contrast"),
+        ~sum(z * .)
+      )
+    ) %>% 
+    pivot_longer(
+      ends_with("_contrast"),
+      names_to = "contrast",
+      values_to = "d"
+    ) %>% 
+    group_by(contrast) %>% 
+    median_qi(d)
+  
+  # Make text
+  m1 <- m1 %>% 
+    mutate(
+      across(
+        c(d, .lower, .upper), 
+        f_num, digits = 2, retain.leading.zero = T
+      ),
+      d_text = glue(
+        "$d = {d}, [{.lower}, {.upper}]$"
+      )
+    )
+  
+
+```
+
+Model 1 estimated varying intercepts for the eight conditions to test whether, in line with Hypotheses 1a, 1b, or 2a, participants' responses depended on their own group membership, the protesters' group membership, or the protesters' cause. Contradicting *Hypothesis 1a*, participants did not consider protest actions performed by their ingroup to be more acceptable, on average, than the same actions performed by the relevant outgroup (`r with(m1, d_text[contrast == "h1a_contrast"])`). Contradicting *Hypothesis 1b*, participants did not consider protest actions for a cause that was nominally aligned with their ingroup's interests to be more acceptable, on average, than protest actions for a cause not aligned with their ingroup's interests (`r with(m1, d_text[contrast == "h1b_contrast"])`). Contradicting *Hypothesis 2a*, participants did not consider protest actions for a system-defending cause to be more acceptable, on average, than protest actions for a system-challenging cause (`r with(m1, d_text[contrast == "h2a_contrast"])`). Instead, we found that, on average, White participants considered all protest actions to be more acceptable than Black participants (`r with(m1, d_text[contrast == "nh1_contrast"])`) and both Black (`r with(m1, d_text[contrast == "nh3_contrast"])`) and White (`r with(m1, d_text[contrast == "nh2_contrast"])`) participants considered the same actions to be more acceptable when protests were for, rather than against, defunding the police. As in Experiment 1, we thus found that participants' responses depended on both the participants' and the protesters' group memberships---but not in the directions predicted by our hypotheses.
+
+```{r, include = FALSE}
+
+  # Import results
+  m2 <- read_rds("../Experiment 2/results/m2_post_without_exclusions.rds")
+
+  # Hypothesis 2
+  m2_h2 <- m2 %>% 
+    distinct(.draw, b_sjb_for, b_sjb_against) %>% 
+    pivot_longer(
+      c(b_sjb_for, b_sjb_against),
+      names_to = "Cause",
+      names_prefix = "b_sjb_",
+      values_to = "b"
+    ) %>% 
+    group_by(Cause) %>% 
+    mutate(
+      b = case_when(
+        Cause == "for" ~ -b,
+        Cause == "against" ~ b
+      )
+    ) %>% 
+    median_qi(b) %>% 
+    mutate(
+      across(
+        c(b, .lower, .upper), 
+        f_num, digits = 2, retain.leading.zero = T
+      ),
+      b_text = glue(
+        "$\\beta_{xy} = (b), [(.lower), (.upper)]$",
+        .open = "(", .close = ")"
+      )
+    )
+
+```
+
+Model 2 extended Model 1 by estimating participants' responses as a function of their *z*-standardized endorsement of system-justifying beliefs. As preregistered, we modeled this relationship with two fixed effects, one estimating the effect of system-justifying beliefs on judgments about system-defending protest actions and one estimating their effect on judgments about system-challenging protest actions, and one varying effect estimating its variance across conditions. Supporting *Hypothesis 2b*, participants who *rejected* system-justifying beliefs were *more* likely to consider system-challenging protest actions (for defunding the police) to be acceptable means of protest (`r with(m2_h2, b_text[Cause == "for"])`). We did not, however, find evidence for the ideological symmetry implied by *Hypothesis 2b* since participants who *endorsed* system-justifying beliefs were *not* more likely to consider system-defending protest actions (against defunding the police) to be acceptable means of protest (`r with(m2_h2, b_text[Cause == "against"])`). 
+
+Figure \ref{fig:s4} shows the estimated pattern of condition-wise differences underlying those fixed effects. Participants who endorsed system-justifying beliefs tended to consider system-challenging and system-defending protest actions to be equally unacceptable. In contrast, participants who rejected system-justifying beliefs evinced ideology-based double standards: In line with *Hypothesis 2b*, they considered the same protest actions to be more acceptable when the protesters challenged the system or, to a lesser extent, when the protesters were from the disadvantaged group.
+
+```{r, include = FALSE}
+
+  # Import results
+  m3 <- read_rds("../Experiment 2/results/m3_post_without_exclusions.rds")
+
+  # Hypothesis 2
+  m3_h3 <- m3 %>% 
+    distinct(.draw, b_sup) %>%
+    rename(b = b_sup) %>% 
+    median_qi(b) %>% 
+    mutate(
+      across(
+        c(b, .lower, .upper), 
+        f_num, digits = 2, retain.leading.zero = T
+      ),
+      b_text = glue(
+        "$\\beta_{y} = (b), [(.lower), (.upper)]$",
+        .open = "(", .close = ")"
+      )
+    )
+
+```
+
+Model 3 extended Model 1 by estimating participants' responses as a function of their self-reported support for the cause of the protest. We recoded participants' responses to create a predictor variable that encoded support for defunding the police when protesters supported defunding the police and opposition to defunding the police when protesters opposed defunding the police. As preregistered, we modeled this relationship as a monotonic effect [@burkner_modelling_2020] that estimated the average change in the outcome variable across predictor categories as well as how much of this change occurred between each of the four pairs of adjacent predictor categories.^[Our model assigned a Dirichlet prior, $\alpha = {1, 1, 1, 1}$, to the proportions of the overall change that was expected to occur between each of the four pairs of predictor categories.] Contradicting *Hypothesis 3*, participants who supported the protesters' cause did not, on average, consider the same protest actions to be more acceptable than participants who opposed the protesters' cause (`r with(m3_h3, b_text)`). Ergo, our results did not support the alternative hypothesis that ideology-based double standards can be reduced to support for, or opposition to, the cause of a protest.
+
+### Non-Preregistered Analyses
+
+```{r, include = FALSE}
+
+  # Import results
+  m5 <- read_rds("../Experiment 2/results/m5_post_without_exclusions.rds")
+
+  # Define contrasts
+  m5 <- m5 %>% 
+    mutate(
+      h1a_contrast = case_when(
+        Participant == Protesters ~ +1/8,
+        Participant != Protesters ~ -1/8
+      ),
+      h1b_contrast = case_when(
+        Participant == "Black" & Cause == "For" ~ +1/8,
+        Participant == "White" & Cause == "Against" ~ +1/8,
+        TRUE ~ -1/8,
+      )
+    )
+  
+  # Calculate contrasts
+  m5 <- m5 %>% 
+    group_by(.draw, x_ide) %>% 
+    summarize(
+      across(
+        ends_with("_contrast"),
+        ~sum(z * .)
+      )
+    ) %>% 
+    pivot_longer(
+      ends_with("_contrast"),
+      names_to = "contrast",
+      values_to = "d"
+    ) %>% 
+    group_by(x_ide, contrast) %>% 
+    median_qi(d)
+  
+  # Make text
+  m5 <- m5 %>% 
+    mutate(
+      across(
+        c(d, .lower, .upper), 
+        f_num, digits = 2, retain.leading.zero = T
+      ),
+      d_text = glue(
+        "$d = {d}, [{.lower}, {.upper}]$"
+      )
+    )
+
+```
+
+We explored whether group identification moderated how the participants' and the protesters' group memberships affected participants' responses. To that end, we extended Model 1 by estimating participants' responses as a function of their *z*-standardized identification with their racial ingroup. As in Model 2, we modeled this relationship with a fixed and a varying effect. We found, however, that even participants who strongly identified with their racial ingroup (+1*SD*) did not consider protest actions performed by their ingroup to be more acceptable than the same actions performed by the relevant outgroup (`r with(m5, d_text[contrast == "h1a_contrast" & x_ide == 1L])`) and did not consider protest actions for a cause that was aligned with their ingroup's interests to be more acceptable than protest actions for a cause not aligned with their ingroup's interests (`r with(m5, d_text[contrast == "h1b_contrast" & x_ide == 1L])`). Our non-preregistered analyses thus suggested that group identification did not moderate group differences in judgments about collective action by ingroup and outgroup members.
+
+```{r, include = FALSE}
+
+  # Import results
+  m4 <- read_rds("../Experiment 2/results/m4_post_without_exclusions.rds")
+
+  # Hypothesis 2
+  m4_exp <- m4 %>% 
+    distinct(.draw, b_pol_for, b_pol_against) %>% 
+    pivot_longer(
+      c(b_pol_for, b_pol_against),
+      names_to = "Cause",
+      names_prefix = "b_pol_",
+      values_to = "b"
+    ) %>% 
+    group_by(Cause) %>% 
+    mutate(
+      b = case_when(
+        Cause == "for" ~ -b,
+        Cause == "against" ~ b
+      )
+    ) %>% 
+    median_qi(b) %>% 
+    mutate(
+      across(
+        c(b, .lower, .upper), 
+        f_num, digits = 2, retain.leading.zero = T
+      ),
+      b_text = glue(
+        "$\\beta_{xy} = (b), [(.lower), (.upper)]$",
+        .open = "(", .close = ")"
+      )
+    )
+
+```
+
+We also explored whether we would find ideology-based double standards when operationalizing ideology as political orientation instead of as system justification. To that end, we reran Model 2 with political orientation as the *z*-standardized predictor variable. Our results mirrored the preregistered analyses: More liberal participants were more likely to consider protest actions for defunding the police to be acceptable (`r with(m4_exp, b_text[Cause == "for"])`) but more conservative participants were not more likely to consider protest actions against defunding the police to be acceptable (`r with(m4_exp, b_text[Cause == "against"])`). As Figure \ref{fig:s4} shows, conservative participants tended to consider all protest actions to be equally unacceptable while liberal participants considered the same protest actions to be more acceptable when protesters rallied around a progressive cause. Our non-preregistered analyses thus replicated the ideology-based double standards from the preregistered analyses with a different operationalization of ideology.
+
+## Experiment 3
+
+```{=latex}
+\begin{figure*}[!t]
+\centering
+\caption{Results from the preregistered analyses for Experiment 3 without exclusions}
+\includegraphics[scale=1]{../Experiment 3/figures/figure-s5}
+\caption*{\textit{Note.} Results show the estimated \textit{z}-standardized tendency ($\theta_{(z)}$) to consider more controversial actions acceptable means to protest for or against restricting abortion as a function of the participants' ideology and gender.}
+\label{fig:s5}
+\end{figure*}
+```
+
+### Preregistered Analyses
+
+```{r, include = FALSE}
+
+  # Import results
+  m1 <- read_rds("../Experiment 3/results/m1_post_without_exclusions.rds")
+
+  # Define contrasts
+  m1 <- m1 %>% 
+    mutate(
+      h1_contrast = case_when(
+        participant_gender == "Woman" & protesters_cause == "Against" ~ +1L,
+        TRUE ~ -1L
+      ),
+      h2a_contrast = case_when(
+        participant_ideology == "Conservative" & protesters_cause == "For" ~ +1L,
+        participant_ideology == "Liberal" & protesters_cause == "Against" ~ +1L,
+        TRUE ~ -1L
+      ),
+      h2b_contrast = case_when(
+        participant_ideology == "Liberal" & protesters_cause == "Against" ~ +1L,
+        TRUE ~ -1L
+      ),
+      nh1_contrast = case_when(
+        participant_ideology == "Conservative" & protesters_cause == "For" ~ +1L,
+        participant_ideology == "Conservative" & protesters_cause == "Against" ~ -1L,
+        TRUE ~ NA_integer_
+      ),
+      nh2_contrast = case_when(
+        participant_ideology == "Liberal" & protesters_cause == "For" ~ -1L,
+        participant_ideology == "Liberal" & protesters_cause == "Against" ~ +1L,
+        TRUE ~ NA_integer_
+      ),
+      nh3_contrast = case_when(
+        participant_ideology == "Conservative" & participant_gender == "Man" & protesters_cause == "For" ~ +1L,
+        participant_ideology == "Conservative" & participant_gender == "Man" & protesters_cause == "Against" ~ -1L,
+        TRUE ~ NA_integer_
+      ),
+      nh4_contrast = case_when(
+        participant_ideology == "Conservative" & participant_gender == "Woman" & protesters_cause == "For" ~ +1L,
+        participant_ideology == "Conservative" & participant_gender == "Woman" & protesters_cause == "Against" ~ -1L,
+        TRUE ~ NA_integer_
+      ),
+      nh5_contrast = case_when(
+        participant_ideology == "Liberal" & participant_gender == "Man" & protesters_cause == "For" ~ -1L,
+        participant_ideology == "Liberal" & participant_gender == "Man" & protesters_cause == "Against" ~ +1L,
+        TRUE ~ NA_integer_
+      ),
+      nh6_contrast = case_when(
+        participant_ideology == "Liberal" & participant_gender == "Woman" & protesters_cause == "For" ~ -1L,
+        participant_ideology == "Liberal" & participant_gender == "Woman" & protesters_cause == "Against" ~ +1L,
+        TRUE ~ NA_integer_
+      )
+    )
+  
+  # Calculate contrasts
+  m1 <- m1 %>% 
+    pivot_longer(
+      ends_with("_contrast"),
+      names_to = "contrast",
+      values_to = "direction",
+      values_drop_na = TRUE
+    ) %>% 
+    group_by(.draw, contrast, direction) %>% 
+    summarize(z = mean(z)) %>% 
+    summarize(d = sum(z * direction)) %>% 
+    pivot_wider(
+      names_from = contrast,
+      values_from = d
+    ) %>% 
+    mutate(nh7_contrast = nh2_contrast - nh1_contrast) %>% 
+    pivot_longer(
+      ends_with("_contrast"),
+      names_to = "contrast",
+      values_to = "d"
+    ) %>% 
+    group_by(contrast) %>% 
+    median_qi(d)
+    
+  # Make text
+  m1 <- m1 %>% 
+    mutate(
+      across(
+        c(d, .lower, .upper), 
+        f_num, digits = 2, retain.leading.zero = T
+      ),
+      d_text = glue(
+        "$d = {d}, [{.lower}, {.upper}]$"
+      )
+    )
+  
+
+```
+
+Figure \ref{fig:s5} shows the results of our preregistered analyses without exclusions.
+
+As in Experiments 1 and 2, we found evidence for ideology-based double standards: Conservative participants considered the same protest actions to be more acceptable, on average, when protesters *supported* restricting abortion (`r with(m1, d_text[contrast == "nh1_contrast"])`) while liberal participants considered the same protest actions to be more acceptable when protesters *opposed* restricting abortion (`r with(m1, d_text[contrast == "nh2_contrast"])`). This double standard was more pronounced among liberal participants (`r with(m1, d_text[contrast == "nh7_contrast"])`). In this way, Experiment 3 provided evidence for both ideological symmetry and asymmetry in judging collective action for and against restricting abortion. 
+
+We found some evidence for identity-based double standards: Female participants considered protest actions *against* restricting abortion to be more acceptable, on average, than male participants or protest actions *for* restricting abortion (`r with(m1, d_text[contrast == "h1_contrast"])`). This pattern was, however, overshadowed by stronger ideology-based double standards that were consistent across subsamples: Conservative women (`r with(m1, d_text[contrast == "nh4_contrast"])`) and, to a lesser extent, conservative men (`r with(m1, d_text[contrast == "nh3_contrast"])`) considered the same protest actions to be more acceptable when protesters *supported* restricting abortion and both liberal women (`r with(m1, d_text[contrast == "nh6_contrast"])`) and liberal men (`r with(m1, d_text[contrast == "nh5_contrast"])`) considered the same protest actions to be more acceptable when protesters *opposed* restricting abortion. In this way, Experiment 3 provided more consistent evidence for ideology-based than for identity-based double standards in judging collective action.
+
+### Non-Preregistered Analyses
+
+```{r, include = FALSE}
+
+  # Import results
+  ide <- read_rds("../Experiment 3/results/ide_post_without_exclusions.rds")
+
+  # Make text
+  ide <- ide %>%
+    group_by(.draw, participant_gender, protesters_cause) %>% 
+    summarize(
+      b = mean(b_ide_kk)
+    ) %>% 
+    group_by(participant_gender, protesters_cause) %>%
+    median_qi(b) %>% 
+    mutate(
+      across(
+        c(b, .lower, .upper),
+        f_num, digits = 2, retain.leading.zero = T
+      ),
+      b_text = glue(
+        "$\\beta_{xy} = (b), [(.lower), (.upper)]$",
+        .open = "(", .close = ")"
+      )
+    )
+
+```
+
+We explored whether group identification moderated participants' judgments. We found, however, that gender identification neither affected how women judged protesters opposing (`r with(ide, b_text[participant_gender == "Woman" & protesters_cause == "Against"])`) or supporting (`r with(ide, b_text[participant_gender == "Woman" & protesters_cause == "For"])`) abortion restrictions nor how men judged protesters opposing (`r with(ide, b_text[participant_gender == "Man" & protesters_cause == "Against"])`) or supporting (`r with(ide, b_text[participant_gender == "Man" & protesters_cause == "For"])`) abortion restrictions. Our non-preregistered analyses thus suggested that gender identification did not moderate identity-based double standards in judging collective action concerning reproductive rights.
 
 \newpage
 
@@ -396,7 +825,7 @@ We measured moral concerns with the 36-item moral foundations questionnaire [MFQ
  4 & System Justification  & -.23 &  .41 &  .29 &      \\ \bottomrule
 \addlinespace
 \end{tabular}
-\caption*{\textit{Note.} Proportion of actions considered acceptable (0--1); Political Orientation (1 = \textit{left}, 7 = \textit{right}); Social Dominance Orientation (\textit{factor score}); Systen-Justifying Beliefs (\textit{factor score})}
+\caption*{\textit{Note.} Proportion of actions considered acceptable (0--1); Political Orientation (1 = \textit{left}, 7 = \textit{right}); Social Dominance Orientation (\textit{factor score}); System-Justifying Beliefs (\textit{factor score})}
 \end{table}
 ```
 
@@ -416,7 +845,7 @@ We measured moral concerns with the 36-item moral foundations questionnaire [MFQ
  5 & Identification        & -.07 &  .04 &  .00 &  .03 &      \\ \bottomrule
 \addlinespace
 \end{tabular}
-\caption*{\textit{Note.} Proportion of actions considered acceptable (0--1); Systen-Justifying Beliefs (\textit{factor score}); Policy Support (1 = \textit{strongly oppose}, 5 = \textit{strongly support}); Political Orientation (1 = \textit{liberal}, 7 = \textit{conservative}); Racial Identification (1 = \textit{not at all}, 7 = \textit{very much})}
+\caption*{\textit{Note.} Proportion of actions considered acceptable (0--1); System-Justifying Beliefs (\textit{factor score}); Policy Support (1 = \textit{strongly oppose}, 5 = \textit{strongly support}); Political Orientation (1 = \textit{liberal}, 7 = \textit{conservative}); Racial Identification (1 = \textit{not at all}, 7 = \textit{very much})}
 \end{table}
 ```
 
@@ -436,6 +865,6 @@ We measured moral concerns with the 36-item moral foundations questionnaire [MFQ
  5 & Identification        & -.11 &  .16 &  .16 &  .20 &      \\ \bottomrule
 \addlinespace
 \end{tabular}
-\caption*{\textit{Note.} Proportion of actions considered acceptable (0--1); Systen-Justifying Beliefs (\textit{factor score}); Policy Support (1 = \textit{strongly oppose}, 5 = \textit{strongly support}); Political Orientation (1 = \textit{liberal}, 7 = \textit{conservative}); Gender Identification (1 = \textit{not at all}, 7 = \textit{very much})}
+\caption*{\textit{Note.} Proportion of actions considered acceptable (0--1); System-Justifying Beliefs (\textit{factor score}); Policy Support (1 = \textit{strongly oppose}, 5 = \textit{strongly support}); Political Orientation (1 = \textit{liberal}, 7 = \textit{conservative}); Gender Identification (1 = \textit{not at all}, 7 = \textit{very much})}
 \end{table}
 ```

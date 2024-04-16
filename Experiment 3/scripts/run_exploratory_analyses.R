@@ -9,7 +9,7 @@ rm(list = ls())
   # install.packages("tidyverse")
   # install.packages("cmdstanr", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))
   # install.packages("posterior", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))
-  # install_cmdstan() 
+  # install_cmdstan()
   
   # Load packages
   library(tidyverse)
@@ -49,7 +49,7 @@ rm(list = ls())
     transmute(
       id,
       across(
-        c(ide, sjb),
+        c(ide, sjb, mfq_care, mfq_equa, mfq_prop, mfq_loya, mfq_auth, mfq_puri),
         ~(. - mean(., na.rm = T))/sd(., na.rm = T),
         .names = "z_{.col}"
       )
@@ -84,7 +84,13 @@ rm(list = ls())
     y = y,
     x_for = c(1L, 1L, 0L, 0L, 1L, 1L, 0L, 0L),
     x_sjb = z_sjb,
-    x_ide = z_ide
+    x_ide = z_ide,
+    x_mfq_care = z_mfq_care,
+    x_mfq_equa = z_mfq_equa,
+    x_mfq_prop = z_mfq_prop,
+    x_mfq_loya = z_mfq_loya,
+    x_mfq_auth = z_mfq_auth,
+    x_mfq_puri = z_mfq_puri
   ))
   
 
@@ -111,65 +117,65 @@ rm(list = ls())
 
   # Import results
   ide_fit <- read_rds("Experiment 3/results/ide_fit.rds")
-  
+
   # Extract draws
   ide_ps <- ide_fit$draws() %>% as_draws_df()
-  
+
   # Extract posterior draws
   ide_post_ii <- ide_ps %>% spread_draws(alpha[ii], beta[ii]) %>% ungroup()
   ide_post_jj <- ide_ps %>% spread_draws(theta[jj]) %>% ungroup()
   ide_post_kk <- ide_ps %>% spread_draws(delta[kk], b_ide_kk[kk], b_ide) %>% ungroup()
-  
+
   # Calculate effect sizes
-  ide_post <- dl %>% 
-    distinct(jj, kk, z_ide) %>% 
-    left_join(ide_post_kk, by = c("kk")) %>% 
-    left_join(ide_post_jj, by = c("jj", ".draw", ".chain", ".iteration")) %>% 
-    group_by(.draw) %>% 
+  ide_post <- dl %>%
+    distinct(jj, kk, z_ide) %>%
+    left_join(ide_post_kk, by = c("kk")) %>%
+    left_join(ide_post_jj, by = c("jj", ".draw", ".chain", ".iteration")) %>%
+    group_by(.draw) %>%
     mutate(
       b_ide = b_ide/sd(theta + delta + b_ide_kk*z_ide),
       b_ide_kk = b_ide_kk/sd(theta + delta + b_ide_kk*z_ide),
-    ) %>% 
+    ) %>%
     ungroup() %>%
-    distinct(.chain, .iteration, .draw, kk, b_ide, b_ide_kk) %>% 
+    distinct(.chain, .iteration, .draw, kk, b_ide, b_ide_kk) %>%
       right_join(
         dl %>%
           select(kk, participant_ideology, participant_gender, protesters_cause) %>%
           distinct(),
         by = "kk"
       )
-    
-  # ide_post <- dl %>% 
-  #   distinct(jj, kk, z_ide) %>% 
-  #   left_join(ide_post_kk, by = c("kk")) %>% 
-  #   left_join(ide_post_jj, by = c("jj", ".draw", ".chain", ".iteration")) %>% 
-  #   group_by(.draw) %>% 
-  #   summarize(
-  #     mean = mean(theta + delta + b_ide_kk * z_ide),
-  #     sd = sd(theta + delta + b_ide_kk * z_ide)
-  #   ) %>% 
-  #   crossing(
-  #     kk = 1:8, 
-  #     z_ide = -1:1
-  #   ) %>% 
-  #   left_join(ide_post_kk, by = c(".draw", "kk")) %>% 
-  #   mutate(
-  #     z = ((delta + b_ide_kk * z_ide) - mean)/sd
-  #   ) %>% 
-  #   right_join(
-  #     dl %>% 
-  #       select(kk, participant_ideology, participant_gender, protesters_cause) %>% 
-  #       distinct(),
-  #     by = "kk"
-  #   ) %>% 
-  #   select(.draw, kk, z_ide, z, participant_ideology, participant_gender, protesters_cause)
-  
+
+  ide_post <- dl %>%
+    distinct(jj, kk, z_ide) %>%
+    left_join(ide_post_kk, by = c("kk")) %>%
+    left_join(ide_post_jj, by = c("jj", ".draw", ".chain", ".iteration")) %>%
+    group_by(.draw) %>%
+    summarize(
+      mean = mean(theta + delta + b_ide_kk * z_ide),
+      sd = sd(theta + delta + b_ide_kk * z_ide)
+    ) %>%
+    crossing(
+      kk = 1:8,
+      z_ide = -1:1
+    ) %>%
+    left_join(ide_post_kk, by = c(".draw", "kk")) %>%
+    mutate(
+      z = ((delta + b_ide_kk * z_ide) - mean)/sd
+    ) %>%
+    right_join(
+      dl %>%
+        select(kk, participant_ideology, participant_gender, protesters_cause) %>%
+        distinct(),
+      by = "kk"
+    ) %>%
+    select(.draw, kk, z_ide, z, participant_ideology, participant_gender, protesters_cause)
+
   # Export results as .rds
   write_rds(ide_post, "Experiment 3/results/ide_post.rds")
   
 
 # Estimate (System Justification) -----------------------------------------
-
+  
   # Compile model
   sjb_model <- cmdstan_model("Experiment 3/models/s3_sjb_2pl_model.stan")
   
@@ -191,29 +197,28 @@ rm(list = ls())
 
   # Import results
   sjb_fit <- read_rds("Experiment 3/results/sjb_fit.rds")
-  
+
   # Extract draws
   sjb_ps <- sjb_fit$draws() %>% as_draws_df()
-  
+
   # Extract posterior draws
   sjb_post_ii <- sjb_ps %>% spread_draws(alpha[ii], beta[ii]) %>% ungroup()
   sjb_post_jj <- sjb_ps %>% spread_draws(theta[jj]) %>% ungroup()
   sjb_post_kk <- sjb_ps %>% spread_draws(delta[kk], b_sjb_kk[kk], b_sjb_for, b_sjb_against) %>% ungroup()
-  
+
   # Calculate standardized coefficients
-  sjb_post <- dl %>% 
-    distinct(jj, kk, z_sjb) %>% 
-    left_join(sjb_post_kk, by = c("kk")) %>% 
-    left_join(sjb_post_jj, by = c("jj", ".draw", ".chain", ".iteration")) %>% 
-    group_by(.draw) %>% 
+  sjb_post <- dl %>%
+    distinct(jj, kk, z_sjb) %>%
+    left_join(sjb_post_kk, by = c("kk")) %>%
+    left_join(sjb_post_jj, by = c("jj", ".draw", ".chain", ".iteration")) %>%
+    group_by(.draw) %>%
     mutate(
       b_sjb_for = b_sjb_for/sd(theta + delta + b_sjb_kk*z_sjb),
       b_sjb_against = b_sjb_against/sd(theta + delta + b_sjb_kk*z_sjb),
-    ) %>% 
-    ungroup() %>% 
-    select(.draw, b_sjb_for, b_sjb_against) %>% 
+    ) %>%
+    ungroup() %>%
+    select(.draw, b_sjb_for, b_sjb_against) %>%
     distinct()
-  
+
   # Export results as .rds
   write_rds(sjb_post, "Experiment 3/results/sjb_post.rds")
-  

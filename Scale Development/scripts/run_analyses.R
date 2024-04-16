@@ -86,9 +86,9 @@ rm(list = ls())
   
   # Save results as .rds
   fit$save_object("Scale Development/results/fit_scale_development.rds")
-  
 
-# Extract -----------------------------------------------------------------
+
+# Process -----------------------------------------------------------------
 
   # Load results
   fit <- read_rds("Scale Development/results/fit_scale_development.rds")
@@ -144,15 +144,14 @@ rm(list = ls())
   # Total Information Function
   I <- function(theta, ii = 1:72, standardized = FALSE) {
     if (standardized == TRUE) theta <- theta * m_theta$sd + m_theta$mean
-    sum(map_dbl(ii, ~I_i(theta, .)))
+    map_dbl(theta, \(theta) sum(map_dbl(ii, \(ii) I_i(theta, ii))))
   }
   
   # Vectorize
   p_ik <- Vectorize(p_ik)
   I_ik <- Vectorize(I_ik)
   I_i  <- Vectorize(I_i)
-  I    <- Vectorize(I)
-  
+
   # Summarize
   results <- post %>%
     mutate(
@@ -176,5 +175,68 @@ rm(list = ls())
 
 # Export ------------------------------------------------------------------
 
-  # Export as .rds
+  # Save as .rds
   write_rds(results, "Scale Development/results/results_scale_development.rds")
+
+  
+# Show --------------------------------------------------------------------
+
+  # Plot Total Information Curves
+  p <- ggplot()
+  for (n_i in c(1:24, 24:72)) {
+    p <- p + stat_function(
+      fun = I,
+      args = list(ii = pull(slice_max(results, n = n_i, I), ii), standardized = T),
+      color = grey.colors(72)[73 - n_i],
+      linewidth = 0.455
+    )
+  }
+  p <- p + stat_function(
+    fun = I,
+    args = list(ii = pull(slice_max(results, n = 25, I), ii), standardized = T),
+    color = "red",
+    linewidth = 0.455 * 2
+  ) 
+  p + scale_x_continuous(
+    limits = c(-5, 5),
+    breaks = qnorm(c(0.005, 0.1, 0.5, 0.9, 0.995)),
+    minor_breaks = NULL,
+    labels = scales::number(qnorm(c(0.005, 0.1, 0.5, 0.9, 0.995)), accuracy = 0.01),
+    sec.axis = dup_axis(
+      name = NULL,
+      breaks = qnorm(c(0.005, 0.1, 0.5, 0.9, 0.995)),
+      labels = c("<1%", "10%", "50%", "90%", ">99%")
+    ),
+    expand = c(0, 0)
+  ) +
+    theme_classic(base_size = 10) +
+    theme(
+      legend.position = "right",
+      strip.background = element_blank(),
+      axis.line = element_blank(),
+      axis.text = element_text(colour = "black"),
+      axis.title = element_text(size = 10, colour = "black"),
+      panel.background = element_rect(colour = "black", fill = NA),
+      panel.ontop = TRUE,
+      plot.margin = margin(0, 0, 0, 0)
+    ) +
+    labs(
+      x = expression(theta[(italic(z))]),
+      y = "Information",
+      colour = NULL
+    )
+
+
+# Export ------------------------------------------------------------------
+
+  # Export as .png
+  ggsave(
+    "Scale Development/figures/figure-s1.png",
+    width = 6.5, height = 6.5/2, units = "in", dpi = 600
+  )
+  
+  # Export as .pdf
+  ggsave(
+    "Scale Development/figures/figure-s1.pdf",
+    width = 6.5, height = 6.5/2, units = "in", dpi = 600
+  )  

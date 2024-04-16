@@ -49,3 +49,4 @@
 # Remove ------------------------------------------------------------------
   detach(package:lavaan)
   rm("sdo_model", "sdo_fit", "sjb_model", "sjb_fit")
+  

@@ -8,6 +8,7 @@
 Documents/preprint*
 Documents/Submission
 Experiment 1/results/results_exploratory_analyses.rds
+Experiment 1/results/results_exploratory_analyses_without_exclusions.rds
 Scale Development/models/*.exe
 Experiment 1/models/*.exe
 Experiment 2/models/*.exe

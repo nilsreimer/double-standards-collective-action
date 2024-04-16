@@ -30,8 +30,8 @@ rm(list = ls())
   
   # Make figure
   ggplot() +
-    geom_vline(xintercept = 0.0, colour = "grey92", size = 0.455) +
-    geom_hline(yintercept = 0.5, colour = "grey92", size = 0.455) +
+    geom_vline(xintercept = 0.0, colour = "grey92", linewidth = 0.455) +
+    geom_hline(yintercept = 0.5, colour = "grey92", linewidth = 0.455) +
     stat_function(
       aes(colour = "Action 1"),
       fun = irt, 
@@ -80,7 +80,7 @@ rm(list = ls())
     annotate(
       geom = "rich_text",
       x = qnorm(0.995), y = 0,
-      label = "<span style='color:#648FFF'>&alpha;<sub>1</sub> = 1.00, &beta;<sub>1</sub> = 0.00</span><br><span style='color:#DC267F'>&alpha;<sub>2</sub> = 1.00, &beta;<sub>2</sub> = 1.28</span><br><span style='color:#FFB000'>&alpha;<sub>3</sub> = 3.60, &beta;<sub>3</sub> = 0.00</span>",
+      label = "<span style='color:#648FFF'> &alpha;<sub>1</sub> = 1.00, &beta;<sub>1</sub> = 0.00</span><br><span style='color:#DC267F'>&alpha;<sub>2</sub> = 1.00, &beta;<sub>2</sub> = 1.28</span><br><span style='color:#FFB000'>&alpha;<sub>3</sub> = 3.60, &beta;<sub>3</sub> = 0.00</span>",
       vjust = 0, hjust = 1,
       label.colour = NA,
       label.padding = unit(0, "lines"),
@@ -129,7 +129,7 @@ rm(list = ls())
   ggsave(
     "Scale Development/figures/figure-1.png",
     width = (6.5 - 18/72.27)/2, height = (6.5 - 18/72.27)/2, units = "in", 
-    dpi = 600
+    dpi = 1200
   )
   
   # Export as .pdf

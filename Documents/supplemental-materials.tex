@@ -170,17 +170,34 @@ response options, and one discrimination parameter (\(\alpha_i\))
 indicating how well the item differentiates between participants with
 different propensities to consider collective actions acceptable. We
 estimated the model in \emph{CmdStanR} using similar prior distribution
-as in Experiment. We used an induced Dirichlet prior (Betancourt, 2019)
-for the item-specific difficulty thresholds.
+as in Experiment 1. We used an induced Dirichlet prior (Betancourt,
+2019) for the item-specific difficulty thresholds.
 
-Table S1 shows each actions' item information and discrimination as well
-as proportions for the observed responses. Table S2 shows participants'
-averaged ratings of how acceptable, disruptive, violent, extreme, and
-negative they considered each action to be. Table S3 shows that all five
-ratings were strongy correlated across actions and participants. We
-considered both estimates from the graded response model and their
-relevance to the social contexts to select actions for Experiments 1 and
-2.
+Table S1 shows each protest action's information and discrimination
+parameters as well as the proportions of participants choosing each
+answer option. Table S2 shows participants' averaged ratings of how
+acceptable, disruptive, violent, extreme, and negative they considered
+each action to be. Table S3 shows that all five ratings were strongly
+correlated across actions and participants.
+
+Figure \ref{fig:s1} shows the scale information curves for scales
+composed of, respectively, the 1--72 most informative and discriminating
+protest actions. We selected the 25 most informative actions to
+construct the final scale to be used in Experiments 1--3. While adding
+more actions to the scale would have improved the information provided
+by the instrument, the added benefit of each additional action included
+in the scale would have been small (see Figure \ref{fig:s1}). We limited
+the number of protest actions to 25 so as to not overwhelm participants
+and to prevent satisficing. Tables A1, B1, and C1 list the protest
+actions used in Experiments 1--3.
+
+\begin{figure*}[!t]
+\centering
+\caption{Scale information curves for scales composed of the 1--72 most informative and discriminating protest actions}
+\includegraphics[scale=1]{../Scale Development/figures/figure-s1}
+\caption*{\textit{Note.} The information curve for the final scale of 25 actions is highlighted in red. As in Figure 1, $\theta_{(z)}$ follows a standard normal distribution and is shown as both $z$-scores (bottom) and percentiles (top).}
+\label{fig:s1}
+\end{figure*}
 
 \hypertarget{experiment-1}{%
 \section{Experiment 1}\label{experiment-1}}
@@ -314,6 +331,254 @@ checks within the questionnaire (e.g., ``To show that you are paying
 attention and giving your best effort, please select `moderately
 describes me'.'').
 
+\hypertarget{reanalyses-without-exclusions}{%
+\section{Reanalyses Without
+Exclusions}\label{reanalyses-without-exclusions}}
+
+We replicated the analyses for Experiments 1-3 using the complete data
+without excluding participants based on the (preregistered) exclusion
+criteria.
+
+\hypertarget{experiment-1-1}{%
+\subsection{Experiment 1}\label{experiment-1-1}}
+
+\begin{figure*}[!t]
+\centering
+\caption{Results from the preregistered (\textbf{A}) and non-preregistered (\textbf{B}) analyses for Experiment 1 without exclusions}
+\includegraphics[scale=1]{../Experiment 1/figures/figure-s2}
+\caption*{\textit{Note.} HS = Higher Status, LS = Lower Status. $\theta_{(z)}$ is the \textit{z}-standardized tendency to consider more controversial actions acceptable means of protest. (\textbf{A}) $p$ and $n$ are, respectively, the predicted proportion and number of actions a participant would consider acceptable means of protest in each condition. Bars enclose the 95\% most plausible estimates. (\textbf{B}) Ribbons enclose, from the darkest to the lightest shade, the 50\%, 80\%, 95\%, and 99\% most plausible estimates.}
+\label{fig:s2}
+\end{figure*}
+
+Figure \ref{fig:s2} (A) shows estimates for each combination of the
+protesters' and the participants' group membership. Overall, we found
+that participants' responses depended on both the protesters' and the
+participants' group status---but not in the directions predicted by our
+hypotheses. Contradicting our first hypothesis, participants did not
+consider protest actions performed by their ingroup to be more
+acceptable, on average, than the same actions performed by the relevant
+outgroup (Cohen's \(d = -0.01, [-0.20, 0.16]\)). Instead, we found that
+participants from higher-status backgrounds considered protest actions
+performed by both lower-status (\(d = 0.40, [0.15, 0.66\){]}) and
+higher-status (\(d = 0.37, [0.10, 0.63]\)) protesters to be, on average,
+more acceptable than participants from lower-status backgrounds.
+Contradicting our second hypothesis, participants considered protest
+actions performed by higher-status protesters to be less acceptable, on
+average, than the same actions performed by lower-status protesters
+(\(d = -0.20, [-0.37, -0.02]\)).
+
+Figure \ref{fig:s2} shows (B) the \(z\)-standardized propensity to
+consider more controversial protest actions acceptable as a function of
+the three ideological orientation variables. We found that participants
+who reported a more right-wing political orientation
+(\(\beta_{xy} = -0.24, [-0.34, -0.15]\)) and who expressed more
+agreement with system-justifying beliefs
+(\(\beta_{xy} = -0.21, [-0.31, -0.12]\)) tended to find fewer collective
+actions to be acceptable. In contrast, we found that, after controlling
+for the other two variables, social dominance orientation was not
+associated with participants' judgments about how acceptable various
+collective actions are (\(\beta_{xy} = -0.06, [-0.16, 0.03]\)). Overall,
+these findings suggest that people who are right-wing and endorse
+system-justifying beliefs tend to find various collective actions to be
+less acceptable than people who are left-wing and do not endorse
+system-justifying beliefs.
+
+\hypertarget{experiment-2}{%
+\subsection{Experiment 2}\label{experiment-2}}
+
+\hypertarget{preregistered-analyses}{%
+\subsubsection{Preregistered Analyses}\label{preregistered-analyses}}
+
+\begin{figure*}[!t]
+\centering
+\caption{Results from the preregistered analyses for Experiment 2}
+\includegraphics[scale=1]{../Experiment 2/figures/figure-s3}
+\caption*{\textit{Note.} Against = Protesters oppose defunding the police. For = Protesters support defunding the police. $\theta_{(z)}$ is the \textit{z}-standardized tendency to consider more controversial actions acceptable means of protest. Ribbons enclose, from the darkest to the lightest shade, the 50\%, 80\%, 95\%, and 99\% most plausible estimates.}
+\label{fig:s3}
+\end{figure*}
+
+\begin{figure*}[!t]
+\centering
+\caption{Predictions from the preregistered (system justification) and non-preregistered (political orientation) analyses for Experiment 2 without exclusions}
+\includegraphics[scale=1]{../Experiment 2/figures/figure-s4}
+\caption*{\textit{Note.} Against = Protesters oppose defunding the police. For = Protesters support defunding the police. $\theta_{(z)}$ is the \textit{z}-standardized tendency to consider more controversial actions acceptable means of protest.}
+\label{fig:s4}
+\end{figure*}
+
+Figure \ref{fig:s3} shows results from three preregistered models we
+estimated to test our hypotheses.
+
+Model 1 estimated varying intercepts for the eight conditions to test
+whether, in line with Hypotheses 1a, 1b, or 2a, participants' responses
+depended on their own group membership, the protesters' group
+membership, or the protesters' cause. Contradicting \emph{Hypothesis
+1a}, participants did not consider protest actions performed by their
+ingroup to be more acceptable, on average, than the same actions
+performed by the relevant outgroup (\(d = 0.01, [-0.03, 0.06]\)).
+Contradicting \emph{Hypothesis 1b}, participants did not consider
+protest actions for a cause that was nominally aligned with their
+ingroup's interests to be more acceptable, on average, than protest
+actions for a cause not aligned with their ingroup's interests
+(\(d = -0.01, [-0.06, 0.03]\)). Contradicting \emph{Hypothesis 2a},
+participants did not consider protest actions for a system-defending
+cause to be more acceptable, on average, than protest actions for a
+system-challenging cause (\(d = -0.14, [-0.19, -0.08]\)). Instead, we
+found that, on average, White participants considered all protest
+actions to be more acceptable than Black participants
+(\(d = 0.09, [0.04, 0.14]\)) and both Black (\(d = 0.12, [0.05, 0.19]\))
+and White (\(d = 0.15, [0.08, 0.22]\)) participants considered the same
+actions to be more acceptable when protests were for, rather than
+against, defunding the police. As in Experiment 1, we thus found that
+participants' responses depended on both the participants' and the
+protesters' group memberships---but not in the directions predicted by
+our hypotheses.
+
+Model 2 extended Model 1 by estimating participants' responses as a
+function of their \emph{z}-standardized endorsement of system-justifying
+beliefs. As preregistered, we modeled this relationship with two fixed
+effects, one estimating the effect of system-justifying beliefs on
+judgments about system-defending protest actions and one estimating
+their effect on judgments about system-challenging protest actions, and
+one varying effect estimating its variance across conditions. Supporting
+\emph{Hypothesis 2b}, participants who \emph{rejected} system-justifying
+beliefs were \emph{more} likely to consider system-challenging protest
+actions (for defunding the police) to be acceptable means of protest
+(\(\beta_{xy} = 0.40, [0.20, 0.57]\)). We did not, however, find
+evidence for the ideological symmetry implied by \emph{Hypothesis 2b}
+since participants who \emph{endorsed} system-justifying beliefs were
+\emph{not} more likely to consider system-defending protest actions
+(against defunding the police) to be acceptable means of protest
+(\(\beta_{xy} = -0.17, [-0.37, -0.01]\)).
+
+Figure \ref{fig:s4} shows the estimated pattern of condition-wise
+differences underlying those fixed effects. Participants who endorsed
+system-justifying beliefs tended to consider system-challenging and
+system-defending protest actions to be equally unacceptable. In
+contrast, participants who rejected system-justifying beliefs evinced
+ideology-based double standards: In line with \emph{Hypothesis 2b}, they
+considered the same protest actions to be more acceptable when the
+protesters challenged the system or, to a lesser extent, when the
+protesters were from the disadvantaged group.
+
+Model 3 extended Model 1 by estimating participants' responses as a
+function of their self-reported support for the cause of the protest. We
+recoded participants' responses to create a predictor variable that
+encoded support for defunding the police when protesters supported
+defunding the police and opposition to defunding the police when
+protesters opposed defunding the police. As preregistered, we modeled
+this relationship as a monotonic effect (Bürkner \& Charpentier, 2020)
+that estimated the average change in the outcome variable across
+predictor categories as well as how much of this change occurred between
+each of the four pairs of adjacent predictor categories.\footnote{Our
+  model assigned a Dirichlet prior, \(\alpha = {1, 1, 1, 1}\), to the
+  proportions of the overall change that was expected to occur between
+  each of the four pairs of predictor categories.} Contradicting
+\emph{Hypothesis 3}, participants who supported the protesters' cause
+did not, on average, consider the same protest actions to be more
+acceptable than participants who opposed the protesters' cause
+(\(\beta_{y} = 0.14, [-0.10, 0.39]\)). Ergo, our results did not support
+the alternative hypothesis that ideology-based double standards can be
+reduced to support for, or opposition to, the cause of a protest.
+
+\hypertarget{non-preregistered-analyses}{%
+\subsubsection{Non-Preregistered
+Analyses}\label{non-preregistered-analyses}}
+
+We explored whether group identification moderated how the participants'
+and the protesters' group memberships affected participants' responses.
+To that end, we extended Model 1 by estimating participants' responses
+as a function of their \emph{z}-standardized identification with their
+racial ingroup. As in Model 2, we modeled this relationship with a fixed
+and a varying effect. We found, however, that even participants who
+strongly identified with their racial ingroup (+1\emph{SD}) did not
+consider protest actions performed by their ingroup to be more
+acceptable than the same actions performed by the relevant outgroup
+(\(d = 0.06, [-0.01, 0.13]\)) and did not consider protest actions for a
+cause that was aligned with their ingroup's interests to be more
+acceptable than protest actions for a cause not aligned with their
+ingroup's interests (\(d = -0.00, [-0.07, 0.07]\)). Our
+non-preregistered analyses thus suggested that group identification did
+not moderate group differences in judgments about collective action by
+ingroup and outgroup members.
+
+We also explored whether we would find ideology-based double standards
+when operationalizing ideology as political orientation instead of as
+system justification. To that end, we reran Model 2 with political
+orientation as the \emph{z}-standardized predictor variable. Our results
+mirrored the preregistered analyses: More liberal participants were more
+likely to consider protest actions for defunding the police to be
+acceptable (\(\beta_{xy} = 0.40, [0.20, 0.58]\)) but more conservative
+participants were not more likely to consider protest actions against
+defunding the police to be acceptable
+(\(\beta_{xy} = -0.16, [-0.35, 0.01]\)). As Figure \ref{fig:s4} shows,
+conservative participants tended to consider all protest actions to be
+equally unacceptable while liberal participants considered the same
+protest actions to be more acceptable when protesters rallied around a
+progressive cause. Our non-preregistered analyses thus replicated the
+ideology-based double standards from the preregistered analyses with a
+different operationalization of ideology.
+
+\hypertarget{experiment-3-1}{%
+\subsection{Experiment 3}\label{experiment-3-1}}
+
+\begin{figure*}[!t]
+\centering
+\caption{Results from the preregistered analyses for Experiment 3 without exclusions}
+\includegraphics[scale=1]{../Experiment 3/figures/figure-s5}
+\caption*{\textit{Note.} Results show the estimated \textit{z}-standardized tendency ($\theta_{(z)}$) to consider more controversial actions acceptable means to protest for or against restricting abortion as a function of the participants' ideology and gender.}
+\label{fig:s5}
+\end{figure*}
+
+\hypertarget{preregistered-analyses-1}{%
+\subsubsection{Preregistered Analyses}\label{preregistered-analyses-1}}
+
+Figure \ref{fig:s5} shows the results of our preregistered analyses
+without exclusions.
+
+As in Experiments 1 and 2, we found evidence for ideology-based double
+standards: Conservative participants considered the same protest actions
+to be more acceptable, on average, when protesters \emph{supported}
+restricting abortion (\(d = 0.21, [0.03, 0.39]\)) while liberal
+participants considered the same protest actions to be more acceptable
+when protesters \emph{opposed} restricting abortion
+(\(d = 0.87, [0.70, 1.06]\)). This double standard was more pronounced
+among liberal participants (\(d = 0.66, [0.42, 0.93]\)). In this way,
+Experiment 3 provided evidence for both ideological symmetry and
+asymmetry in judging collective action for and against restricting
+abortion.
+
+We found some evidence for identity-based double standards: Female
+participants considered protest actions \emph{against} restricting
+abortion to be more acceptable, on average, than male participants or
+protest actions \emph{for} restricting abortion
+(\(d = 0.14, [-0.01, 0.29]\)). This pattern was, however, overshadowed
+by stronger ideology-based double standards that were consistent across
+subsamples: Conservative women (\(d = 0.24, [-0.01, 0.48]\)) and, to a
+lesser extent, conservative men (\(d = 0.18, [-0.08, 0.44]\)) considered
+the same protest actions to be more acceptable when protesters
+\emph{supported} restricting abortion and both liberal women
+(\(d = 1.00, [0.73, 1.27]\)) and liberal men
+(\(d = 0.75, [0.51, 1.01]\)) considered the same protest actions to be
+more acceptable when protesters \emph{opposed} restricting abortion. In
+this way, Experiment 3 provided more consistent evidence for
+ideology-based than for identity-based double standards in judging
+collective action.
+
+\hypertarget{non-preregistered-analyses-1}{%
+\subsubsection{Non-Preregistered
+Analyses}\label{non-preregistered-analyses-1}}
+
+We explored whether group identification moderated participants'
+judgments. We found, however, that gender identification neither
+affected how women judged protesters opposing
+(\(\beta_{xy} = -0.06, [-0.15, 0.04]\)) or supporting
+(\(\beta_{xy} = -0.07, [-0.16, 0.02]\)) abortion restrictions nor how
+men judged protesters opposing (\(\beta_{xy} = -0.06, [-0.15, 0.03]\))
+or supporting (\(\beta_{xy} = -0.06, [-0.14, 0.03]\)) abortion
+restrictions. Our non-preregistered analyses thus suggested that gender
+identification did not moderate identity-based double standards in
+judging collective action concerning reproductive rights.
+
 \newpage
 
 \hypertarget{references}{%
@@ -339,6 +604,12 @@ Betancourt, M. (2019). \emph{Ordinal regression}.
 Bürkner, P.-C. (2021). Bayesian item response modeling in {R} with brms
 and {Stan}. \emph{Journal of Statistical Software}, \emph{100}(5).
 \url{https://doi.org/10.18637/jss.v100.i05}
+
+\leavevmode\vadjust pre{\hypertarget{ref-burkner_modelling_2020}{}}%
+Bürkner, P.-C., \& Charpentier, E. (2020). Modelling monotonic effects
+of ordinal predictors in {Bayesian} regression models. \emph{British
+Journal of Mathematical and Statistical Psychology}, \emph{73}(3),
+420--451. \url{https://doi.org/10.1111/bmsp.12195}
 
 \leavevmode\vadjust pre{\hypertarget{ref-jost_exposure_2005}{}}%
 Jost, J. T., \& Kay, A. C. (2005). Exposure to benevolent sexism and
@@ -634,7 +905,7 @@ Sargent.
  4 & System Justification  & -.23 &  .41 &  .29 &      \\ \bottomrule
 \addlinespace
 \end{tabular}
-\caption*{\textit{Note.} Proportion of actions considered acceptable (0--1); Political Orientation (1 = \textit{left}, 7 = \textit{right}); Social Dominance Orientation (\textit{factor score}); Systen-Justifying Beliefs (\textit{factor score})}
+\caption*{\textit{Note.} Proportion of actions considered acceptable (0--1); Political Orientation (1 = \textit{left}, 7 = \textit{right}); Social Dominance Orientation (\textit{factor score}); System-Justifying Beliefs (\textit{factor score})}
 \end{table}
 
 \setcounter{table}{4}
@@ -652,7 +923,7 @@ Sargent.
  5 & Identification        & -.07 &  .04 &  .00 &  .03 &      \\ \bottomrule
 \addlinespace
 \end{tabular}
-\caption*{\textit{Note.} Proportion of actions considered acceptable (0--1); Systen-Justifying Beliefs (\textit{factor score}); Policy Support (1 = \textit{strongly oppose}, 5 = \textit{strongly support}); Political Orientation (1 = \textit{liberal}, 7 = \textit{conservative}); Racial Identification (1 = \textit{not at all}, 7 = \textit{very much})}
+\caption*{\textit{Note.} Proportion of actions considered acceptable (0--1); System-Justifying Beliefs (\textit{factor score}); Policy Support (1 = \textit{strongly oppose}, 5 = \textit{strongly support}); Political Orientation (1 = \textit{liberal}, 7 = \textit{conservative}); Racial Identification (1 = \textit{not at all}, 7 = \textit{very much})}
 \end{table}
 
 \setcounter{table}{5}
@@ -670,7 +941,7 @@ Sargent.
  5 & Identification        & -.11 &  .16 &  .16 &  .20 &      \\ \bottomrule
 \addlinespace
 \end{tabular}
-\caption*{\textit{Note.} Proportion of actions considered acceptable (0--1); Systen-Justifying Beliefs (\textit{factor score}); Policy Support (1 = \textit{strongly oppose}, 5 = \textit{strongly support}); Political Orientation (1 = \textit{liberal}, 7 = \textit{conservative}); Gender Identification (1 = \textit{not at all}, 7 = \textit{very much})}
+\caption*{\textit{Note.} Proportion of actions considered acceptable (0--1); System-Justifying Beliefs (\textit{factor score}); Policy Support (1 = \textit{strongly oppose}, 5 = \textit{strongly support}); Political Orientation (1 = \textit{liberal}, 7 = \textit{conservative}); Gender Identification (1 = \textit{not at all}, 7 = \textit{very much})}
 \end{table}
 
 \end{document}

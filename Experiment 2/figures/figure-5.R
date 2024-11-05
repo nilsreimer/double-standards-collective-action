@@ -79,7 +79,8 @@ rm(list = ls())
     rename(Participant = observers, Protesters = protesters, Cause = protest)
   
   
-# Predict -----------------------------------------------------------------
+
+# Predict (M2) ------------------------------------------------------------
 
   # Import results
   m2_fit <- read_rds("Experiment 2/results/m2_fit.rds")
@@ -92,26 +93,53 @@ rm(list = ls())
   m2_post_jj <- m2_ps %>% spread_draws(theta[jj]) %>% ungroup()
   m2_post_kk <- m2_ps %>% spread_draws(delta[kk], b_sjb_kk[kk]) %>% ungroup()
   
-  # Calculate effect sizes
-  m2_post <- dl %>% 
-    distinct(jj, kk, x_sjb) %>% 
-    left_join(m2_post_kk, by = c("kk")) %>% 
-    left_join(m2_post_jj, by = c("jj", ".draw", ".chain", ".iteration")) %>% 
-    group_by(.draw) %>% 
+  # Calculate effect sizes (z)
+  m2_post <- dl |> 
+    distinct(jj, kk, x_sjb) |> 
+    left_join(m2_post_jj, by = join_by(jj)) |> 
+    left_join(m2_post_kk, by = join_by(kk, .chain, .iteration, .draw)) |>
+    group_by(.draw) |> 
     summarize(
       mean = mean(theta + delta + b_sjb_kk * x_sjb),
       sd = sd(theta + delta + b_sjb_kk * x_sjb)
-    ) %>% 
+    ) |> 
     crossing(
-      kk = 1:8, 
+      kk = 1:8,
       x_sjb = c(-1, 1)
-    ) %>% 
-    left_join(m2_post_kk, by = c(".draw", "kk")) %>% 
+    ) |> 
+    left_join(m2_post_kk, by = join_by(.draw, kk)) |> 
     mutate(
       z = ((delta + b_sjb_kk * x_sjb) - mean)/sd
-    ) %>% 
-    left_join(dl %>% distinct(kk, order, Participant, Protesters, Cause), by = "kk") %>% 
-    select(.draw, kk, x_sjb, z, order, Participant, Protesters, Cause)
+    ) |> 
+    select(.draw, kk, x_sjb, z)
+  
+  # Calculate effect sizes (p, n)
+  m2_post <- dl |> 
+    distinct(ii) |> 
+    left_join(m2_post_ii, by = join_by(ii)) |>
+    crossing(
+      kk = 1:8,
+      x_sjb = c(-1, 1)
+    ) |> 
+    left_join(m2_post_kk, by = join_by(kk, .chain, .iteration, .draw)) |> 
+    mutate(
+      p = inv_logit(alpha * (0 + beta + delta + b_sjb_kk * x_sjb))
+    ) |> 
+    group_by(.draw, kk, x_sjb) |> 
+    summarize(
+      n = sum(p),
+      p = mean(p)
+    ) |> 
+    ungroup() |> 
+    left_join(m2_post, by = join_by(.draw, kk, x_sjb)) |> 
+    left_join(
+      dl |>  distinct(kk, order, Participant, Protesters, Cause), 
+      by = join_by(kk)
+    ) |> 
+    select(.draw, kk, x_sjb, z, p, n, order, Participant, Protesters, Cause)
+  
+    
+# Predict (M4) ------------------------------------------------------------
   
   # Import results
   m4_fit <- read_rds("Experiment 2/results/m4_fit.rds")
@@ -124,26 +152,50 @@ rm(list = ls())
   m4_post_jj <- m4_ps %>% spread_draws(theta[jj]) %>% ungroup()
   m4_post_kk <- m4_ps %>% spread_draws(delta[kk], b_pol_kk[kk]) %>% ungroup()
   
-  # Calculate effect sizes
-  m4_post <- dl %>% 
-    distinct(jj, kk, x_pol) %>% 
-    left_join(m4_post_kk, by = c("kk")) %>% 
-    left_join(m4_post_jj, by = c("jj", ".draw", ".chain", ".iteration")) %>% 
-    group_by(.draw) %>% 
+  # Calculate effect sizes (z)
+  m4_post <- dl |> 
+    distinct(jj, kk, x_pol) |> 
+    left_join(m4_post_jj, by = join_by(jj)) |> 
+    left_join(m4_post_kk, by = join_by(kk, .chain, .iteration, .draw)) |>
+    group_by(.draw) |> 
     summarize(
       mean = mean(theta + delta + b_pol_kk * x_pol),
       sd = sd(theta + delta + b_pol_kk * x_pol)
-    ) %>% 
+    ) |> 
     crossing(
-      kk = 1:8, 
+      kk = 1:8,
       x_pol = c(-1, 1)
-    ) %>% 
-    left_join(m4_post_kk, by = c(".draw", "kk")) %>% 
+    ) |> 
+    left_join(m4_post_kk, by = join_by(.draw, kk)) |> 
     mutate(
       z = ((delta + b_pol_kk * x_pol) - mean)/sd
-    ) %>% 
-    left_join(dl %>% distinct(kk, order, Participant, Protesters, Cause), by = "kk") %>% 
-    select(.draw, kk, x_pol, z, order, Participant, Protesters, Cause)
+    ) |> 
+    select(.draw, kk, x_pol, z)
+  
+  # Calculate effect sizes (p, n)
+  m4_post <- dl |> 
+    distinct(ii) |> 
+    left_join(m4_post_ii, by = join_by(ii)) |>
+    crossing(
+      kk = 1:8,
+      x_pol = c(-1, 1)
+    ) |> 
+    left_join(m4_post_kk, by = join_by(kk, .chain, .iteration, .draw)) |> 
+    mutate(
+      p = inv_logit(alpha * (0 + beta + delta + b_pol_kk * x_pol))
+    ) |> 
+    group_by(.draw, kk, x_pol) |> 
+    summarize(
+      n = sum(p),
+      p = mean(p)
+    ) |> 
+    ungroup() |> 
+    left_join(m4_post, by = join_by(.draw, kk, x_pol)) |> 
+    left_join(
+      dl |>  distinct(kk, order, Participant, Protesters, Cause), 
+      by = join_by(kk)
+    ) |> 
+    select(.draw, kk, x_pol, z, p, n, order, Participant, Protesters, Cause)
 
 
 # Merge -------------------------------------------------------------------
@@ -159,7 +211,7 @@ rm(list = ls())
       kk, 
       predictor = "System Justification", 
       x = case_when(x_sjb == -1 ~ "-1SD", x_sjb == 1 ~ "+1SD"),
-      z
+      z, p, n
     ),
     m4_post %>% transmute(
       .draw, 
@@ -170,7 +222,7 @@ rm(list = ls())
       kk, 
       predictor = "Political Orientation", 
       x = case_when(x_pol == -1 ~ "-1SD", x_pol == 1 ~ "+1SD"),
-      z
+      z, p, n
     )
   ) %>% 
     mutate(
@@ -221,9 +273,9 @@ rm(list = ls())
     )
 
   # Make plot
-  f_5_p <- ggplot(d_fig, aes(x = z, y = fct_rev(factor(order)), group = x)) + 
+  f_5_p <- ggplot(d_fig, aes(x = p, y = fct_rev(factor(order)), group = x)) + 
     geom_ribbon(
-      data = d_fig %>% group_by(order, x, predictor, Participant) %>% median_qi(z),
+      data = d_fig %>% group_by(order, x, predictor, Participant) %>% median_qi(p),
       aes(xmin = .lower, xmax = .upper, fill = x, group = interaction(Participant, x)),
       alpha = 0.4
     ) +
@@ -236,13 +288,16 @@ rm(list = ls())
     ) +
     geom_hline(yintercept = c(0.5, 8.5), size = 0.455) +
     geom_hline(yintercept = c(4.5), size = 3*0.455, colour = "white") +
-    scale_x_continuous(minor_breaks = NULL) +
+    scale_x_continuous(
+      minor_breaks = NULL,
+      labels = ~numform::f_num(., digits = 2)
+    ) +
     scale_y_discrete(expand = c(0, 0)) +
     scale_shape_manual(values = c("+1SD" = 21, "-1SD" = 19)) +
     scale_colour_manual(values = c("+1SD" = "#DC267F", "-1SD" = "#648FFF")) +
     scale_fill_manual(values = c("+1SD" = "#DC267F", "-1SD" = "#648FFF")) +
     facet_grid(. ~ predictor) +
-    coord_cartesian(ylim = c(0.5, 8.5)) +
+    # coord_cartesian(ylim = c(0.5, 8.5)) +
     theme_grey(base_size = 10) +
     theme(
       axis.text.x = element_text(colour = "black"),
@@ -263,7 +318,7 @@ rm(list = ls())
       plot.margin = margin(2, 0, 2, 2)
     ) +
     labs(
-      x = expression(theta[(italic(z))])
+      x = expression(Pr)
     )
   
   

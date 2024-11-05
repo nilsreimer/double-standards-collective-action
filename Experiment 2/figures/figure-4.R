@@ -170,7 +170,7 @@ rm(list = ls())
   # Make plot
   f_4a_p <- m1_post %>% 
     mutate(ingroup = if_else(Participant == Protesters, "Ingroup", "Outgroup")) %>% 
-    ggplot(., aes(x = z, y = fct_rev(factor(order)))) + 
+    ggplot(., aes(x = p, y = fct_rev(factor(order)))) + 
     stat_pointinterval(
       aes(shape = ingroup),
       fill = "white",
@@ -179,10 +179,13 @@ rm(list = ls())
     ) +
     geom_hline(yintercept = c(0.5, 8.5), size = 0.455) +
     geom_hline(yintercept = c(4.5), size = 3*0.455, colour = "white") +
-    scale_x_continuous(minor_breaks = NULL) +
+    scale_x_continuous(
+      minor_breaks = NULL,
+      labels = ~numform::f_num(., digits = 2)
+    ) +
     scale_y_discrete(expand = c(0, 0)) +
     scale_shape_manual(values = c("Ingroup" = 21, "Outgroup" = 19)) +
-    coord_cartesian(xlim = c(-0.5, 0.5), ylim = c(0.5, 8.5)) +
+    # coord_cartesian(xlim = c(-0.5, 0.5), ylim = c(0.5, 8.5)) +
     theme_grey(base_size = 10) +
     theme(
       axis.text.x = element_text(colour = "black"),
@@ -207,7 +210,7 @@ rm(list = ls())
       plot.margin = margin(2, 0, 2, 2)
     ) +
     labs(
-      x = expression(theta[(italic(z))])
+      x = expression(Pr)
     )
     
 
@@ -223,50 +226,57 @@ rm(list = ls())
   m2_post_ii <- m2_ps %>% spread_draws(alpha[ii], beta[ii]) %>% ungroup()
   m2_post_jj <- m2_ps %>% spread_draws(theta[jj]) %>% ungroup()
   m2_post_kk <- m2_ps %>% spread_draws(delta[kk], b_sjb_kk[kk]) %>% ungroup()
-
-  # Make posterior predictions
-  m2_post <- dl %>% 
-    left_join(
-      tibble(
+  
+  # Calculate effect sizes (z)
+  m2_post <- dl |> 
+    distinct(jj, kk, x_sjb) |> 
+    left_join(m2_post_jj, by = join_by(jj)) |> 
+    left_join(m2_post_kk, by = join_by(kk, .chain, .iteration, .draw)) |>
+    group_by(.draw) |> 
+    summarize(
+      mean = mean(theta + delta + b_sjb_kk * x_sjb),
+      sd = sd(theta + delta + b_sjb_kk * x_sjb)
+    ) |> 
+    crossing(
+      nesting(
         kk = 1:8,
         x_for = c(1L, 0L, 1L, 0L, 1L, 0L, 1L, 0L)
-      ),
-      by = "kk"
-    ) %>% 
-    distinct(kk, x_for) %>% 
+      )
+    ) |> 
+    left_join(m2_post_kk, by = join_by(.draw, kk)) |> 
+    group_by(.draw, mean, sd, x_for) |> 
+    summarize(delta = mean(delta)) |> 
+    ungroup() |>  
     left_join(
-      m2_post_kk,
-      by = "kk"
-    ) %>% 
-    group_by(.chain, .iteration, .draw, x_for) %>% 
-    summarize(delta = mean(delta)) %>% 
-    ungroup() %>% 
-    left_join(
-      m2_ps %>% spread_draws(b_sjb_for, b_sjb_against),
-      by = c(".chain", ".iteration", ".draw")
-    ) %>% 
+      m2_ps |> 
+        spread_draws(b_sjb_for, b_sjb_against) |>  
+        select(.draw, b_sjb_for, b_sjb_against),
+      by = join_by(.draw)
+    ) |> 
     crossing(
       x_sjb = seq(-2.5, 2.5, 0.1)
-    ) %>% 
-    transmute(
-      .chain, .iteration, .draw, x_for, x_sjb, 
-      eta = delta + b_sjb_for * x_for * x_sjb + b_sjb_against * (1 - x_for) * x_sjb
-    )
-  
-  # Calculate effect sizes
-  m2_post <- dl %>% 
-    distinct(jj, kk, x_sjb) %>% 
-    crossing(.draw = 1:4000) %>% 
-    left_join(m2_post_kk, by = c(".draw", "kk")) %>% 
-    left_join(m2_post_jj, by = c("jj", ".draw", ".chain", ".iteration")) %>% 
-    group_by(.draw) %>% 
+    ) |> 
+    mutate(
+      z = ((delta + b_sjb_for*x_for*x_sjb + b_sjb_against*(1 - x_for)*x_sjb) - mean)/sd
+    ) |> 
+    select(-mean, -sd)
+    
+  # Calculate effect sizes (p, n)
+  m2_post <- m2_post |> 
+    crossing(
+      ii = 1:25
+    ) |> 
+    left_join(m2_post_ii, by = join_by(.draw, ii)) |>
+    mutate(
+      p = inv_logit(alpha * (0 + beta + delta + b_sjb_for*x_for*x_sjb + b_sjb_against*(1 - x_for)*x_sjb))
+    ) |> 
+    group_by(.draw, x_for, x_sjb) |> 
     summarize(
-      mean = mean(theta + delta + x_sjb * b_sjb_kk),
-      sd = sd(theta + delta + x_sjb * b_sjb_kk)
-    ) %>% 
-    left_join(m2_post, ., by = ".draw") %>% 
-    mutate(z = (eta - mean)/sd) %>% 
-    select(.chain, .iteration, .draw, x_for, x_sjb, z) %>% 
+      z = unique(z),
+      n = sum(p),
+      p = mean(p)
+    ) |> 
+    ungroup() |> 
     mutate(
       x_for = recode_factor(
         x_for,
@@ -274,12 +284,12 @@ rm(list = ls())
         "1" = "For"
       )
     )
-  
+
 
 # Figure 4b ---------------------------------------------------------------
 
   # Make Figure 4b
-  f_4b <- ggplot(m2_post, aes(x = x_sjb, y = z)) +
+  f_4b <- ggplot(m2_post, aes(x = x_sjb, y = p)) +
     stat_lineribbon(
       .width = c(.99),
       size = 0.455,
@@ -287,8 +297,8 @@ rm(list = ls())
       fill = "white"
     ) +
     geom_hline(
-      data = m2_post %>% filter(x_sjb == 0) %>% group_by(x_for, x_sjb) %>% summarize(z = median(z)),
-      aes(yintercept = z),
+      data = m2_post %>% filter(x_sjb == 0) %>% group_by(x_for, x_sjb) %>% summarize(p = median(p)),
+      aes(yintercept = p),
       colour = "grey20",
       linetype = "dashed",
       size = 0.455
@@ -298,27 +308,34 @@ rm(list = ls())
       size = 0.455,
       alpha = 0.6
     ) +
-    geom_vline(xintercept = c(-2.5, 2.5), size = 0.455) +
-    geom_hline(yintercept = c(-2 - 4 * 0.05, 2 + 4 * 0.05), size = 0.455) +
-    scale_x_continuous(minor_breaks = NULL, expand = c(0, 0)) +
-    scale_y_continuous(minor_breaks = NULL) + 
-    scale_fill_brewer(type = "seq", palette = "Greys", direction = -1) +
-    coord_cartesian(ylim = c(-2, 2)) +
+    scale_x_continuous(
+      minor_breaks = NULL, 
+      expand = c(0, 0)
+    ) +
+    scale_y_continuous(
+      breaks = seq(0, 1, 0.1),
+      minor_breaks = NULL,
+      labels = ~numform::f_num(., digits = 2)
+    ) + 
+    scale_fill_brewer(type = "seq", palette = "Greys", direction = 1) +
+    coord_cartesian(ylim = c(0.35, 0.90)) +
     facet_grid(. ~ x_for) +
     labs(
       tag = "M2",
       x = expression(System~Justification[(italic(z))]),
-      y = expression(theta[(italic(z))])
+      y = expression(Pr)
     ) +
     theme_grey(base_size = 10) +
     theme(
       legend.position = "none",
       strip.background = element_blank(),
       axis.text = element_text(colour = "black"),
+      axis.ticks = element_line(colour = "black"),
       axis.title = element_text(size = rel(0.8)),
       plot.margin = margin(2, 2, 2, 2),
+      panel.border = element_rect(colour = "black", fill = NA),
       plot.tag = element_text(face = "bold")
-    )  
+    ); f_4b
   
   
 # Predict -----------------------------------------------------------------
@@ -363,48 +380,71 @@ rm(list = ls())
     crossing(x_sup = 1:5) %>% 
     left_join(m3_ps %>% spread_draws(b_sup), by = c(".draw")) %>% 
     left_join(m3_post_x, by = c(".chain", ".iteration", ".draw", "x_sup")) %>% 
-    mutate(z = (b_sup * mo_sup - mean)/sd) %>% 
-    select(.chain, .iteration, .draw, x_sup, z)
+    mutate(
+      eta = b_sup * mo_sup,
+      z = (eta - mean)/sd
+    ) %>% 
+    crossing(ii = 1:25) %>% 
+    left_join(
+      m3_post_ii |> select(.draw, ii, alpha, beta), 
+      by = c(".draw", "ii")
+    ) %>% 
+    mutate(
+      p = inv_logit(alpha * (0 + beta + eta))
+    ) %>% 
+    group_by(.draw, x_sup) %>%
+    summarize(
+      z = unique(z),
+      n = sum(p),
+      p = mean(p)
+    ) %>% 
+    ungroup() |> 
+    select(.draw, x_sup, z, p, n)
 
 
 # Figure 4c ---------------------------------------------------------------
 
   # Make Figure 4b
-  f_4c <- ggplot(m3_post, aes(x = x_sup, y = z)) +
+  f_4c <- ggplot(m3_post, aes(x = x_sup, y = p)) +
     stat_lineribbon(
       .width = c(.99),
       size = 0.455,
       alpha = 1.0,
       fill = "white"
     ) +
-    geom_hline(
-      yintercept = 0,
-      colour = "grey20",
-      linetype = "dashed",
-      size = 0.455
-    ) +
+    # geom_hline(
+    #   yintercept = 0,
+    #   colour = "grey20",
+    #   linetype = "dashed",
+    #   size = 0.455
+    # ) +
     stat_lineribbon(
       .width = c(.99, .95, .8, .5),
       size = 0.455,
       alpha = 0.6
     ) +
     geom_vline(xintercept = c(1, 5), size = 0.455) +
-    geom_hline(yintercept = c(-2 - 4 * 0.05, 2 + 4 * 0.05), size = 0.455) +
+    # geom_hline(yintercept = c(-2 - 4 * 0.05, 2 + 4 * 0.05), size = 0.455) +
     scale_x_continuous(minor_breaks = NULL, expand = c(0, 0)) +
-    scale_y_continuous(minor_breaks = NULL) + 
-    scale_fill_brewer(type = "seq", palette = "Greys", direction = -1) +
-    coord_cartesian(xlim = c(c(0.984, 5.016)), ylim = c(-2, 2)) +
+    scale_y_continuous(
+      minor_breaks = NULL,
+      labels = ~numform::f_num(., digits = 2)
+    ) + 
+    scale_fill_brewer(type = "seq", palette = "Greys", direction = 1) +
+    coord_cartesian(xlim = c(0.984, 5.016), ylim = c(0.35, 0.90)) +
     labs(
       tag = "M3",
       x = "Support for Protesters' Cause",
-      y = expression(theta[(italic(z))])
+      y = expression(Pr)
     ) +
     theme_grey(base_size = 10) +
     theme(
       legend.position = "none",
       strip.background = element_blank(),
       axis.text = element_text(colour = "black"),
+      axis.ticks = element_line(colour = "black"),
       axis.title = element_text(size = rel(0.8)),
+      panel.border = element_rect(colour = "black", fill = NA),
       plot.margin = margin(2, 2, 2, 2),
       plot.tag = element_text(face = "bold")
     ); f_4c

@@ -67,9 +67,9 @@ rm(list = ls())
   
   # Make plot
   f_6_p <- d_fig %>% 
-    ggplot(., aes(x = z, y = order)) +
+    ggplot(., aes(x = p, y = order)) +
     geom_ribbon(
-      data = d_fig %>% group_by(order, participant_ideology, protesters_cause) %>% median_qi(z),
+      data = d_fig %>% group_by(order, participant_ideology, protesters_cause) %>% median_qi(p),
       aes(group = interaction(protesters_cause, participant_ideology), xmin = .lower, xmax = .upper, fill = participant_ideology),
       alpha = 0.4
     ) +
@@ -82,12 +82,15 @@ rm(list = ls())
     ) +
     geom_hline(yintercept = c(0.5, 8.5), size = 0.455) +
     geom_hline(yintercept = c(4.5), size = 3*0.455, colour = "white") +
-    scale_x_continuous(minor_breaks = NULL) +
+    scale_x_continuous(
+      minor_breaks = NULL,
+      labels = ~numform::f_num(., digits = 2)
+    ) +
     scale_y_reverse(expand = c(0, 0)) +
     scale_shape_manual(values = c("Conservative" = 21, "Liberal" = 19)) +
     scale_colour_manual(values = c("Conservative" = "#DC267F", "Liberal" = "#648FFF")) +
     scale_fill_manual(values = c("Conservative" = "#DC267F", "Liberal" = "#648FFF")) +
-    coord_cartesian(xlim = c(-0.65, 1.15)) +
+    # coord_cartesian(xlim = c(-0.65, 1.15)) +
     facet_grid(. ~ "") +
     theme_grey(base_size = 10) +
     theme(
@@ -103,14 +106,14 @@ rm(list = ls())
       plot.margin = margin(2, 0, 2, 2)
     ) +
     labs(
-      x = expression(theta[(italic(z))])
+      x = expression(Pr)
     )
   
 
 # Combine -----------------------------------------------------------------
   
   # Assemble subfigures
-  f_6_t + f_6_p + plot_layout(widths = c(2, 1))
+  f_6_t + f_6_p + plot_layout(widths = c(3, 2))
 
 
 # Export ------------------------------------------------------------------

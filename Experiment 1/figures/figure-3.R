@@ -86,7 +86,7 @@ rm(list = ls())
     facet_grid(observer ~ .) +
     theme_grey(base_size = 10) +
     labs(
-      x = expression(italic(p)),
+      x = expression(Pr),
       y = "Protesters"
     ) +
     theme(
@@ -161,45 +161,30 @@ rm(list = ls())
     )
   
   # Make figure
-  f_3b <- ggplot(d_explor, aes(x = x, y = z)) +
+  f_3b <- ggplot(d_explor, aes(x = x, y = p)) +
     stat_lineribbon(
       .width = c(.99),
       size = 0.455,
       alpha = 1.0,
       fill = "white"
     ) +
-    # geom_hline(
-    #   data = d_explor %>% 
-    #     filter(x == 0) %>% 
-    #     group_by(outcome) %>% 
-    #     summarise(z = median(z)),
-    #   aes(yintercept = z),
-    # size = 0.455,
-    #   colour = "grey20",
-    #   linetype = "dashed"
-    # ) +
-    geom_hline(
-      yintercept = 0,
-      size = 0.455,
-      colour = "grey20",
-      linetype = "dashed"
-    ) +
     stat_lineribbon(
       .width = c(.99, .95, .8, .5),
       size = 0.455,
       alpha = 0.6
     ) +
-    geom_vline(xintercept = c(-2.5, 2.5), size = 0.455) +
-    geom_hline(yintercept = c(-1 - 2 * 0.05, 1 + 2 * 0.05), size = 0.455) +
     scale_x_continuous(minor_breaks = NULL, expand = c(0, 0)) +
-    scale_y_continuous(minor_breaks = NULL) + 
-    scale_fill_brewer(type = "seq", palette = "Greys", direction = -1) +
-    coord_cartesian(ylim = c(-1, 1)) +
+    scale_y_continuous(
+      minor_breaks = NULL,
+      labels = ~numform::f_num(., digits = 2)
+    ) + 
+    scale_fill_brewer(type = "seq", palette = "Greys", direction = 1) +
+    # coord_cartesian(ylim = c(-1, 1)) +
     facet_grid(. ~ outcome, switch = "x") +
     labs(
       tag = "B",
       x = expression(italic(z)),
-      y = expression(theta[(italic(z))])
+      y = expression(Pr)
     ) +
     theme_grey(base_size = 10) +
     theme(
@@ -210,6 +195,7 @@ rm(list = ls())
       axis.title.x = element_blank(),
       axis.title.y = element_text(size = rel(0.8)),
       axis.text = element_text(colour = "black"),
+      panel.border = element_rect(colour = "black", fill = NA),
       panel.spacing = unit(10, "pt"),
       plot.margin = margin(5, 5, 0, 5),
       plot.tag = element_text(face = "bold")
